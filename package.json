@@ -1,0 +1,27 @@
+{
+  "name": "@bepower/code-style",
+  "description": "BePower's code style (heavily inspired by Airbnb's one)",
+  "license": "MIT",
+  "author": "Niccolò Olivieri Achille <niccolo.olivieri@bepower.com> (https://github.com/BePower)",
+  "homepage": "https://github.com/BePower/code-style",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BePower/code-style.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BePower/code-style/issues"
+  },
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "4.4.1",
+    "@typescript-eslint/parser": "4.0.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-react": "7.20.3",
+    "eslint-plugin-react-hooks": "4.0.8",
+    "typescript": "^4.1.3"
+  }
+}
