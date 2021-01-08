@@ -23,7 +23,7 @@
 
 ### ESLint
 
-`eslint --fix .`
+`eslint --fix . --ext .js,.jsx,.ts,.tsx`
 
 ### Prettier
 
