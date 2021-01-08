@@ -12,7 +12,7 @@
     "url": "https://github.com/BePower/code-style/issues"
   },
   "version": "1.0.0",
-  "main": "eslint.json",
+  "main": ".eslintrc.js",
   "scripts": {},
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "4.4.1",

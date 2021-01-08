@@ -16,7 +16,7 @@
 `.prettierrc` or `"prettier"` property inside `package.json`
 
 ```json
-"@bepower/code-style/prettier"
+"@bepower/code-style/.prettierrc"
 ```
 
 ## Scripts
