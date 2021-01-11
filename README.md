@@ -2,14 +2,14 @@
 
 ## Files
 
-`.eslintrc.json` or `"eslintConfig"` property inside `package.json`
+`.eslintrc.js`
 
-```json
-{
-  "extends": ["@bepower/code-style"],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  }
+```js
+module.exports = {
+  extends: ['@bepower/code-style'].map(require.resolve),
+  parserOptions: {
+    project: './tsconfig.json',
+  },
 }
 ```
 
