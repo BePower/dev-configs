@@ -1,0 +1,24 @@
+{
+  "name": "@bepower/eslint-plugin",
+  "version": "1.0.0",
+  "description": "Opinionated eslint configuration (mostly Shopify's)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BePower/code-style.git",
+    "directory": "packages/eslint-plugin"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "BePower",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BePower/code-style/issues"
+  },
+  "homepage": "https://github.com/BePower/code-style#readme",
+  "dependencies": {
+    "@shopify/eslint-plugin": "^42.0.1",
+    "eslint": "^8.20.0"
+  }
+}
