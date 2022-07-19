@@ -18,6 +18,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           scope: '@bepower'
       - run: npm install
-      - run: npm run lerna publish from-package --registry https://npm.pkg.github.com
+      - run: npm run lerna publish from-package --registry https://npm.pkg.github.com --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
