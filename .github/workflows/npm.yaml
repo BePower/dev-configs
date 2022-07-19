@@ -2,9 +2,6 @@ name: NPM Package
 on:
   push:
     branches:
-      - 'release/*'
-      - 'feature/*'
-    tags:
       - '*'
 jobs:
   build:
