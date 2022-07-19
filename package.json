@@ -12,9 +12,9 @@
     "url": "https://github.com/BePower/code-style/issues"
   },
   "version": "2.0.2",
-  "main": ".eslintrc.json",
+  "main": ".eslintrc.js",
   "files": [
-    "/.eslintrc.json",
+    "/.eslintrc.js",
     "/.prettierrc.json"
   ],
   "scripts": {},
