@@ -17,7 +17,9 @@
     "/.eslintrc.js",
     "/.prettierrc.json"
   ],
-  "scripts": {},
+  "scripts": {
+    "lerna": "lerna"
+  },
   "dependencies": {
     "@shopify/eslint-plugin": "^42.0.1",
     "eslint": "^8.20.0",
