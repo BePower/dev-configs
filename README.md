@@ -2,18 +2,18 @@
 
 ## Files
 
-`.eslintrc.js`
+`.eslintrc.json` or `eslintConfig` property inside `package.json`
 
-```js
-module.exports = {
-  extends: ['@bepower/code-style'].map(require.resolve),
-  parserOptions: {
-    project: './tsconfig.json',
-  },
+```json
+{
+  "extends": "@bepower/code-style",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
 }
 ```
 
-`.prettierrc` or `"prettier"` property inside `package.json`
+`.prettierrc.json` or `"prettier"` property inside `package.json`
 
 ```json
 "@bepower/code-style/.prettierrc.json"
@@ -27,4 +27,4 @@ module.exports = {
 
 ### Prettier
 
-`prettier --write "**/*.{js,json,md,yml}"`
+`prettier --write "**/*.{js,ts,json,md,yml}"`

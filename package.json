@@ -1,6 +1,6 @@
 {
   "name": "@bepower/code-style",
-  "description": "BePower's code style (heavily inspired by Airbnb's one)",
+  "description": "BePower's code style (heavily inspired by Shopify's one)",
   "license": "MIT",
   "author": "Niccolò Olivieri Achille <niccolo.olivieri@bepower.com> (https://github.com/BePower)",
   "homepage": "https://github.com/BePower/code-style",
@@ -13,6 +13,10 @@
   },
   "version": "2.0.1",
   "main": ".eslintrc.json",
+  "files": [
+    "/.eslintrc.json",
+    "/.prettierrc.json"
+  ],
   "scripts": {},
   "dependencies": {
     "@shopify/eslint-plugin": "^42.0.1",
