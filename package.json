@@ -22,5 +22,8 @@
     "@shopify/eslint-plugin": "^42.0.1",
     "eslint": "^8.20.0",
     "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "lerna": "^5.1.8"
   }
 }
