@@ -18,5 +18,5 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 ### Releasing
 
 ```bash
-$ npx lerna version --conventional-commits <semver increment>
+$ npx lerna version
 ```
