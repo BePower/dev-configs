@@ -1,30 +1,22 @@
 # BePower Code Style
 
-## Files
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
-`.eslintrc.json` or `eslintConfig` property inside `package.json`
+This repository contains common configurations for building apps at BePower.
 
-```json
-{
-  "extends": "@bepower/code-style",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  }
-}
+## Usage
+
+This repo is managed as a monorepo that is composed of many npm packages, where each package has its own `README` and documentation describing usage.
+
+### Package Index
+
+| Name                                                |
+| --------------------------------------------------- | 
+| [eslint-plugin](packages/eslint-plugin)             |
+| [prettier-config](packages/prettier-config)         |
+
+### Releasing
+
+```bash
+$ npx lerna version --conventional-commits <semver increment>
 ```
-
-`.prettierrc.json` or `"prettier"` property inside `package.json`
-
-```json
-"@bepower/code-style/.prettierrc.json"
-```
-
-## Scripts
-
-### ESLint
-
-`eslint --fix . --ext .js,.jsx,.ts,.tsx`
-
-### Prettier
-
-`prettier --write "**/*.{js,ts,json,md,yml}"`
