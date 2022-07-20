@@ -10,10 +10,14 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 ### Package Index
 
+[//]: # (BEGIN TABLE)
+
 | Name                                                |
 | --------------------------------------------------- | 
 | [eslint-plugin](packages/eslint-plugin)             |
 | [prettier-config](packages/prettier-config)         |
+
+[//]: # (END TABLE)
 
 ### Releasing
 
