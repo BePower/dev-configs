@@ -16,7 +16,7 @@ const endTag = '[//]: # (END TABLE)';
 const [firstPart] = readme.split(startTag);
 const [,lastPart] = readme.split(endTag);
 
-const rows = ['| Name | Version |'];
+const rows = ['| Name | Version |', '| --- | --- |'];
 rows.push(...packages.map(({ package, version }) => `| [${package}](${packagesFolder}/${package}) | [![${package}: ${version}](https://img.shields.io/badge/${package.replace(/-/g, '--')}-${version}-brightgreen.svg)](${packagesFolder}/${package}/package.json) |`));
 
 writeFileSync(readmePath, [firstPart, startTag, '\n', '\n', rows.join('\n'), '\n', '\n', endTag, lastPart].join(''));
