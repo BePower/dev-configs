@@ -12,10 +12,9 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 [//]: # (BEGIN TABLE)
 
-| Name                                                |
-| --------------------------------------------------- | 
-| [eslint-plugin](packages/eslint-plugin)             |
-| [prettier-config](packages/prettier-config)         |
+| Name | Version |
+| [eslint-plugin](packages/eslint-plugin) | [![eslint-plugin: 2.0.5](https://img.shields.io/badge/eslint--plugin-2.0.5-brightgreen.svg)](packages/eslint-plugin/package.json) |
+| [prettier-config](packages/prettier-config) | [![prettier-config: 2.0.5](https://img.shields.io/badge/prettier--config-2.0.5-brightgreen.svg)](packages/prettier-config/package.json) |
 
 [//]: # (END TABLE)
 
