@@ -1,4 +1,4 @@
-import { execEslint } from '../utilities';
+const { execEslint } = require('../utilities');
 
 describe('config', () => {
   describe('core', () => {

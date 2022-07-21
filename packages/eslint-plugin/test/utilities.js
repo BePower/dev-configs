@@ -1,17 +1,17 @@
-import { execSync } from 'child_process';
-import { join } from 'path';
+const { execSync } = require('child_process');
+const { join } = require('path');
 
-function configFile(name: string) {
+function configFile(name) {
   return join(__dirname, '..', 'lib', 'config', `${name}.js`);
 }
 
-function fixtureFile(fixture: string) {
+function fixtureFile(fixture) {
   return join(__dirname, 'fixtures', fixture);
 }
 
 const eslintIgnorePath = join(__dirname, 'fixtures', '.eslintignore');
 
-export function execEslint(config: string, fixture?: string) {
+exports.execEslint = (config, fixture) => {
   try {
     const args = [
       'npx',
@@ -21,10 +21,10 @@ export function execEslint(config: string, fixture?: string) {
       eslintIgnorePath, // we need to move the focus elsewhere
       '--config',
       configFile(config),
-      fixtureFile(fixture ?? config),
+      fixtureFile(fixture || config),
     ];
     return execSync(args.join(' ')).toString();
-  } catch (error: any) {
+  } catch (error) {
     if (error.stdout) {
       return error.stdout.toString();
     }
