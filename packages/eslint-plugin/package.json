@@ -10,6 +10,8 @@
   },
   "keywords": [
     "eslint",
+    "eslintplugin",
+    "eslintconfig",
     "eslint-plugin",
     "eslint-config"
   ],
@@ -20,7 +22,14 @@
   },
   "homepage": "https://github.com/BePower/code-style#readme",
   "dependencies": {
-    "@shopify/eslint-plugin": "^42.0.1",
-    "eslint": "^8.20.0"
+    "@shopify/eslint-plugin": "^42.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-plugin-eslint-plugin": "^5.0.1",
+    "eslint-plugin-node": "^11.1.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.3.0"
   }
 }
