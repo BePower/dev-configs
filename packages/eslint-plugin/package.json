@@ -1,6 +1,6 @@
 {
   "name": "@bepower/eslint-plugin",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Opinionated eslint configuration (mostly Shopify's)",
   "main": "index.js",
   "repository": {
