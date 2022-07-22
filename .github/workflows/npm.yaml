@@ -11,14 +11,24 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
+
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@bepower'
-      - run: npm install
-      - run: npx lerna run test
-      - run: npx lerna publish from-package --registry https://npm.pkg.github.com --yes
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install dependencies to packages
+        run: npx lerna bootstrap
+
+      - name: Unit testing packages
+        run: npx lerna run test
+
+      - name: Publishing packages
+        run: npx lerna publish from-package --registry https://npm.pkg.github.com --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
