@@ -16,13 +16,13 @@ jobs:
       - name: Regenerate Readme
         run: node scripts/regenerate-readme.js
 
-        - name: check for changes
-          run: |
-            if git diff --exit-code; then
-              echo "::set-env name=changes_exist::true"
-            else
-              echo "::set-env name=changes_exist::false"
-            fi
+      - name: check for changes
+        run: |
+          if git diff --exit-code; then
+            echo "::set-env name=changes_exist::true"
+          else
+            echo "::set-env name=changes_exist::false"
+          fi
 
       - name: Configure git, commit and push
         if: ${{ env.changes_exist == 'true' }}
