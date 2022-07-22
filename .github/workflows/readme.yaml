@@ -25,7 +25,6 @@ jobs:
         run: git add .
 
       - name: Configure git, commit and push
-        if: ${{ steps.git-diff.outputs.HAS_CHANGES == 'true' }}
         run: |
           git commit -m "chore(docs): :memo: Auto generate readme" || echo 'Do nothing'
           git push
