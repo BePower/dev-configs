@@ -1,8 +1,8 @@
-module.exports = {
-  plugins: [
-    '@bepower',
-  ],
+import { configs } from '@typescript-eslint/eslint-plugin';
+
+const config: typeof configs[string] = {
   extends: [
+    'plugin:@bepower/base',
     'plugin:@shopify/typescript',
     'plugin:@shopify/typescript-type-checking',
     'plugin:@shopify/prettier',
@@ -11,4 +11,6 @@ module.exports = {
   rules: {
     'prettier/prettier': 'warn',
   },
-};
+}
+
+export = config;
