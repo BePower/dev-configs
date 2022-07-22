@@ -36,6 +36,9 @@ jobs:
       - name: Debug check changes
         run: echo "The filesystem has diffs? ${{ steps.git-diff.outputs.HAS_CHANGES }}"
 
+      - name: Debug check changes 2
+        run: git diff --name-only
+
       - name: Configure git, commit and push
         if: ${{ steps.git-diff.outputs.HAS_CHANGES == 'true' }}
         run: |
