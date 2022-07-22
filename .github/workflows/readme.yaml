@@ -24,23 +24,8 @@ jobs:
       - name: Adding files to git
         run: git add .
 
-      - name: Check for changes
-        id: git-diff
-        run: |
-          if git diff --exit-code; then
-            echo '::set-output name=HAS_CHANGES::true'
-          else
-            echo '::set-output name=HAS_CHANGES::false'
-          fi
-
-      - name: Debug check changes
-        run: echo "The filesystem has diffs? ${{ steps.git-diff.outputs.HAS_CHANGES }}"
-
-      - name: Debug check changes 2
-        run: git diff --name-only
-
       - name: Configure git, commit and push
         if: ${{ steps.git-diff.outputs.HAS_CHANGES == 'true' }}
         run: |
-          git commit -m "chore(docs): :memo: Auto generate readme"
+          git commit -m "chore(docs): :memo: Auto generate readme" || echo 'Do nothing'
           git push
