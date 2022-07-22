@@ -16,6 +16,14 @@ jobs:
       - name: Regenerate Readme
         run: node scripts/regenerate-readme.js
 
+      - name: Configuring git
+        run: |
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config user.name "$GITHUB_ACTOR"
+
+      - name: Adding files to git
+        run: git add .
+
       - name: Check for changes
         id: git-diff
         run: |
@@ -31,8 +39,5 @@ jobs:
       - name: Configure git, commit and push
         if: ${{ steps.git-diff.outputs.HAS_CHANGES == 'true' }}
         run: |
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config user.name "$GITHUB_ACTOR"
-          git add .
           git commit -m "chore(docs): :memo: Auto generate readme"
           git push
