@@ -16,16 +16,20 @@ jobs:
       - name: Regenerate Readme
         run: node scripts/regenerate-readme.js
 
-      - name: check for changes
+      - name: Check for changes
+        id: git-diff
         run: |
           if git diff --exit-code; then
-            echo "changes_exist=true" >> $GITHUB_ENV
+            echo '::set-output name=HAS_CHANGES::true'
           else
-            echo "changes_exist=false" >> $GITHUB_ENV
+            echo '::set-output name=HAS_CHANGES::false'
           fi
 
+      - name: Debug check changes
+        run: echo "The filesystem has diffs? ${{ steps.git-diff.outputs.HAS_CHANGES }}"
+
       - name: Configure git, commit and push
-        if: ${{ env.changes_exist == 'true' }}
+        if: ${{ steps.git-diff.outputs.HAS_CHANGES == 'true' }}
         run: |
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config user.name "$GITHUB_ACTOR"
