@@ -1,18 +1,14 @@
-import { configs, rules } from '@typescript-eslint/eslint-plugin';
+import { configs as Configs, rules as Rules } from '@typescript-eslint/eslint-plugin';
 
-import base from './configs/base';
-import node from './configs/node';
+import * as configs from './configs';
+import * as rules from './rules';
 
 const config: {
-  configs: typeof configs;
-  rules: typeof rules;
+  configs: typeof Configs;
+  rules: typeof Rules;
 } = {
-  configs: {
-    base,
-    node,
-  },
-
-  rules: {},
-}
+  configs,
+  rules,
+};
 
 export = config;

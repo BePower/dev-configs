@@ -25,6 +25,9 @@ jobs:
       - name: Install dependencies to packages
         run: npx lerna bootstrap
 
+      - name: Format check packages
+        run: npx lerna run check
+
       - name: Unit testing packages
         run: npx lerna run test
 

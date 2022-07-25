@@ -1,4 +1,4 @@
-import { execSync }  from 'child_process';
+import { execSync } from 'child_process';
 import { join } from 'path';
 
 function configFile(name: string): string {
@@ -15,14 +15,16 @@ function fixtureConfigFile(fixture: string): string {
 
 const eslintIgnorePath = join(__dirname, 'fixtures', '.eslintignore');
 
-export function execEslint (config: string, fixture?: string) {
+export function execEslint(config: string, fixture?: string) {
   try {
     const args = [
       'npx',
       'eslint',
-      '--no-eslintrc', // we need to disable to default config
+      // we need to disable to default config
+      '--no-eslintrc',
       '--ignore-path',
-      eslintIgnorePath, // we need to move the focus elsewhere
+      // we need to move the focus elsewhere
+      eslintIgnorePath,
       '--config',
       fixtureConfigFile(config),
       fixtureFile(fixture ?? config),
