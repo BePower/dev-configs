@@ -14,8 +14,8 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 | Name | Version |
 | --- | --- |
-| [eslint-plugin](packages/eslint-plugin) | [![eslint-plugin: 1.0.2](https://img.shields.io/badge/eslint--plugin-1.0.2-brightgreen.svg)](packages/eslint-plugin/package.json) |
-| [prettier-config](packages/prettier-config) | [![prettier-config: 1.0.1](https://img.shields.io/badge/prettier--config-1.0.1-brightgreen.svg)](packages/prettier-config/package.json) |
+| [eslint-plugin](packages/eslint-plugin) | [![eslint-plugin: 1.0.3](https://img.shields.io/badge/eslint--plugin-1.0.3-brightgreen.svg)](packages/eslint-plugin/package.json) |
+| [prettier-config](packages/prettier-config) | [![prettier-config: 1.0.2](https://img.shields.io/badge/prettier--config-1.0.2-brightgreen.svg)](packages/prettier-config/package.json) |
 
 [//]: # (END TABLE)
 
