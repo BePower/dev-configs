@@ -5,8 +5,7 @@ describe('config', () => {
     it('validates against the core rules', () => {
       const result = execEslint('node');
 
-      expect(result).toMatch('3 problems (2 errors, 1 warning)');
-      expect(result).toMatch('1:20  warning  Insert `;`  prettier/prettier');
+      expect(result).toMatch('2 problems (2 errors, 0 warnings)');
       expect(result).toMatch(
         '0:1  error  This rule requires the `strictNullChecks` compiler option to be turned on to function correctly  @typescript-eslint/no-unnecessary-condition',
       );
