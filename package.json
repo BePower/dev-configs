@@ -26,6 +26,7 @@
     "prettier": "^2.7.1"
   },
   "devDependencies": {
+    "conventional-changelog-cli": "^2.2.2",
     "lerna": "^5.1.8"
   }
 }
