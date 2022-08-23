@@ -23,7 +23,7 @@ $ npm install --save-dev @bepower/eslint-plugin
 
 ```json
 {
-  "extends": "@bepower/eslint-plugin",
+  "extends": "plugin:@bepower/node",
   "parserOptions": {
     "project": "./tsconfig.json"
   }
