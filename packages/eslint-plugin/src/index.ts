@@ -10,4 +10,4 @@ const config: {
   rules: {},
 };
 
-export = config;
+module.exports = config;
