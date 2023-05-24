@@ -27,6 +27,9 @@
     "@tsconfig/node16": "^1.0.4",
     "auto": "^10.46.0"
   },
+  "peerDependencies": {
+    "lerna": "6.6.2"
+  },
   "auto": {
     "plugins": [
       "npm",
