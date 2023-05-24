@@ -19,7 +19,7 @@ module.exports = class TestPlugin {
    * @param {import('@auto-it/core').default} auto
    */
   apply(auto) {
-    auto.hooks.beforeCommitChangelog.tap(this.name, ({  }) => {
+    auto.hooks.afterVersion.tap(this.name, () => {
       auto.logger.verbose.info('packagesPath', packagesPath);
       auto.logger.verbose.info('readmePath', readmePath);
       auto.logger.verbose.info('readdirSync(packagesPath)', readdirSync(packagesPath));
@@ -29,6 +29,8 @@ module.exports = class TestPlugin {
           package: thePackage,
           version: require(join(packagesPath, thePackage, 'package.json')).version,
         }));
+
+      auto.logger.verbose.info('packages', packages);
 
       const readme = readFileSync(readmePath, 'utf8');
 
