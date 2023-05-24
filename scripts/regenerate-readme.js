@@ -25,9 +25,9 @@ module.exports = class TestPlugin {
       auto.logger.verbose.info('readdirSync(packagesPath)', readdirSync(packagesPath));
 
       const packages = readdirSync(packagesPath)
-        .map((package) => ({
-          package,
-          version: require(join(packagesPath, package, 'package.json')).version,
+        .map((thePackage) => ({
+          package: thePackage,
+          version: require(join(packagesPath, thePackage, 'package.json')).version,
         }));
 
       const readme = readFileSync(readmePath, 'utf8');
