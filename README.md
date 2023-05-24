@@ -21,6 +21,4 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 ### Releasing
 
-```bash
-$ npx lerna version
-```
+Everything is automated with `auto` and Github Actions
