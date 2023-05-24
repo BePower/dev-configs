@@ -5,7 +5,6 @@ const { join } = require('path');
 const packagesFolder = 'packages';
 const packagesPath = join(__dirname, '..', packagesFolder);
 
-
 const readmePath = join(__dirname, '..', 'README.md');
 const startTag = '[//]: # (BEGIN TABLE)';
 const endTag = '[//]: # (END TABLE)';
@@ -15,8 +14,16 @@ module.exports = class TestPlugin {
     this.name = 'update-readme';
   }
 
+  /**
+   * Tap into auto plugin points.
+   * @param {import('@auto-it/core').default} auto
+   */
   apply(auto) {
-    auto.hooks.beforeCommitChangelog.tap(this.name, ({ lastRelease, bump }) => {
+    auto.hooks.beforeCommitChangelog.tap(this.name, ({  }) => {
+      auto.logger.verbose.info('packagesPath', packagesPath);
+      auto.logger.verbose.info('readmePath', readmePath);
+      auto.logger.verbose.info('readdirSync(packagesPath)', readdirSync(packagesPath));
+
       const packages = readdirSync(packagesPath)
         .map((package) => ({
           package,
