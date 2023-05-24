@@ -40,12 +40,12 @@
           "preset": "angular"
         }
       ],
-      "first-time-contributor"
+      "first-time-contributor",
+      "./scripts/regenerate-readme.js"
     ]
   },
   "workspaces": [
     "packages/eslint-plugin",
-    "packages/prettier-config",
-    "./scripts/regenerate-readme.js"
+    "packages/prettier-config"
   ]
 }
