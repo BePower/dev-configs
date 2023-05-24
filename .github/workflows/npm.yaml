@@ -1,37 +1,56 @@
-name: NPM Packages
+name: NPM Package
+
 on:
   push:
     branches:
-      - '*'
+      - 'main'
+
 jobs:
-  build:
+  validate-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Validate commits
+        uses: webiny/action-conventional-commits@v1.1.0
+
+  test-build-publish:
+    needs: [validate-commits]
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
+      issues: read
+      pull-requests: read
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
+      - name: Prepare repository
+        run: git fetch --unshallow --tags
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: 'lts/*'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@bepower'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Install dependencies to packages
-        run: npx lerna bootstrap
+      - name: Testing
+        run: npm test --workspaces
 
-      - name: Format check packages
-        run: npx lerna run check
+      - name: Linting
+        run: npm run check --workspaces --if-present
 
-      - name: Unit testing packages
-        run: npx lerna run test
+      - name: Building typescript
+        run: npm run build --workspaces --if-present
 
-      - name: Publishing packages
-        run: npx lerna publish from-package --registry https://npm.pkg.github.com --yes
+      - name: Publish
+        run: npm run release
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

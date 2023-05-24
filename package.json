@@ -18,15 +18,31 @@
     "/.prettierrc.json"
   ],
   "scripts": {
-    "lerna": "lerna"
-  },
-  "dependencies": {
-    "@shopify/eslint-plugin": "^42.0.1",
-    "eslint": "^8.20.0",
-    "prettier": "^2.7.1"
+    "release": "auto shipit --verbose --message \"docs: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^2.2.2",
-    "lerna": "^5.1.8"
-  }
+    "@auto-it/all-contributors": "^10.46.0",
+    "@auto-it/conventional-commits": "^10.46.0",
+    "@auto-it/first-time-contributor": "^10.46.0",
+    "@tsconfig/node16": "^1.0.4",
+    "auto": "^10.46.0"
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      [
+        "conventional-commits",
+        {
+          "preset": "angular"
+        }
+      ],
+      "first-time-contributor"
+    ]
+  },
+  "workspaces": [
+    "packages/eslint-plugin",
+    "packages/prettier-config",
+    "./scripts/regenerate-readme.js"
+  ]
 }

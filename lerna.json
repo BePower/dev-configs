@@ -4,10 +4,5 @@
   ],
   "useNx": false,
   "version": "independent",
-  "command": {
-    "version": {
-      "conventionalCommits": true,
-      "message": "chore(release): :bookmark: publish"
-    }
-  }
+  "useWorkspaces": true
 }
