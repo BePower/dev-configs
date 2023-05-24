@@ -1,3 +1,37 @@
+# v1.1.0 (Wed May 24 2023)
+
+#### 🚀 Enhancement
+
+- feat(eslint): :sparkles: Added the cdk config ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- feat(eslint): :sparkles: Moving to typescript + adding tests ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- feat(eslint): :tada: Added the eslint plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- docs: :memo: Updating the install method ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf(eslint): :arrow_up: Upgrading deps ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore(release): :bookmark: publish ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Merge branch 'main' of https://github.com/BePower/code-style ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style(eslint): :bug: Fixed the linting ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- docs(eslint): :memo: Fixed the extends property ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci(eslint): :lipstick: Ignoring changelog from priettier ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(eslint): :white_check_mark: Removed js/prettier file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- refactor(eslint): :fire: Removed the rules file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style(prettier): :lipstick: Added eslint and prettier ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- refactor(eslint): :heavy_minus_sign: Removing typescript ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(eslint): :test_tube: Trying to add some tests ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- refactor(eslint): :zap: Moving the config in a proper folder ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- refactor(eslint): :pushpin: Moving eslint to peer dep + adding dev eslint ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- docs(eslint): :memo: More keywords ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :tada: Reset plugins' version ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore(release): publish v2.0.5 ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # Change Log
 
 All notable changes to this project will be documented in this file.

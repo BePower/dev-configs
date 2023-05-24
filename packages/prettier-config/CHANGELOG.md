@@ -1,3 +1,27 @@
+# v1.1.0 (Wed May 24 2023)
+
+#### 🚀 Enhancement
+
+- feat(prettier): :sparkles: Added the prettier config ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- docs: :memo: Updating the install method ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf(prettier): :arrow_up: Upgrading deps ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore(release): :bookmark: publish ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(prettier): :white_check_mark: Adding the tests ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style(prettier): :lipstick: Fixed the spacing ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :tada: Reset plugins' version ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore(release): publish v2.0.5 ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- build(prettier): :construction_worker: Added the lock file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- v2.0.4 ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
