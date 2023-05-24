@@ -7,9 +7,11 @@ Opinionated eslint configuration
 Place a `.npmrc` file in the root of the project:
 
 ```
-//npm.pkg.github.com/:_authToken=***REMOVED***
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 @bepower:registry=https://npm.pkg.github.com
 ```
+
+and then add the `GITHUB_TOKEN` environment variable
 
 Then install the npm package:
 
