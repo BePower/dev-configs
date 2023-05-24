@@ -36,13 +36,13 @@ module.exports = class TestPlugin {
       const [,lastPart] = readme.split(endTag);
 
       const rows = ['| Name | Version | Install command |', '| --- | --- | --- |'];
-      rows.push(...packages.map(({ package, version }) => [
+      rows.push(...packages.map(({ package: thePackage, version }) => [
         '| ',
-        `[${package}](${packagesFolder}/${package})`,
+        `[${thePackage}](${packagesFolder}/${thePackage})`,
         ' | ',
-        `[![${package}: ${version}](https://img.shields.io/badge/${package.replace(/-/g, '--')}-${version}-brightgreen.svg)](${packagesFolder}/${package}/package.json)`,
+        `[![${thePackage}: ${version}](https://img.shields.io/badge/${thePackage.replace(/-/g, '--')}-${version}-brightgreen.svg)](${packagesFolder}/${thePackage}/package.json)`,
         ' | ',
-        `\`$ npm install --save-dev @bepower/${package}@${version}\``,
+        `\`$ npm install --save-dev @bepower/${thePackage}@${version}\``,
         ' |',
       ].join('')));
 
