@@ -18,6 +18,7 @@
     "/.prettierrc.json"
   ],
   "scripts": {
+    "build": "tsc",
     "release": "auto shipit --verbose --message \"docs: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
@@ -26,7 +27,8 @@
     "@auto-it/core": "^10.46.0",
     "@auto-it/first-time-contributor": "^10.46.0",
     "@tsconfig/node16": "^1.0.4",
-    "auto": "^10.46.0"
+    "auto": "^10.46.0",
+    "typescript": "^5.1.3"
   },
   "peerDependencies": {
     "lerna": "6.6.2"
