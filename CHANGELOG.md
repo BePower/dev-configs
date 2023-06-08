@@ -1,3 +1,26 @@
+# (Thu Jun 08 2023)
+
+#### 🚀 Enhancement
+
+- `@bepower/auto-config@0.1.0`
+  - feat(auto): :tada: Added the `auto-config` package ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- ci: :construction_worker: Fixed the readme badge ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: WIP new plugin for auto ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :busts_in_silhouette: Initializing contributors ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :loud_sound: Moving the readme hook after version ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.1.0`
+  - ci: :construction_worker: Adding some debug for the custom plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :see_no_evil: Ignoring the js files ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # (Wed May 24 2023)
 
 :tada: This release contains work from a new contributor! :tada:
