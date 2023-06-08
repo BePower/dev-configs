@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "release": "auto shipit --verbose --message \"docs: :memo: Update CHANGELOG.md [skip ci]\""
+    "release": "auto shipit --verbose --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
     "@auto-it/all-contributors": "^10.46.0",
