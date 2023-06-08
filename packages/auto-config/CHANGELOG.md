@@ -1,3 +1,15 @@
+# v0.1.1 (Thu Jun 08 2023)
+
+#### 🐛 Bug Fix
+
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v0.1.0 (Thu Jun 08 2023)
 
 #### 🚀 Enhancement
