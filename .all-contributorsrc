@@ -9,7 +9,19 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "angular",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "NiccoloOlivieriAchille",
+      "name": "Niccolò Olivieri Achille",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55181558?v=4",
+      "profile": "https://github.com/NiccoloOlivieriAchille",
+      "contributions": [
+        "infra",
+        "code",
+        "doc"
+      ]
+    }
+  ],
   "contributorsPerLine": 7,
   "badgeTemplate": "[badge-all-contributors]: https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-square"
 }
