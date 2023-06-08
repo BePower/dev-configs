@@ -1,4 +1,9 @@
 {
+  "command": {
+    "version": {
+      "message": "chore(release): publish %s"
+    }
+  },
   "packages": [
     "packages/*"
   ],
