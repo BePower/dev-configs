@@ -1,9 +1,12 @@
 # BePower Code Style
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+
+[badge-all-contributors]: https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
+[![All Contributors][badge-all-contributors]](#contributors-) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
 This repository contains common configurations for building apps at BePower.
 
