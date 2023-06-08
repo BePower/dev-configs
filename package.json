@@ -45,6 +45,7 @@
     ]
   },
   "workspaces": [
+    "packages/auto-config",
     "packages/eslint-plugin",
     "packages/prettier-config"
   ]
