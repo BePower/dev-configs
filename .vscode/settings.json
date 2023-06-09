@@ -1,7 +1,3 @@
 {
-    "conventionalCommits.scopes": [
-        "prettier",
-        "eslint",
-        "auto"
-    ]
+  "conventionalCommits.scopes": ["prettier", "eslint", "auto"]
 }

@@ -1,7 +1,9 @@
 # BePower Code Style
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [badge-all-contributors]: https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![All Contributors][badge-all-contributors]](#contributors-) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
@@ -14,7 +16,8 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 ### Package Index
 
-[//]: # (BEGIN TABLE)
+<!-- prettier-ignore-start -->
+[//]: # 'BEGIN TABLE'
 
 | Name | Version | Install command |
 | --- | --- | --- |
@@ -22,7 +25,8 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 | [@bepower/eslint-plugin](packages/@bepower/eslint-plugin) | [![@bepower/eslint-plugin: 1.1.0](https://img.shields.io/badge/@bepower/eslint--plugin-1.1.0-brightgreen.svg)](packages/@bepower/eslint-plugin/package.json) | `$ npm install --save-dev @bepower/@bepower/eslint-plugin@1.1.0` |
 | [@bepower/prettier-config](packages/@bepower/prettier-config) | [![@bepower/prettier-config: 1.1.0](https://img.shields.io/badge/@bepower/prettier--config-1.1.0-brightgreen.svg)](packages/@bepower/prettier-config/package.json) | `$ npm install --save-dev @bepower/@bepower/prettier-config@1.1.0` |
 
-[//]: # (END TABLE)
+[//]: # 'END TABLE'
+<!-- prettier-ignore-end -->
 
 ### Releasing
 

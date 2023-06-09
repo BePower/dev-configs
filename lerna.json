@@ -4,9 +4,7 @@
       "message": "chore: :bookmark: publish"
     }
   },
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "useNx": false,
   "version": "independent",
   "useWorkspaces": true

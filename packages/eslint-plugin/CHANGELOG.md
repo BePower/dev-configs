@@ -41,28 +41,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @bepower/eslint-plugin
 
-
-
-
-
 ## [1.0.4](https://github.com/BePower/code-style/compare/@bepower/eslint-plugin@1.0.3...@bepower/eslint-plugin@1.0.4) (2022-08-23)
-
 
 ### Features
 
-* **eslint:** :sparkles: Added the cdk config ([8a4a80b](https://github.com/BePower/code-style/commit/8a4a80b50bad7b55f99e66c9369be3f201adbef7))
-
-
-
-
+- **eslint:** :sparkles: Added the cdk config ([8a4a80b](https://github.com/BePower/code-style/commit/8a4a80b50bad7b55f99e66c9369be3f201adbef7))
 
 ## [1.0.3](https://github.com/BePower/code-style/compare/@bepower/eslint-plugin@1.0.2...@bepower/eslint-plugin@1.0.3) (2022-07-26)
 
 **Note:** Version bump only for package @bepower/eslint-plugin
-
-
-
-
 
 ## [1.0.2](https://github.com/BePower/code-style/compare/@bepower/eslint-plugin@1.0.1...@bepower/eslint-plugin@1.0.2) (2022-07-22)
 
