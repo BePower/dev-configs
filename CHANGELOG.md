@@ -1,3 +1,22 @@
+# (Fri Jun 09 2023)
+
+#### 🐛 Bug Fix
+
+- fix: :memo: Fixed the install command of the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Finalized the readme update ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :technologist: Better commit message ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.1.2`, `@bepower/eslint-plugin@1.1.1`, `@bepower/prettier-config@1.1.1`
+  - style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.1.2`
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # (Thu Jun 08 2023)
 
 #### 🐛 Bug Fix
