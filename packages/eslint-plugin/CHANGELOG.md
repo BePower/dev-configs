@@ -1,3 +1,16 @@
+# v1.1.1 (Fri Jun 09 2023)
+
+#### 🐛 Bug Fix
+
+- style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v1.1.0 (Wed May 24 2023)
 
 #### 🚀 Enhancement

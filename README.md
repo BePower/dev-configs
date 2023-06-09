@@ -1,9 +1,7 @@
 # BePower Code Style
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
 [badge-all-contributors]: https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square
-
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![All Contributors][badge-all-contributors]](#contributors-) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
@@ -21,9 +19,9 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 | Name | Version | Install command |
 | --- | --- | --- |
-| [@bepower/auto-config](packages/@bepower/auto-config) | [![@bepower/auto-config: 0.1.1](https://img.shields.io/badge/@bepower/auto--config-0.1.1-brightgreen.svg)](packages/@bepower/auto-config/package.json) | `$ npm install --save-dev @bepower/@bepower/auto-config@0.1.1` |
-| [@bepower/eslint-plugin](packages/@bepower/eslint-plugin) | [![@bepower/eslint-plugin: 1.1.0](https://img.shields.io/badge/@bepower/eslint--plugin-1.1.0-brightgreen.svg)](packages/@bepower/eslint-plugin/package.json) | `$ npm install --save-dev @bepower/@bepower/eslint-plugin@1.1.0` |
-| [@bepower/prettier-config](packages/@bepower/prettier-config) | [![@bepower/prettier-config: 1.1.0](https://img.shields.io/badge/@bepower/prettier--config-1.1.0-brightgreen.svg)](packages/@bepower/prettier-config/package.json) | `$ npm install --save-dev @bepower/@bepower/prettier-config@1.1.0` |
+| [@bepower/auto-config](packages/@bepower/auto-config) | [![@bepower/auto-config: 0.1.2](https://img.shields.io/badge/@bepower/auto--config-0.1.2-brightgreen.svg)](packages/@bepower/auto-config/package.json) | `$ npm install --save-dev @bepower/auto-config@0.1.2` |
+| [@bepower/eslint-plugin](packages/@bepower/eslint-plugin) | [![@bepower/eslint-plugin: 1.1.1](https://img.shields.io/badge/@bepower/eslint--plugin-1.1.1-brightgreen.svg)](packages/@bepower/eslint-plugin/package.json) | `$ npm install --save-dev @bepower/eslint-plugin@1.1.1` |
+| [@bepower/prettier-config](packages/@bepower/prettier-config) | [![@bepower/prettier-config: 1.1.1](https://img.shields.io/badge/@bepower/prettier--config-1.1.1-brightgreen.svg)](packages/@bepower/prettier-config/package.json) | `$ npm install --save-dev @bepower/prettier-config@1.1.1` |
 
 [//]: # 'END TABLE'
 <!-- prettier-ignore-end -->
@@ -41,7 +39,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/NiccoloOlivieriAchille"><img src="https://avatars.githubusercontent.com/u/55181558?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Niccolò Olivieri Achille</b></sub></a><br /><a href="#infra-NiccoloOlivieriAchille" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/BePowerDeploy <it.aws@bepower.com>/@bepower/dev-configs/commits?author=NiccoloOlivieriAchille" title="Code">💻</a> <a href="https://github.com/BePowerDeploy <it.aws@bepower.com>/@bepower/dev-configs/commits?author=NiccoloOlivieriAchille" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/NiccoloOlivieriAchille"><img src="https://avatars.githubusercontent.com/u/55181558?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Niccolò Olivieri Achille</b></sub></a><br /><a href="#infra-NiccoloOlivieriAchille" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/BePowerDeploy <it.aws@bepower.com>/@bepower/dev-configs/commits?author=NiccoloOlivieriAchille" title="Code">💻</a> <a href="https://github.com/BePowerDeploy <it.aws@bepower.com>/@bepower/dev-configs/commits?author=NiccoloOlivieriAchille" title="Documentation">📖</a> <a href="https://github.com/BePowerDeploy <it.aws@bepower.com>/@bepower/dev-configs/commits?author=NiccoloOlivieriAchille" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
