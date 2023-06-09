@@ -18,8 +18,8 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 [//]: # 'BEGIN TABLE'
 
 | Package | Install command |
-| --- | --- | --- |
-| [![@bepower/auto-config: 0.1.4](https://img.shields.io/badge/@bepower/auto--config-0.1.4-brightgreen.svg)](packages/auto-config) | `$ npm install --save-dev @bepower/auto-config@0.1.4` |
+| --- | --- |
+| [![@bepower/auto-config: 0.1.5](https://img.shields.io/badge/@bepower/auto--config-0.1.5-brightgreen.svg)](packages/auto-config) | `$ npm install --save-dev @bepower/auto-config@0.1.5` |
 | [![@bepower/eslint-plugin: 1.1.2](https://img.shields.io/badge/@bepower/eslint--plugin-1.1.2-brightgreen.svg)](packages/eslint-plugin) | `$ npm install --save-dev @bepower/eslint-plugin@1.1.2` |
 | [![@bepower/prettier-config: 1.1.2](https://img.shields.io/badge/@bepower/prettier--config-1.1.2-brightgreen.svg)](packages/prettier-config) | `$ npm install --save-dev @bepower/prettier-config@1.1.2` |
 
