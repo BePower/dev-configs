@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { check } from 'prettier';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const config = require('../index.json');
+
 config.parser = 'babel-ts';
 
 const tests = {

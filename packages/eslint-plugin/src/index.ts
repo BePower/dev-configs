@@ -1,4 +1,4 @@
-import { configs as Configs, rules as Rules } from '@typescript-eslint/eslint-plugin';
+import type { configs as Configs, rules as Rules } from '@typescript-eslint/eslint-plugin';
 
 import * as configs from './configs';
 

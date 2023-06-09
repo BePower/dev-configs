@@ -29,6 +29,7 @@
     "@auto-it/conventional-commits": "^10.46.0",
     "@auto-it/core": "^10.46.0",
     "@auto-it/first-time-contributor": "^10.46.0",
+    "@bepower/eslint-plugin": "^1.1.0",
     "@bepower/prettier-config": "^1.1.0",
     "@tsconfig/node16": "^1.0.4",
     "auto": "^10.46.0",

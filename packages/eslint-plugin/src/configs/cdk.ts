@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { configs } from '@typescript-eslint/eslint-plugin';
+import type { configs } from '@typescript-eslint/eslint-plugin';
 
 export const cdk: (typeof configs)[string] = {
   extends: ['plugin:@bepower/node'],

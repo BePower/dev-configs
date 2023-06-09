@@ -1,5 +1,6 @@
-import { Auto, IPlugin, execPromise, getLernaPackages } from '@auto-it/core';
 import { readFileSync, writeFileSync } from 'fs';
+
+import { Auto, IPlugin, execPromise, getLernaPackages } from '@auto-it/core';
 
 export default class RegenerateReadmePlugin implements IPlugin {
   static readonly START_TAG = "[//]: # 'BEGIN TABLE'";
