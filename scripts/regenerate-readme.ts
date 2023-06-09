@@ -25,7 +25,7 @@ export default class RegenerateReadmePlugin implements IPlugin {
         ' | ',
         `[![${name}: ${version}](https://img.shields.io/badge/${name.replace(/-/g, '--')}-${version}-brightgreen.svg)](${folder}/${name}/package.json)`,
         ' | ',
-        `\`$ npm install --save-dev @bepower/${name}@${version}\``,
+        `\`$ npm install --save-dev ${name}@${version}\``,
         ' |',
       ].join('')));
 
