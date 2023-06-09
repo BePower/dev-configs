@@ -39,9 +39,6 @@
   "peerDependencies": {
     "lerna": "6.6.2"
   },
-  "auto": {
-    "extends": "./auto.config.js"
-  },
   "workspaces": [
     "packages/auto-config",
     "packages/eslint-plugin",

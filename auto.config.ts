@@ -1,8 +1,7 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import base from '@bepower/auto-config';
 import { AutoRc } from 'auto';
 
-const configObj = base();
+const configObj = base;
 configObj.plugins?.push('./scripts/regenerate-readme.js');
 
 const config = (): AutoRc => configObj;
