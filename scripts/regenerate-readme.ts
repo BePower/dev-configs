@@ -10,10 +10,7 @@ export default class RegenerateReadmePlugin implements IPlugin {
 
   apply(auto: Auto): void {
     auto.hooks.afterVersion.tapPromise(this.name, async () => {
-      const thisFolder = process.cwd();
       const packages = await getLernaPackages();
-      auto.logger.log.debug(`thisFolder: ${thisFolder}`);
-      auto.logger.log.debug(`packages: ${packages}`);
 
       const folder = process.cwd();
       const readmePath = 'README.md';
@@ -22,7 +19,7 @@ export default class RegenerateReadmePlugin implements IPlugin {
       const [firstPart] = readme.split(RegenerateReadmePlugin.START_TAG);
       const [, lastPart] = readme.split(RegenerateReadmePlugin.END_TAG);
 
-      const rows = ['| Package | Install command |', '| --- | --- | --- |'];
+      const rows = ['| Package | Install command |', '| --- | --- |'];
       rows.push(
         ...packages.map(({ name, path, version }) =>
           [
