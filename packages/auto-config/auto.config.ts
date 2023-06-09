@@ -5,13 +5,13 @@ const conventionalCommitsOptions: ConventionalCommitsOptions = {
   preset: 'angular',
 };
 
-const config = (): AutoRc => ({
+const config: AutoRc = {
   plugins: [
     'npm',
     'all-contributors',
     ['conventional-commits', conventionalCommitsOptions],
     'first-time-contributor',
   ],
-});
+};
 
 export default config;
