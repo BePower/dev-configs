@@ -2,6 +2,32 @@
 
 #### 🐛 Bug Fix
 
+- ci: :construction_worker: Moving auto config to ts ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Using the `@bepower/auto-config` package to deploy ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixing the repo path ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :zap: Fixed the order (and context) of the check command ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix: :memo: Fixed the install command of the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Finalized the readme update ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :technologist: Better commit message ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.1.4`
+  - ci: :bug: Moving to a js configuration ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :white_check_mark: Adding a test to compare ts and json config ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.1.4`, `@bepower/eslint-plugin@1.1.3`, `@bepower/prettier-config@1.1.3`
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
+# (Fri Jun 09 2023)
+
+#### 🐛 Bug Fix
+
 - ci: :zap: Fixed the order (and context) of the check command ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
 - fix: :memo: Fixed the install command of the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
 - ci: :construction_worker: Finalized the readme update ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
