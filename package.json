@@ -29,6 +29,7 @@
     "@auto-it/conventional-commits": "^10.46.0",
     "@auto-it/core": "^10.46.0",
     "@auto-it/first-time-contributor": "^10.46.0",
+    "@bepower/auto-config": "^0.1.3",
     "@bepower/eslint-plugin": "^1.1.0",
     "@bepower/prettier-config": "^1.1.0",
     "@tsconfig/node16": "^1.0.4",
@@ -39,18 +40,7 @@
     "lerna": "6.6.2"
   },
   "auto": {
-    "plugins": [
-      "npm",
-      "all-contributors",
-      [
-        "conventional-commits",
-        {
-          "preset": "angular"
-        }
-      ],
-      "first-time-contributor",
-      "./scripts/regenerate-readme.js"
-    ]
+    "extends": "./auto.config.js"
   },
   "workspaces": [
     "packages/auto-config",
