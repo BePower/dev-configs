@@ -12,7 +12,7 @@ This repository contains common configurations for building apps at BePower.
 
 This repo is managed as a monorepo that is composed of many npm packages, where each package has its own `README` and documentation describing usage.
 
-### Package Index
+### Packages Index
 
 <!-- prettier-ignore-start -->
 [//]: # 'BEGIN TABLE'

@@ -10,26 +10,27 @@ export default class RegenerateReadmePlugin implements IPlugin {
 
   apply(auto: Auto): void {
     auto.hooks.afterVersion.tapPromise(this.name, async () => {
+      const thisFolder = process.cwd();
       const packages = await getLernaPackages();
+      auto.logger.log.debug(`thisFolder: ${thisFolder}`);
+      auto.logger.log.debug(`packages: ${packages}`);
 
-      const folder = 'packages';
+      const folder = process.cwd();
       const readmePath = 'README.md';
       const readme = readFileSync(readmePath, { encoding: 'utf8' });
 
       const [firstPart] = readme.split(RegenerateReadmePlugin.START_TAG);
       const [, lastPart] = readme.split(RegenerateReadmePlugin.END_TAG);
 
-      const rows = ['| Name | Version | Install command |', '| --- | --- | --- |'];
+      const rows = ['| Package | Install command |', '| --- | --- | --- |'];
       rows.push(
-        ...packages.map(({ name, version }) =>
+        ...packages.map(({ name, path, version }) =>
           [
             '| ',
-            `[${name}](${folder}/${name})`,
-            ' | ',
             `[![${name}: ${version}](https://img.shields.io/badge/${name.replace(
               /-/g,
               '--',
-            )}-${version}-brightgreen.svg)](${folder}/${name}/package.json)`,
+            )}-${version}-brightgreen.svg)](${path.replace(`${folder}/`, '')})`,
             ' | ',
             `\`$ npm install --save-dev ${name}@${version}\``,
             ' |',
