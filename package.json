@@ -22,7 +22,7 @@
     "lint": "eslint --fix . --ext .ts",
     "check": "npm run format && npm run lint",
     "build": "tsc",
-    "release": "auto shipit --verbose --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
+    "release": "auto shipit --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
     "@auto-it/all-contributors": "^10.46.0",
