@@ -1,3 +1,19 @@
+# v0.1.3 (Fri Jun 09 2023)
+
+#### 🐛 Bug Fix
+
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :bookmark: publish \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :memo: Update CHANGELOG.md \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v0.1.2 (Fri Jun 09 2023)
 
 #### 🐛 Bug Fix
