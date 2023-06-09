@@ -19,9 +19,9 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 | Name | Version | Install command |
 | --- | --- | --- |
-| [@bepower/auto-config](packages/@bepower/auto-config) | [![@bepower/auto-config: 0.1.2](https://img.shields.io/badge/@bepower/auto--config-0.1.2-brightgreen.svg)](packages/@bepower/auto-config/package.json) | `$ npm install --save-dev @bepower/auto-config@0.1.2` |
-| [@bepower/eslint-plugin](packages/@bepower/eslint-plugin) | [![@bepower/eslint-plugin: 1.1.1](https://img.shields.io/badge/@bepower/eslint--plugin-1.1.1-brightgreen.svg)](packages/@bepower/eslint-plugin/package.json) | `$ npm install --save-dev @bepower/eslint-plugin@1.1.1` |
-| [@bepower/prettier-config](packages/@bepower/prettier-config) | [![@bepower/prettier-config: 1.1.1](https://img.shields.io/badge/@bepower/prettier--config-1.1.1-brightgreen.svg)](packages/@bepower/prettier-config/package.json) | `$ npm install --save-dev @bepower/prettier-config@1.1.1` |
+| [@bepower/auto-config](packages/@bepower/auto-config) | [![@bepower/auto-config: 0.1.3](https://img.shields.io/badge/@bepower/auto--config-0.1.3-brightgreen.svg)](packages/@bepower/auto-config/package.json) | `$ npm install --save-dev @bepower/auto-config@0.1.3` |
+| [@bepower/eslint-plugin](packages/@bepower/eslint-plugin) | [![@bepower/eslint-plugin: 1.1.2](https://img.shields.io/badge/@bepower/eslint--plugin-1.1.2-brightgreen.svg)](packages/@bepower/eslint-plugin/package.json) | `$ npm install --save-dev @bepower/eslint-plugin@1.1.2` |
+| [@bepower/prettier-config](packages/@bepower/prettier-config) | [![@bepower/prettier-config: 1.1.2](https://img.shields.io/badge/@bepower/prettier--config-1.1.2-brightgreen.svg)](packages/@bepower/prettier-config/package.json) | `$ npm install --save-dev @bepower/prettier-config@1.1.2` |
 
 [//]: # 'END TABLE'
 <!-- prettier-ignore-end -->
