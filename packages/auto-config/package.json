@@ -33,7 +33,10 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["clover", "json", "json-summary", "lcov", "text", "text-summary"]
   },
   "auto": {
     "plugins": [
