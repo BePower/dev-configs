@@ -43,9 +43,6 @@ jobs:
       - name: Testing
         run: npm test --workspaces
 
-      - name: Building typescript
-        run: npm run build
-
       - name: Building typescript in packages
         run: npm run build --workspaces --if-present
 
