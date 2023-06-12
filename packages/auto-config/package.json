@@ -1,6 +1,6 @@
 {
   "name": "@bepower/auto-config",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Common configuration and dependencies for npm deploy via auto package",
   "main": "./auto.config.js",
   "scripts": {
