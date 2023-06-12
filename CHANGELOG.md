@@ -1,3 +1,37 @@
+# (Mon Jun 12 2023)
+
+#### 🚀 Enhancement
+
+- `@bepower/auto-config@0.2.0`
+  - feat(auto): :truck: Moving `regenerate-readme` into auto package ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- ci: :coffin: Removing root building ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :mute: Less logs for auto ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixed the readme table ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Moving auto config to ts ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Using the `@bepower/auto-config` package to deploy ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixing the repo path ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :zap: Fixed the order (and context) of the check command ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix: :memo: Fixed the install command of the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Finalized the readme update ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :technologist: Better commit message ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.2.0`
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - ci: :bug: Moving to a js configuration ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :white_check_mark: Adding a test to compare ts and json config ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.2.0`, `@bepower/eslint-plugin@1.2.0`, `@bepower/prettier-config@1.2.0`
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # (Fri Jun 09 2023)
 
 #### 🐛 Bug Fix
