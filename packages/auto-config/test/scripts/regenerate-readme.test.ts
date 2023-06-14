@@ -119,7 +119,7 @@ describe('Regenerate Readme Plugin', () => {
       'commit',
       '--no-verify',
       '-m',
-      '"ci: :memo: Update README.md [skip ci]"',
+      '"ci: :memo: Update README.md to add packages [skip ci]"',
     ]);
   }, 50000);
 });

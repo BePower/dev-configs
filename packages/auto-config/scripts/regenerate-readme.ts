@@ -58,7 +58,7 @@ export default class RegenerateReadmePlugin implements IPlugin {
           'commit',
           '--no-verify',
           '-m',
-          '"ci: :memo: Update README.md [skip ci]"',
+          '"ci: :memo: Update README.md to add packages [skip ci]"',
         ]);
         auto.logger.verbose.warn('Committed updates to "README.md"');
       }
