@@ -4,7 +4,7 @@
   "description": "Common configuration and dependencies for npm deploy via auto package",
   "main": "./auto.config.js",
   "scripts": {
-    "prebuild": "rimraf scripts/*.js",
+    "prebuild": "rimraf scripts/*.js coverage",
     "build": "tsc",
     "pretest": "npm run prebuild",
     "test": "jest"

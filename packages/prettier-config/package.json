@@ -9,6 +9,8 @@
     "directory": "packages/prettier-config"
   },
   "scripts": {
+    "prebuild": "rimraf coverage",
+    "pretest": "npm run prebuild",
     "test": "jest"
   },
   "keywords": [
