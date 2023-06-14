@@ -14,11 +14,29 @@ export type CoverageSummary = {
   };
 };
 
+interface AddCoverageToReadmePluginOptions {
+  badgeTemplate?: string;
+  commitMessage?: string;
+}
+
 export default class AddCoverageToReadmePlugin implements IPlugin {
   static readonly START_TAG = "[//]: # 'BEGIN BADGE'";
   static readonly END_TAG = "[//]: # 'END BADGE'";
 
-  name = 'regenerate-readme';
+  name = 'add-coverage-to-readme';
+  private readonly badgeTemplate: string;
+  private readonly commitMessage: string;
+
+  constructor(options?: AddCoverageToReadmePluginOptions) {
+    this.badgeTemplate =
+      options?.badgeTemplate ??
+      `![coverage: {PERC}%](https://img.shields.io/badge/coverage-{PERC}%25-{COLOR}.svg)`;
+    this.commitMessage =
+      options?.commitMessage ?? 'ci: :memo: Update README.md to add coverage [skip ci]';
+    if (!this.commitMessage.includes('[skip ci]')) {
+      this.commitMessage = `${this.commitMessage} [skip ci]`;
+    }
+  }
 
   apply(auto: Auto): void {
     auto.hooks.afterChangelog.tapPromise(this.name, async () => {
@@ -76,7 +94,9 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
               firstPart,
               AddCoverageToReadmePlugin.START_TAG,
               '\n',
-              `![coverage: ${coveragePerc}%](https://img.shields.io/badge/coverage-${coveragePerc}%25-${coverageColor}.svg)`,
+              this.badgeTemplate
+                .replace(/{PERC}/g, coveragePerc.toString())
+                .replace(/{COLOR}/g, coverageColor),
               '\n',
               AddCoverageToReadmePlugin.END_TAG,
               lastPart,
@@ -88,12 +108,7 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
 
       if (changedFiles) {
         await execPromise('git', ['add', '**/README.md']);
-        await execPromise('git', [
-          'commit',
-          '--no-verify',
-          '-m',
-          '"ci: :memo: Update README.md to add coverage [skip ci]"',
-        ]);
+        await execPromise('git', ['commit', '--no-verify', '-m', `"${this.commitMessage}"`]);
         auto.logger.verbose.warn('Committed updates to "README.md"');
       }
     });
