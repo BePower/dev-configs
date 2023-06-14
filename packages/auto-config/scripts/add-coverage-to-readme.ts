@@ -21,7 +21,7 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
   name = 'regenerate-readme';
 
   apply(auto: Auto): void {
-    auto.hooks.afterVersion.tapPromise(this.name, async () => {
+    auto.hooks.afterChangelog.tapPromise(this.name, async () => {
       const packages: LernaPackage[] = [
         { name: 'root', path: process.cwd(), version: '0.0.0' },
         ...(await getLernaPackages()),
