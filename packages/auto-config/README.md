@@ -1,5 +1,11 @@
 # `@bepower/auto-config`
 
+[//]: # 'BEGIN BADGE'
+[badge-coverage]: https://img.shields.io/badge/coverage-100%25-brightgreen.svg
+[//]: # 'END BADGE'
+
+![Coverage][badge-coverage]
+
 A collection of `auto` config and scripts to ease package deployment
 
 ## Default Config
