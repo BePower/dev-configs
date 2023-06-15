@@ -7,6 +7,7 @@ const conventionalCommitsOptions: ConventionalCommitsOptions = {
 
 const config: AutoRc = {
   plugins: [
+    'magic-zero',
     'npm',
     ['conventional-commits', conventionalCommitsOptions],
     'all-contributors',

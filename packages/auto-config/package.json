@@ -4,7 +4,7 @@
   "description": "Common configuration and dependencies for npm deploy via auto package",
   "main": "./auto.config.js",
   "scripts": {
-    "prebuild": "rimraf scripts/*.js coverage",
+    "prebuild": "rimraf scripts/*.js ./*.js coverage",
     "build": "tsc",
     "pretest": "npm run prebuild",
     "test": "jest"
@@ -22,6 +22,7 @@
     "@auto-it/conventional-commits": "^10.46.0",
     "@auto-it/core": "^10.46.0",
     "@auto-it/first-time-contributor": "^10.46.0",
+    "@auto-it/magic-zero": "^10.46.0",
     "auto": "^10.46.0",
     "lerna": "^6.6.2"
   },
@@ -38,10 +39,18 @@
     "testEnvironment": "node",
     "collectCoverage": true,
     "coverageDirectory": "coverage",
-    "coverageReporters": ["clover", "json", "json-summary", "lcov", "text", "text-summary"]
+    "coverageReporters": [
+      "clover",
+      "json",
+      "json-summary",
+      "lcov",
+      "text",
+      "text-summary"
+    ]
   },
   "auto": {
     "plugins": [
+      "magic-zero",
       "npm",
       [
         "conventional-commits",
