@@ -7,8 +7,8 @@ const coverage = require.resolve('@bepower/auto-config/scripts/add-coverage-to-r
  * @returns {import('@auto-it/core').default}
  */
 function config() {
-  // base.plugins.push(regenerate);
-  // base.plugins.push(coverage);
+  base.plugins.push(regenerate);
+  base.plugins.push(coverage);
 
   return base;
 }
