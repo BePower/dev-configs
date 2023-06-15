@@ -15,7 +15,7 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 ### Packages Index
 
 <!-- prettier-ignore-start -->
-[//]: # 'BEGIN TABLE'
+[//]: # 'BEGIN PACKAGES TABLE'
 
 | Package | Install command |
 | --- | --- |
@@ -23,7 +23,7 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 | [![@bepower/eslint-plugin: 1.2.0](https://img.shields.io/badge/@bepower/eslint--plugin-1.2.0-brightgreen.svg)](packages/eslint-plugin) | `$ npm install --save-dev @bepower/eslint-plugin@1.2.0` |
 | [![@bepower/prettier-config: 1.2.0](https://img.shields.io/badge/@bepower/prettier--config-1.2.0-brightgreen.svg)](packages/prettier-config) | `$ npm install --save-dev @bepower/prettier-config@1.2.0` |
 
-[//]: # 'END TABLE'
+[//]: # 'END PACKAGES TABLE'
 <!-- prettier-ignore-end -->
 
 ### Releasing
