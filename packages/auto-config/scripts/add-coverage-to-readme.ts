@@ -20,8 +20,8 @@ interface AddCoverageToReadmePluginOptions {
 }
 
 export default class AddCoverageToReadmePlugin implements IPlugin {
-  static readonly START_TAG = "[//]: # 'BEGIN BADGE'";
-  static readonly END_TAG = "[//]: # 'END BADGE'";
+  static readonly START_TAG = "[//]: # 'BEGIN COVERAGE BADGE'";
+  static readonly END_TAG = "[//]: # 'END COVERAGE BADGE'";
 
   name = 'add-coverage-to-readme';
   private readonly badgeTemplate: string;
@@ -45,68 +45,89 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
         ...(await getLernaPackages()),
       ];
 
+      auto.logger.verbose.info('Found packages:', packages);
+
       const coverageFolderName = 'coverage';
       const coverageJsonName = 'coverage-summary.json';
       const readmeFileName = 'README.md';
 
-      packages
-        .filter(({ path }) => existsSync(join(path, coverageFolderName)))
-        .forEach(({ path }) => {
-          // eslint-disable-next-line @typescript-eslint/no-var-requires
-          const coverage: CoverageSummary = require(join(
-            path,
-            coverageFolderName,
-            coverageJsonName,
-          ));
-          const coverageTotals = Object.values(coverage.total).reduce(
-            (sum, what) => {
-              sum.total += what.total;
-              sum.covered += what.covered;
+      const filteredPackages = packages.filter(({ path }) =>
+        existsSync(join(path, coverageFolderName, coverageJsonName)),
+      );
 
-              return sum;
-            },
-            { total: 0, covered: 0 },
-          );
-          const coveragePerc = Math.round((coverageTotals.covered / coverageTotals.total) * 100);
-          let coverageColor;
-          if (coveragePerc > 99) {
-            coverageColor = 'brightgreen';
-          } else if (coveragePerc > 95) {
-            coverageColor = 'green';
-          } else if (coveragePerc > 90) {
-            coverageColor = 'yellowgreen';
-          } else if (coveragePerc > 80) {
-            coverageColor = 'yellow';
-          } else if (coveragePerc > 60) {
-            coverageColor = 'orange';
-          } else {
-            coverageColor = 'red';
-          }
-          const readmePath = join(path, readmeFileName);
-          const readme = readFileSync(readmePath, 'utf8');
+      auto.logger.verbose.info('Filtered packages:', packages);
 
-          const [firstPart] = readme.split(AddCoverageToReadmePlugin.START_TAG);
-          const [, lastPart] = readme.split(AddCoverageToReadmePlugin.END_TAG);
+      const changedFiles = filteredPackages.map(({ name, path }): boolean => {
+        auto.logger.verbose.start(`Package: ${name}`);
 
-          writeFileSync(
-            readmePath,
-            [
-              firstPart,
-              AddCoverageToReadmePlugin.START_TAG,
-              '\n',
-              this.badgeTemplate
-                .replace(/{PERC}/g, coveragePerc.toString())
-                .replace(/{COLOR}/g, coverageColor),
-              '\n',
-              AddCoverageToReadmePlugin.END_TAG,
-              lastPart,
-            ].join(''),
-          );
-        });
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const coverage: CoverageSummary = require(join(path, coverageFolderName, coverageJsonName));
+        const coverageTotals = Object.values(coverage.total).reduce(
+          (sum, what) => {
+            sum.total += what.total;
+            sum.covered += what.covered;
 
-      const changedFiles = await execPromise('git', ['status', '--porcelain']);
+            return sum;
+          },
+          { total: 0, covered: 0 },
+        );
+        auto.logger.verbose.debug('CoverageTotals', coverageTotals);
 
-      if (changedFiles) {
+        const coveragePerc = Math.round((coverageTotals.covered / coverageTotals.total) * 100);
+        let coverageColor;
+        if (coveragePerc > 99) {
+          coverageColor = 'brightgreen';
+        } else if (coveragePerc > 95) {
+          coverageColor = 'green';
+        } else if (coveragePerc > 90) {
+          coverageColor = 'yellowgreen';
+        } else if (coveragePerc > 80) {
+          coverageColor = 'yellow';
+        } else if (coveragePerc > 60) {
+          coverageColor = 'orange';
+        } else {
+          coverageColor = 'red';
+        }
+        const readmePath = join(path, readmeFileName);
+        const readme = readFileSync(readmePath, 'utf8');
+
+        if (
+          !readme.includes(AddCoverageToReadmePlugin.START_TAG) ||
+          !readme.includes(AddCoverageToReadmePlugin.END_TAG)
+        ) {
+          auto.logger.log.warn('Readme file does not contain either StartTag or EndTag');
+
+          return false;
+        }
+
+        const [firstPart] = readme.split(AddCoverageToReadmePlugin.START_TAG);
+        const [, lastPart] = readme.split(AddCoverageToReadmePlugin.END_TAG);
+
+        const badgeString = this.badgeTemplate
+          .replace(/{PERC}/g, coveragePerc.toString())
+          .replace(/{COLOR}/g, coverageColor);
+
+        auto.logger.verbose.info('Badge string:', badgeString);
+
+        writeFileSync(
+          readmePath,
+          [
+            firstPart,
+            AddCoverageToReadmePlugin.START_TAG,
+            '\n',
+            badgeString,
+            '\n',
+            AddCoverageToReadmePlugin.END_TAG,
+            lastPart,
+          ].join(''),
+        );
+
+        return true;
+      });
+
+      const gitChangedFiles = await execPromise('git', ['status', '--porcelain']);
+
+      if (gitChangedFiles && changedFiles.some((changedFile) => changedFile)) {
         await execPromise('git', ['add', '**/README.md']);
         await execPromise('git', ['commit', '--no-verify', '-m', `"${this.commitMessage}"`]);
         auto.logger.verbose.warn('Committed updates to "README.md"');
