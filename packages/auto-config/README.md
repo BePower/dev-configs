@@ -1,7 +1,7 @@
 # `@bepower/auto-config`
 
 [//]: # 'BEGIN BADGE'
-[badge-coverage]: https://img.shields.io/badge/coverage-100%25-brightgreen.svg
+[badge-coverage]: https://img.shields.io/badge/coverage-0%25-brightgreen.svg
 [//]: # 'END BADGE'
 
 ![Coverage][badge-coverage]
