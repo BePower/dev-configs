@@ -2,6 +2,61 @@
 
 #### 🚀 Enhancement
 
+- `@bepower/auto-config@0.6.0`
+  - feat(auto): :sparkles: Adding the `magic-zero` plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Adding `commitMessage` and `badgeTemplate` custom options ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Added the `add-coverage` feature ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :truck: Moving `regenerate-readme` into auto package ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- fix: :ambulance: Fixed the import of the renamed packages ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix(auto): :bug: Fixed the packages table tags ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- docs: :bug: Fixing the coverage badge style ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :mute: `auto` is no longer verbose ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Re-enabling the custom plugins ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Trying to fix the `package.json` bug ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :loud_sound: More verbose ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Adding the coverage plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :coffin: Removing root building ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :mute: Less logs for auto ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixed the readme table ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Moving auto config to ts ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Using the `@bepower/auto-config` package to deploy ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixing the repo path ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :zap: Fixed the order (and context) of the check command ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix: :memo: Fixed the install command of the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Finalized the readme update ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :technologist: Better commit message ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.6.0`
+  - perf(auto): :recycle: Better tags and tests ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :truck: Renamed the `regenerate-readme` into `add-packages-to-readme` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - ci(auto): :alembic: Trying to force the rebuild of the readme file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - docs(auto): :memo: Adding the vocerage badge to the readme file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :bug: Trying to fix the "modified" bug moving the plugin order ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - docs(auto): :sparkles: Adding the new script to the documentation ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :bug: Fixing the hook change ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :bug: Changed the hook to `afterChangelog` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :white_check_mark: Adding the test for the `auto` plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - ci: :bug: Moving to a js configuration ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :white_check_mark: Adding a test to compare ts and json config ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@0.6.0`, `@bepower/eslint-plugin@1.3.0`, `@bepower/prettier-config@1.3.0`
+  - perf: :fire: Removing compiled code ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
+# (Thu Jun 15 2023)
+
+#### 🚀 Enhancement
+
 - `@bepower/auto-config@0.5.0`
   - feat(auto): :sparkles: Adding the `magic-zero` plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
   - feat(auto): :sparkles: Adding `commitMessage` and `badgeTemplate` custom options ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
