@@ -19,7 +19,7 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 
 | Package | Install command |
 | --- | --- |
-| [![@bepower/auto-config: 0.4.0](https://img.shields.io/badge/@bepower/auto--config-0.4.0-brightgreen.svg)](packages/auto-config) | `$ npm install --save-dev @bepower/auto-config@0.4.0` |
+| [![@bepower/auto-config: 0.5.0](https://img.shields.io/badge/@bepower/auto--config-0.5.0-brightgreen.svg)](packages/auto-config) | `$ npm install --save-dev @bepower/auto-config@0.5.0` |
 | [![@bepower/eslint-plugin: 1.2.0](https://img.shields.io/badge/@bepower/eslint--plugin-1.2.0-brightgreen.svg)](packages/eslint-plugin) | `$ npm install --save-dev @bepower/eslint-plugin@1.2.0` |
 | [![@bepower/prettier-config: 1.2.0](https://img.shields.io/badge/@bepower/prettier--config-1.2.0-brightgreen.svg)](packages/prettier-config) | `$ npm install --save-dev @bepower/prettier-config@1.2.0` |
 
