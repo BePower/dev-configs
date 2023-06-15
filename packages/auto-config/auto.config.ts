@@ -8,8 +8,8 @@ const conventionalCommitsOptions: ConventionalCommitsOptions = {
 const config: AutoRc = {
   plugins: [
     'npm',
-    'all-contributors',
     ['conventional-commits', conventionalCommitsOptions],
+    'all-contributors',
     'first-time-contributor',
   ],
 };

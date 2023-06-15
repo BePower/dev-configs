@@ -43,13 +43,13 @@
   "auto": {
     "plugins": [
       "npm",
-      "all-contributors",
       [
         "conventional-commits",
         {
           "preset": "angular"
         }
       ],
+      "all-contributors",
       "first-time-contributor"
     ]
   }
