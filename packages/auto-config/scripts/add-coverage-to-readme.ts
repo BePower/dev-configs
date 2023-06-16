@@ -20,8 +20,10 @@ interface AddCoverageToReadmePluginOptions {
 }
 
 export default class AddCoverageToReadmePlugin implements IPlugin {
-  static readonly START_TAG = "[//]: # 'BEGIN COVERAGE BADGE'";
-  static readonly END_TAG = "[//]: # 'END COVERAGE BADGE'";
+  static readonly START_TAG =
+    '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->';
+
+  static readonly END_TAG = '<!-- COVERAGE-BADGE:END -->';
 
   name = 'add-coverage-to-readme';
   private readonly badgeTemplate: string;

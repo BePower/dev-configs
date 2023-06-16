@@ -39,9 +39,13 @@ describe('Regenerate Readme Plugin', () => {
       const autoHooks = makeHooks();
 
       mockRead(
-        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
-          '\n',
-        ),
+        [
+          '# Title',
+          '',
+          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- PACKAGES-TABLE:END -->',
+        ].join('\n'),
       );
 
       addPackagesToReadmePlugin.apply({
@@ -60,12 +64,12 @@ describe('Regenerate Readme Plugin', () => {
           '# Title',
           '',
           '',
-          "[//]: # 'BEGIN PACKAGES TABLE'",
-          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- prettier-ignore-start -->',
           '| Package | Install command |',
           '| --- | --- |',
-          '',
-          "[//]: # 'END PACKAGES TABLE'",
+          '<!-- prettier-ignore-end -->',
+          '<!-- PACKAGES-TABLE:END -->',
         ].join('\n'),
       );
     });
@@ -75,9 +79,13 @@ describe('Regenerate Readme Plugin', () => {
       const autoHooks = makeHooks();
 
       mockRead(
-        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
-          '\n',
-        ),
+        [
+          '# Title',
+          '',
+          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- PACKAGES-TABLE:END -->',
+        ].join('\n'),
       );
 
       getLernaPackages.mockReturnValueOnce(
@@ -113,14 +121,14 @@ describe('Regenerate Readme Plugin', () => {
           '# Title',
           '',
           '',
-          "[//]: # 'BEGIN PACKAGES TABLE'",
-          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- prettier-ignore-start -->',
           '| Package | Install command |',
           '| --- | --- |',
           '| [![@bepower/app: 1.2.3](https://img.shields.io/badge/@bepower/app-1.2.3-brightgreen.svg)](packages/app) | `$ npm install --save-dev @bepower/app@1.2.3` |',
           '| [![@bepower/lib: 1.2.3](https://img.shields.io/badge/@bepower/lib-1.2.3-brightgreen.svg)](packages/lib) | `$ npm install --save-dev @bepower/lib@1.2.3` |',
-          '',
-          "[//]: # 'END PACKAGES TABLE'",
+          '<!-- prettier-ignore-end -->',
+          '<!-- PACKAGES-TABLE:END -->',
         ].join('\n'),
       );
       expect(gitShow).toHaveBeenCalledWith('git', ['add', 'README.md']);
@@ -141,9 +149,13 @@ describe('Regenerate Readme Plugin', () => {
       const autoHooks = makeHooks();
 
       mockRead(
-        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
-          '\n',
-        ),
+        [
+          '# Title',
+          '',
+          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- PACKAGES-TABLE:END -->',
+        ].join('\n'),
       );
 
       getLernaPackages.mockReturnValueOnce(
@@ -179,14 +191,14 @@ describe('Regenerate Readme Plugin', () => {
           '# Title',
           '',
           '',
-          "[//]: # 'BEGIN PACKAGES TABLE'",
-          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- prettier-ignore-start -->',
           '| Package | Install command |',
           '| --- | --- |',
           '| [![@bepower/app: 1.2.3](https://img.shields.io/badge/@bepower/app-1.2.3-brightgreen.svg)](packages/app) | `$ npm install --save-dev @bepower/app@1.2.3` |',
           '| [![@bepower/lib: 1.2.3](https://img.shields.io/badge/@bepower/lib-1.2.3-brightgreen.svg)](packages/lib) | `$ npm install --save-dev @bepower/lib@1.2.3` |',
-          '',
-          "[//]: # 'END PACKAGES TABLE'",
+          '<!-- prettier-ignore-end -->',
+          '<!-- PACKAGES-TABLE:END -->',
         ].join('\n'),
       );
       expect(gitShow).toHaveBeenCalledWith('git', ['add', 'README.md']);
@@ -205,9 +217,13 @@ describe('Regenerate Readme Plugin', () => {
       const autoHooks = makeHooks();
 
       mockRead(
-        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
-          '\n',
-        ),
+        [
+          '# Title',
+          '',
+          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- PACKAGES-TABLE:END -->',
+        ].join('\n'),
       );
 
       getLernaPackages.mockReturnValueOnce(
@@ -243,14 +259,14 @@ describe('Regenerate Readme Plugin', () => {
           '# Title',
           '',
           '',
-          "[//]: # 'BEGIN PACKAGES TABLE'",
-          '',
+          '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->',
+          '<!-- prettier-ignore-start -->',
           '| Package | Install command |',
           '| --- | --- |',
           '| [![@bepower/app: 1.2.3](https://img.shields.io/badge/@bepower/app-1.2.3-brightgreen.svg)](packages/app) | `$ npm install --save-dev @bepower/app@1.2.3` |',
           '| [![@bepower/lib: 1.2.3](https://img.shields.io/badge/@bepower/lib-1.2.3-brightgreen.svg)](packages/lib) | `$ npm install --save-dev @bepower/lib@1.2.3` |',
-          '',
-          "[//]: # 'END PACKAGES TABLE'",
+          '<!-- prettier-ignore-end -->',
+          '<!-- PACKAGES-TABLE:END -->',
         ].join('\n'),
       );
       expect(gitShow).toHaveBeenCalledWith('git', ['add', 'README.md']);
@@ -268,7 +284,7 @@ describe('Regenerate Readme Plugin', () => {
       const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
       const autoHooks = makeHooks();
 
-      mockRead(['# Title', '', '', "[//]: # 'END PACKAGES TABLE'"].join('\n'));
+      mockRead(['# Title', '', '', '<!-- PACKAGES-TABLE:END -->'].join('\n'));
 
       addPackagesToReadmePlugin.apply({
         hooks: autoHooks,

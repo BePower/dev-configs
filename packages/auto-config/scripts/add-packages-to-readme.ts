@@ -7,8 +7,10 @@ interface AddPackagesToReadmePluginOptions {
 }
 
 export default class AddPackagesToReadmePlugin implements IPlugin {
-  static readonly START_TAG = "[//]: # 'BEGIN PACKAGES TABLE'";
-  static readonly END_TAG = "[//]: # 'END PACKAGES TABLE'";
+  static readonly START_TAG =
+    '<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->';
+
+  static readonly END_TAG = '<!-- PACKAGES-TABLE:END -->';
 
   name = 'add-packages-to-readme';
   private readonly commitMessage: string;
@@ -68,9 +70,11 @@ export default class AddPackagesToReadmePlugin implements IPlugin {
           firstPart,
           AddPackagesToReadmePlugin.START_TAG,
           '\n',
+          '<!-- prettier-ignore-start -->',
           '\n',
           rowsString,
           '\n',
+          '<!-- prettier-ignore-end -->',
           '\n',
           AddPackagesToReadmePlugin.END_TAG,
           lastPart,
