@@ -32,10 +32,10 @@ A collection of `auto` config and scripts to ease package deployment
 
 Regenerates the `README.md` file in every package to add the coverage badge, if present.
 
-To mark the badge you have to add `[//]: # 'BEGIN BADGE'` `[//]: # 'END BADGE'`.
+To mark the badge you have to add `<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->` and `<!-- COVERAGE-BADGE:END -->`.
 
-### `scripts/regenerate-readme.js`
+### `scripts/add-packages-to-readme.js`
 
 Regenerates the `README.md` file in the root of the project to reflect npm packages under the `packages` folder.
 
-To mark the packages table you have to add `[//]: # 'BEGIN TABLE'` `[//]: # 'END TABLE'`.
+To mark the packages table you have to add `<!-- PACKAGES-TABLE:START - Do not remove or modify this section -->` and `<!-- PACKAGES-TABLE:END -->`.
