@@ -1,7 +1,9 @@
 # `@bepower/auto-config`
 
 <!-- COVERAGE-BADGE:START - Do not remove or modify this section -->
+
 ![coverage: 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
+
 <!-- COVERAGE-BADGE:END -->
 
 ![Coverage][badge-coverage]
