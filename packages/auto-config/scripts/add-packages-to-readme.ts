@@ -2,11 +2,24 @@ import { readFileSync, writeFileSync } from 'fs';
 
 import { Auto, IPlugin, execPromise, getLernaPackages } from '@auto-it/core';
 
+interface AddPackagesToReadmePluginOptions {
+  commitMessage?: string;
+}
+
 export default class AddPackagesToReadmePlugin implements IPlugin {
   static readonly START_TAG = "[//]: # 'BEGIN PACKAGES TABLE'";
   static readonly END_TAG = "[//]: # 'END PACKAGES TABLE'";
 
   name = 'add-packages-to-readme';
+  private readonly commitMessage: string;
+
+  constructor(options?: AddPackagesToReadmePluginOptions) {
+    this.commitMessage =
+      options?.commitMessage ?? 'ci: :memo: Update README.md to add packages table [skip ci]';
+    if (!this.commitMessage.includes('[skip ci]')) {
+      this.commitMessage = `${this.commitMessage} [skip ci]`;
+    }
+  }
 
   apply(auto: Auto): void {
     auto.hooks.afterVersion.tapPromise(this.name, async () => {
@@ -70,12 +83,7 @@ export default class AddPackagesToReadmePlugin implements IPlugin {
 
       if (changedFiles) {
         await execPromise('git', ['add', 'README.md']);
-        await execPromise('git', [
-          'commit',
-          '--no-verify',
-          '-m',
-          '"ci: :memo: Update README.md to add packages [skip ci]"',
-        ]);
+        await execPromise('git', ['commit', '--no-verify', '-m', `"${this.commitMessage}"`]);
         auto.logger.verbose.warn('Committed updates to "README.md"');
       }
     });

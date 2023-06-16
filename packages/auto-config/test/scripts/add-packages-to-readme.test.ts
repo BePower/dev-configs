@@ -33,155 +33,289 @@ describe('Regenerate Readme Plugin', () => {
     jest.clearAllMocks();
   });
 
-  test('should not do anything if the start tag is missing', async () => {
-    const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
-    const autoHooks = makeHooks();
+  describe('default options', () => {
+    test('should not add any package', async () => {
+      const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
+      const autoHooks = makeHooks();
 
-    mockRead(['# Title', '', '', "[//]: # 'END PACKAGES TABLE'"].join('\n'));
+      mockRead(
+        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
+          '\n',
+        ),
+      );
 
-    addPackagesToReadmePlugin.apply({
-      hooks: autoHooks,
-      logger: dummyLog(),
-    } as Auto);
+      addPackagesToReadmePlugin.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
 
-    await autoHooks.afterVersion.promise({
-      dryRun: false,
+      await autoHooks.afterVersion.promise({
+        dryRun: false,
+      });
+
+      expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
+      expect(writeMock).toHaveBeenCalledWith(
+        'README.md',
+        [
+          '# Title',
+          '',
+          '',
+          "[//]: # 'BEGIN PACKAGES TABLE'",
+          '',
+          '| Package | Install command |',
+          '| --- | --- |',
+          '',
+          "[//]: # 'END PACKAGES TABLE'",
+        ].join('\n'),
+      );
     });
 
-    expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
+    test('should add two packages', async () => {
+      const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
+      const autoHooks = makeHooks();
+
+      mockRead(
+        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
+          '\n',
+        ),
+      );
+
+      getLernaPackages.mockReturnValueOnce(
+        Promise.resolve([
+          {
+            path: 'packages/app',
+            name: '@bepower/app',
+            version: '1.2.3',
+          },
+          {
+            path: 'packages/lib',
+            name: '@bepower/lib',
+            version: '1.2.3',
+          },
+        ]),
+      );
+
+      gitShow.mockReturnValueOnce('src/index.ts');
+
+      addPackagesToReadmePlugin.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
+
+      await autoHooks.afterVersion.promise({
+        dryRun: false,
+      });
+
+      expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
+      expect(writeMock).toHaveBeenCalledWith(
+        'README.md',
+        [
+          '# Title',
+          '',
+          '',
+          "[//]: # 'BEGIN PACKAGES TABLE'",
+          '',
+          '| Package | Install command |',
+          '| --- | --- |',
+          '| [![@bepower/app: 1.2.3](https://img.shields.io/badge/@bepower/app-1.2.3-brightgreen.svg)](packages/app) | `$ npm install --save-dev @bepower/app@1.2.3` |',
+          '| [![@bepower/lib: 1.2.3](https://img.shields.io/badge/@bepower/lib-1.2.3-brightgreen.svg)](packages/lib) | `$ npm install --save-dev @bepower/lib@1.2.3` |',
+          '',
+          "[//]: # 'END PACKAGES TABLE'",
+        ].join('\n'),
+      );
+      expect(gitShow).toHaveBeenCalledWith('git', ['add', 'README.md']);
+      expect(gitShow).toHaveBeenCalledWith('git', [
+        'commit',
+        '--no-verify',
+        '-m',
+        '"ci: :memo: Update README.md to add packages table [skip ci]"',
+      ]);
+    });
   });
 
-  test('should not do anything if the end tag is missing', async () => {
-    const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
-    const autoHooks = makeHooks();
+  describe('custom options', () => {
+    test('should use custom commit message', async () => {
+      const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin({
+        commitMessage: 'commit message [skip ci]',
+      });
+      const autoHooks = makeHooks();
 
-    mockRead(['# Title', '', '', "[//]: # 'START PACKAGES TABLE'"].join('\n'));
+      mockRead(
+        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
+          '\n',
+        ),
+      );
 
-    addPackagesToReadmePlugin.apply({
-      hooks: autoHooks,
-      logger: dummyLog(),
-    } as Auto);
+      getLernaPackages.mockReturnValueOnce(
+        Promise.resolve([
+          {
+            path: 'packages/app',
+            name: '@bepower/app',
+            version: '1.2.3',
+          },
+          {
+            path: 'packages/lib',
+            name: '@bepower/lib',
+            version: '1.2.3',
+          },
+        ]),
+      );
 
-    await autoHooks.afterVersion.promise({
-      dryRun: false,
+      gitShow.mockReturnValueOnce('src/index.ts');
+
+      addPackagesToReadmePlugin.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
+
+      await autoHooks.afterVersion.promise({
+        dryRun: false,
+      });
+
+      expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
+      expect(writeMock).toHaveBeenCalledWith(
+        'README.md',
+        [
+          '# Title',
+          '',
+          '',
+          "[//]: # 'BEGIN PACKAGES TABLE'",
+          '',
+          '| Package | Install command |',
+          '| --- | --- |',
+          '| [![@bepower/app: 1.2.3](https://img.shields.io/badge/@bepower/app-1.2.3-brightgreen.svg)](packages/app) | `$ npm install --save-dev @bepower/app@1.2.3` |',
+          '| [![@bepower/lib: 1.2.3](https://img.shields.io/badge/@bepower/lib-1.2.3-brightgreen.svg)](packages/lib) | `$ npm install --save-dev @bepower/lib@1.2.3` |',
+          '',
+          "[//]: # 'END PACKAGES TABLE'",
+        ].join('\n'),
+      );
+      expect(gitShow).toHaveBeenCalledWith('git', ['add', 'README.md']);
+      expect(gitShow).toHaveBeenCalledWith('git', [
+        'commit',
+        '--no-verify',
+        '-m',
+        '"commit message [skip ci]"',
+      ]);
     });
 
-    expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
+    test('should use custom commit message, adding "[skip ci]|', async () => {
+      const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin({
+        commitMessage: 'commit message',
+      });
+      const autoHooks = makeHooks();
+
+      mockRead(
+        ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
+          '\n',
+        ),
+      );
+
+      getLernaPackages.mockReturnValueOnce(
+        Promise.resolve([
+          {
+            path: 'packages/app',
+            name: '@bepower/app',
+            version: '1.2.3',
+          },
+          {
+            path: 'packages/lib',
+            name: '@bepower/lib',
+            version: '1.2.3',
+          },
+        ]),
+      );
+
+      gitShow.mockReturnValueOnce('src/index.ts');
+
+      addPackagesToReadmePlugin.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
+
+      await autoHooks.afterVersion.promise({
+        dryRun: false,
+      });
+
+      expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
+      expect(writeMock).toHaveBeenCalledWith(
+        'README.md',
+        [
+          '# Title',
+          '',
+          '',
+          "[//]: # 'BEGIN PACKAGES TABLE'",
+          '',
+          '| Package | Install command |',
+          '| --- | --- |',
+          '| [![@bepower/app: 1.2.3](https://img.shields.io/badge/@bepower/app-1.2.3-brightgreen.svg)](packages/app) | `$ npm install --save-dev @bepower/app@1.2.3` |',
+          '| [![@bepower/lib: 1.2.3](https://img.shields.io/badge/@bepower/lib-1.2.3-brightgreen.svg)](packages/lib) | `$ npm install --save-dev @bepower/lib@1.2.3` |',
+          '',
+          "[//]: # 'END PACKAGES TABLE'",
+        ].join('\n'),
+      );
+      expect(gitShow).toHaveBeenCalledWith('git', ['add', 'README.md']);
+      expect(gitShow).toHaveBeenCalledWith('git', [
+        'commit',
+        '--no-verify',
+        '-m',
+        '"commit message [skip ci]"',
+      ]);
+    });
   });
 
-  test('should not do anything if both tags are missing', async () => {
-    const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
-    const autoHooks = makeHooks();
+  describe('missing tags', () => {
+    test('should not do anything if the start tag is missing', async () => {
+      const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
+      const autoHooks = makeHooks();
 
-    mockRead(['# Title', '', ''].join('\n'));
+      mockRead(['# Title', '', '', "[//]: # 'END PACKAGES TABLE'"].join('\n'));
 
-    addPackagesToReadmePlugin.apply({
-      hooks: autoHooks,
-      logger: dummyLog(),
-    } as Auto);
+      addPackagesToReadmePlugin.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
 
-    await autoHooks.afterVersion.promise({
-      dryRun: false,
+      await autoHooks.afterVersion.promise({
+        dryRun: false,
+      });
+
+      expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
 
-    expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
-  });
+    test('should not do anything if the end tag is missing', async () => {
+      const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
+      const autoHooks = makeHooks();
 
-  test('should not add any package', async () => {
-    const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
-    const autoHooks = makeHooks();
+      mockRead(['# Title', '', '', "[//]: # 'START PACKAGES TABLE'"].join('\n'));
 
-    mockRead(
-      ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
-        '\n',
-      ),
-    );
+      addPackagesToReadmePlugin.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
 
-    addPackagesToReadmePlugin.apply({
-      hooks: autoHooks,
-      logger: dummyLog(),
-    } as Auto);
+      await autoHooks.afterVersion.promise({
+        dryRun: false,
+      });
 
-    await autoHooks.afterVersion.promise({
-      dryRun: false,
+      expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
 
-    expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
-    expect(writeMock).toHaveBeenCalledWith(
-      'README.md',
-      [
-        '# Title',
-        '',
-        '',
-        "[//]: # 'BEGIN PACKAGES TABLE'",
-        '',
-        '| Package | Install command |',
-        '| --- | --- |',
-        '',
-        "[//]: # 'END PACKAGES TABLE'",
-      ].join('\n'),
-    );
-  });
+    test('should not do anything if both tags are missing', async () => {
+      const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
+      const autoHooks = makeHooks();
 
-  test('should add two packages', async () => {
-    const addPackagesToReadmePlugin = new AddPackagesToReadmePlugin();
-    const autoHooks = makeHooks();
+      mockRead(['# Title', '', ''].join('\n'));
 
-    mockRead(
-      ['# Title', '', '', "[//]: # 'BEGIN PACKAGES TABLE'", "[//]: # 'END PACKAGES TABLE'"].join(
-        '\n',
-      ),
-    );
+      addPackagesToReadmePlugin.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
 
-    getLernaPackages.mockReturnValueOnce(
-      Promise.resolve([
-        {
-          path: 'packages/app',
-          name: '@bepower/app',
-          version: '1.2.3',
-        },
-        {
-          path: 'packages/lib',
-          name: '@bepower/lib',
-          version: '1.2.3',
-        },
-      ]),
-    );
+      await autoHooks.afterVersion.promise({
+        dryRun: false,
+      });
 
-    gitShow.mockReturnValueOnce('src/index.ts');
-
-    addPackagesToReadmePlugin.apply({
-      hooks: autoHooks,
-      logger: dummyLog(),
-    } as Auto);
-
-    await autoHooks.afterVersion.promise({
-      dryRun: false,
+      expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
-
-    expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
-    expect(writeMock).toHaveBeenCalledWith(
-      'README.md',
-      [
-        '# Title',
-        '',
-        '',
-        "[//]: # 'BEGIN PACKAGES TABLE'",
-        '',
-        '| Package | Install command |',
-        '| --- | --- |',
-        '| [![@bepower/app: 1.2.3](https://img.shields.io/badge/@bepower/app-1.2.3-brightgreen.svg)](packages/app) | `$ npm install --save-dev @bepower/app@1.2.3` |',
-        '| [![@bepower/lib: 1.2.3](https://img.shields.io/badge/@bepower/lib-1.2.3-brightgreen.svg)](packages/lib) | `$ npm install --save-dev @bepower/lib@1.2.3` |',
-        '',
-        "[//]: # 'END PACKAGES TABLE'",
-      ].join('\n'),
-    );
-    expect(gitShow).toHaveBeenCalledWith('git', ['add', 'README.md']);
-    expect(gitShow).toHaveBeenCalledWith('git', [
-      'commit',
-      '--no-verify',
-      '-m',
-      '"ci: :memo: Update README.md to add packages [skip ci]"',
-    ]);
   });
 });
