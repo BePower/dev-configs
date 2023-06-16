@@ -14,7 +14,7 @@ export type CoverageSummary = {
   };
 };
 
-interface AddCoverageToReadmePluginOptions {
+export interface AddCoverageToReadmePluginOptions {
   badgeTemplate?: string;
   commitMessage?: string;
 }
