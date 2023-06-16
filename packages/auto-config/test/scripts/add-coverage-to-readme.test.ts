@@ -48,6 +48,7 @@ getLernaPackages.mockReturnValue(Promise.resolve([]));
 const mockRead = (result: string) => jest.spyOn(fs, 'readFileSync').mockReturnValueOnce(result);
 jest.spyOn(fs, 'existsSync').mockImplementation(existsMock);
 jest.spyOn(fs, 'writeFileSync').mockImplementation(writeMock);
+jest.spyOn(fs, 'readdirSync').mockImplementation(() => []);
 
 jest.mock(
   '@auto-it/core/dist/utils/exec-promise',
