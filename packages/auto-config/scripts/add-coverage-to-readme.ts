@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 import { Auto, IPlugin, LernaPackage, execPromise, getLernaPackages } from '@auto-it/core';
@@ -51,11 +51,14 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
       const coverageJsonName = 'coverage-summary.json';
       const readmeFileName = 'README.md';
 
-      const filteredPackages = packages.filter(({ path }) =>
-        existsSync(join(path, coverageFolderName, coverageJsonName)),
-      );
+      const filteredPackages = packages.filter(({ path }) => {
+        auto.logger.verbose.debug('Package path:', path);
+        auto.logger.verbose.debug('Package dir:', readdirSync(path));
 
-      auto.logger.verbose.info('Filtered packages:', packages);
+        return existsSync(join(path, coverageFolderName, coverageJsonName));
+      });
+
+      auto.logger.verbose.info('Filtered packages:', filteredPackages);
 
       const changedFiles = filteredPackages.map(({ name, path }): boolean => {
         auto.logger.verbose.start(`Package: ${name}`);
