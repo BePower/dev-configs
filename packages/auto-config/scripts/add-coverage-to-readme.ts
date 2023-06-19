@@ -42,10 +42,14 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
 
   apply(auto: Auto): void {
     auto.hooks.afterChangelog.tapPromise(this.name, async () => {
-      const packages: LernaPackage[] = [
-        { name: 'root', path: process.cwd(), version: '0.0.0' },
-        ...(await getLernaPackages()),
-      ];
+      let packages: LernaPackage[];
+      const rootPackage: LernaPackage = { name: 'root', path: process.cwd(), version: '0.0.0' };
+
+      try {
+        packages = [rootPackage, ...(await getLernaPackages())];
+      } catch (err) {
+        packages = [rootPackage];
+      }
 
       auto.logger.verbose.info('Found packages:', packages);
 

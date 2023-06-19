@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 
-import { Auto, IPlugin, execPromise, getLernaPackages } from '@auto-it/core';
+import { Auto, IPlugin, LernaPackage, execPromise, getLernaPackages } from '@auto-it/core';
 
 export interface AddPackagesToReadmePluginOptions {
   commitMessage?: string;
@@ -25,7 +25,13 @@ export default class AddPackagesToReadmePlugin implements IPlugin {
 
   apply(auto: Auto): void {
     auto.hooks.afterVersion.tapPromise(this.name, async () => {
-      const packages = await getLernaPackages();
+      let packages: LernaPackage[];
+
+      try {
+        packages = await getLernaPackages();
+      } catch (err) {
+        packages = [];
+      }
 
       auto.logger.verbose.info('Found packages:', packages);
 
