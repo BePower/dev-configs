@@ -22,6 +22,7 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 | [![@bepower/eslint-plugin: 1.3.0](https://img.shields.io/badge/@bepower/eslint--plugin-1.3.0-brightgreen.svg)](packages/eslint-plugin) | `$ npm install --save-dev @bepower/eslint-plugin@1.3.0` |
 | [![@bepower/prettier-config: 1.3.0](https://img.shields.io/badge/@bepower/prettier--config-1.3.0-brightgreen.svg)](packages/prettier-config) | `$ npm install --save-dev @bepower/prettier-config@1.3.0` |
 <!-- prettier-ignore-end -->
+
 <!-- PACKAGES-TABLE:END -->
 
 ### Releasing
