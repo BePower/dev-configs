@@ -137,6 +137,7 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
       const gitChangedFiles = await execPromise('git', ['status', '--porcelain']);
 
       if (gitChangedFiles && changedFiles.some((changedFile) => changedFile)) {
+        await execPromise('git', ['add', 'README.md']);
         await execPromise('git', ['add', '**/README.md']);
         await execPromise('git', ['commit', '--no-verify', '-m', `"${this.commitMessage}"`]);
         auto.logger.verbose.warn('Committed updates to "README.md"');
