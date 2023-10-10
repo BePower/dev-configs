@@ -25,19 +25,19 @@
     "release": "auto shipit --verbose --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^10.46.0",
-    "@auto-it/conventional-commits": "^10.46.0",
-    "@auto-it/core": "^10.46.0",
-    "@auto-it/first-time-contributor": "^10.46.0",
-    "@bepower/auto-config": "^0.1.3",
-    "@bepower/eslint-plugin": "^1.1.0",
-    "@bepower/prettier-config": "^1.1.0",
+    "@auto-it/all-contributors": "^11.0.4",
+    "@auto-it/conventional-commits": "^11.0.4",
+    "@auto-it/core": "^11.0.4",
+    "@auto-it/first-time-contributor": "^11.0.4",
+    "@bepower/auto-config": "^1.0.0",
+    "@bepower/eslint-plugin": "^2.0.0",
+    "@bepower/prettier-config": "^2.0.0",
     "@tsconfig/recommended": "^1.0.3",
-    "auto": "^10.46.0",
-    "typescript": "^5.1.3"
+    "auto": "^11.0.4",
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "lerna": "6.6.2"
+    "lerna": "^7.1.4"
   },
   "workspaces": [
     "packages/auto-config",
