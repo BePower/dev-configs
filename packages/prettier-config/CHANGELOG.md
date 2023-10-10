@@ -1,3 +1,28 @@
+# v2.0.0 (Tue Oct 10 2023)
+
+#### 💥 Breaking Change
+
+- feat(prettier): :arrow_up: Upped deps ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- style(prettier): :rotating_light: Fixing whitespaces ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(prettier): :bug: Fixing test with `await` and `expect.assertions` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- build(prettier): :pushpin: Moving from `@tsconfig/node16` to `@tsconfig/recommended` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :bookmark: publish \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :memo: Update CHANGELOG.md \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf: :green_heart: Do not remove the `coverage` folder ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf: :fire: Removing compiled code ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v1.3.0 (Fri Jun 16 2023)
 
 #### 🐛 Bug Fix
