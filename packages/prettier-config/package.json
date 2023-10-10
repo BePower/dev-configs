@@ -9,7 +9,7 @@
     "directory": "packages/prettier-config"
   },
   "scripts": {
-    "test": "jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --runInBand"
   },
   "keywords": [
     "prettier"
@@ -22,15 +22,16 @@
   "homepage": "https://github.com/BePower/code-style#readme",
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.3",
-    "@types/jest": "^29.5.1",
-    "@types/node": "^20.2.3",
-    "jest": "^29.5.0",
-    "prettier": "^2.8.8",
-    "ts-jest": "^29.1.0",
-    "typescript": "^5.0.4"
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.4",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.3"
   },
   "jest": {
     "preset": "ts-jest",
