@@ -38,7 +38,7 @@ describe('prettier', () => {
       Object.entries(value).forEach(([testString, result]) => {
         test(testString, async () => {
           expect.assertions(1);
-          
+
           await expect(check(testString, config)).resolves.toBe(result);
         });
       });
