@@ -37,7 +37,9 @@ describe('prettier', () => {
     describe(rule, () => {
       Object.entries(value).forEach(([testString, result]) => {
         test(testString, async () => {
-          expect(check(testString, config)).resolves.toBe(result);
+          expect.assertions(1);
+          
+          await expect(check(testString, config)).resolves.toBe(result);
         });
       });
     });
