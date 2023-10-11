@@ -34,7 +34,7 @@ yargs(hideBin(process.argv))
   .option('ignore-file', {
     alias: 'i',
     type: 'boolean',
-    description: 'Initialize .eslingignore file too',
+    description: 'Initialize .eslintignore file too',
   })
   .help()
   .demandCommand(1)
