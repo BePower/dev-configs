@@ -29,9 +29,9 @@
     "@auto-it/conventional-commits": "^11.0.4",
     "@auto-it/core": "^11.0.4",
     "@auto-it/first-time-contributor": "^11.0.4",
-    "@bepower/auto-config": "^1.0.0",
-    "@bepower/eslint-plugin": "^2.0.0",
-    "@bepower/prettier-config": "^2.0.0",
+    "@bepower/auto-config": "^2.0.0",
+    "@bepower/eslint-plugin": "^3.0.0",
+    "@bepower/prettier-config": "^3.0.0",
     "@tsconfig/recommended": "^1.0.3",
     "auto": "^11.0.4",
     "typescript": "^5.2.2"
