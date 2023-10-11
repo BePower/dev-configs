@@ -16,7 +16,7 @@ yargs(hideBin(process.argv))
     () => {},
     (argv) => {
       const prettierrcPath = join(process.cwd(), '.prettierrc');
-      writeFileSync(prettierrcPath, prettierrcContent);
+      writeFileSync(prettierrcPath, JSON.stringify(prettierrcContent));
       process.stderr.write(`prettier configuration written to ${prettierrcPath}\n`);
 
       if (argv.ignoreFile) {
