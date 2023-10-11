@@ -1,3 +1,91 @@
+# (Wed Oct 11 2023)
+
+#### 💥 Breaking Change
+
+- `@bepower/prettier-config@3.0.0`
+  - feat(prettier): :arrow_up: Upped deps ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🚀 Enhancement
+
+- `@bepower/prettier-config@3.0.0`
+  - feat(prettier): :sparkles: Added the cli ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/eslint-plugin@3.0.0`
+  - feat(eslint): :sparkles: Adding the cli ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@2.0.0`
+  - feat(auto): :sparkles: Adding the `magic-zero` plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Adding `commitMessage` and `badgeTemplate` custom options ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Added the `add-coverage` feature ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :truck: Moving `regenerate-readme` into auto package ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- ci: :ambulance: Fixing the lerna spec ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :pushpin: Common dependencies ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :arrow_up: Upped internal CI/CD dependencies ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :wrench: Using `@tsconfig/recommended` instead of `@tsconfig/node16` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :loud_sound: Enabling verbose logs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :lipstick: Sorting the scopes ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix: :ambulance: Fixed the import of the renamed packages ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix(auto): :bug: Fixed the packages table tags ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- docs: :bug: Fixing the coverage badge style ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :mute: `auto` is no longer verbose ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Re-enabling the custom plugins ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Trying to fix the `package.json` bug ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :loud_sound: More verbose ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Adding the coverage plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :coffin: Removing root building ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :mute: Less logs for auto ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixed the readme table ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Moving auto config to ts ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Using the `@bepower/auto-config` package to deploy ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixing the repo path ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :zap: Fixed the order (and context) of the check command ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix: :memo: Fixed the install command of the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :construction_worker: Finalized the readme update ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :technologist: Better commit message ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/eslint-plugin@3.0.0`
+  - fix(eslint): :pencil2: Fixed typo in option description ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(eslint): :arrow_up: Upped dependencies ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/prettier-config@3.0.0`
+  - style(prettier): :rotating_light: Fixing whitespaces ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(prettier): :bug: Fixing test with `await` and `expect.assertions` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - build(prettier): :pushpin: Moving from `@tsconfig/node16` to `@tsconfig/recommended` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@2.0.0`
+  - fix(auto): :wrench: Using the proper tsconfig ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :arrow_up: Upped dependencies ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Adding also the root README.md ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :bug: Enabling plugins also for "non lerna" projects ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - docs(auto): :memo: Fixing start and end tags ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :sparkles: Exporting interfaces to have options typed ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :wrench: Moving to html comments for the tags ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :white_check_mark: Fixing the `readdirSync` mock ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :loud_sound: Adding more logs for each package debug ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :wrench: Adding the `commitMessage` custom option ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :recycle: Better tags and tests ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :truck: Renamed the `regenerate-readme` into `add-packages-to-readme` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - ci(auto): :alembic: Trying to force the rebuild of the readme file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - docs(auto): :memo: Adding the vocerage badge to the readme file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :bug: Trying to fix the "modified" bug moving the plugin order ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - docs(auto): :sparkles: Adding the new script to the documentation ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :bug: Fixing the hook change ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :bug: Changed the hook to `afterChangelog` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :white_check_mark: Adding the test for the `auto` plugin ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - ci: :bug: Moving to a js configuration ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :white_check_mark: Adding a test to compare ts and json config ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@2.0.0`, `@bepower/eslint-plugin@3.0.0`, `@bepower/prettier-config@3.0.0`
+  - perf: :green_heart: Do not remove the `coverage` folder ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf: :fire: Removing compiled code ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # (Tue Oct 10 2023)
 
 #### 💥 Breaking Change

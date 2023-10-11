@@ -1,3 +1,27 @@
+# v3.0.0 (Wed Oct 11 2023)
+
+#### 🚀 Enhancement
+
+- feat(eslint): :sparkles: Adding the cli ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- fix(eslint): :pencil2: Fixed typo in option description ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :bookmark: publish \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :memo: Update CHANGELOG.md \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf(eslint): :arrow_up: Upped dependencies ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf: :green_heart: Do not remove the `coverage` folder ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf: :fire: Removing compiled code ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :rotating_light: Linted everything ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style: :lipstick: Added prettier config for the whole repo ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v2.0.0 (Tue Oct 10 2023)
 
 #### 🐛 Bug Fix
