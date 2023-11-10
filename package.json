@@ -12,11 +12,6 @@
     "url": "https://github.com/BePower/code-style/issues"
   },
   "version": "2.0.3",
-  "main": ".eslintrc.js",
-  "files": [
-    "/.eslintrc.js",
-    "/.prettierrc.json"
-  ],
   "scripts": {
     "format": "prettier --write \"**/*.{ts,json,md,yml}\"",
     "lint": "eslint --fix . --ext .ts",
@@ -34,10 +29,8 @@
     "@bepower/prettier-config": "^3.0.0",
     "@tsconfig/recommended": "^1.0.3",
     "auto": "^11.0.4",
+    "lerna": "^7.4.2",
     "typescript": "^5.2.2"
-  },
-  "peerDependencies": {
-    "lerna": "^7.1.4"
   },
   "workspaces": [
     "packages/auto-config",
