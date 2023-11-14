@@ -25,11 +25,15 @@ jobs:
                 owner,
                 repo
               });
-              console.log(`latest release: ${JSON.stringify(latestRelease.data)}`);
+
+              console.log('latest release:', JSON.stringify(latestRelease.data.tag_name));
+
               execSync('git pull --tags');
               execSync(`git reset --hard ${latestRelease.data.tag_name}`);
+
               const status = execSync(`git diff --name-only origin/main`, { encoding: 'utf-8'});
-              console.log(status);
+              console.log('status:', status);
+
               const changes = status.split('\n');
               let nodePaths = new Set();
               for (const change of changes) {
