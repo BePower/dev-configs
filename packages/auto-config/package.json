@@ -24,7 +24,7 @@
     "@auto-it/first-time-contributor": "^11.0.4",
     "@auto-it/magic-zero": "^11.0.4",
     "auto": "^11.0.4",
-    "lerna": "^7.4.2"
+    "lerna": "^7.1.4"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.3",
