@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'mainnnn'
+  workflow_dispatch:
 
 jobs:
   validate-commits:
@@ -52,5 +53,5 @@ jobs:
       - name: Publish
         run: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
