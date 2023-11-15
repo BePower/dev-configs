@@ -49,6 +49,9 @@ jobs:
       - name: Linting
         run: npm run check
 
+      - name: Version bump check
+        run: npx auto version
+
       - name: Publish
         run: 'npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"'
         env:
