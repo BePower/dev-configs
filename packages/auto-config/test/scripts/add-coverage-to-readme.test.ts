@@ -94,7 +94,9 @@ describe('Add coverage to Readme Plugin', () => {
         '',
         '',
         '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+        '',
         '![coverage: 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)',
+        '',
         '<!-- COVERAGE-BADGE:END -->',
       ].join('\n');
 
@@ -179,7 +181,9 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '',
           `![coverage: ${perc}%](https://img.shields.io/badge/coverage-${perc}%25-${color}.svg)`,
+          '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
@@ -261,7 +265,9 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '',
           '![coverage: 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)',
+          '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
@@ -272,7 +278,9 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '',
           '![coverage: 87%](https://img.shields.io/badge/coverage-87%25-yellow.svg)',
+          '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
@@ -338,7 +346,9 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '',
           `BADGE PERC 100 COLOR brightgreen`,
+          '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
@@ -402,7 +412,9 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '',
           '![coverage: 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)',
+          '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
@@ -466,7 +478,9 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '',
           '![coverage: 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)',
+          '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );

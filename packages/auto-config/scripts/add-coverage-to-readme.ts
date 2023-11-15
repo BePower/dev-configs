@@ -123,9 +123,9 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
           [
             firstPart,
             AddCoverageToReadmePlugin.START_TAG,
-            '\n',
+            '\n\n',
             badgeString,
-            '\n',
+            '\n\n',
             AddCoverageToReadmePlugin.END_TAG,
             lastPart,
           ].join(''),
