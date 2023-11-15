@@ -1,3 +1,18 @@
+# v10.0.1 (Wed Nov 15 2023)
+
+#### 🐛 Bug Fix
+
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix(auto): :bug: Fixing the new lines in the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :memo: Update README.md to add coverage \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Update contributors \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v10.0.0 (Tue Nov 14 2023)
 
 #### 🚀 Enhancement
