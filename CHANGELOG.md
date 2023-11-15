@@ -1,3 +1,15 @@
+# (Wed Nov 15 2023)
+
+#### 🐛 Bug Fix
+
+- ci: :alembic: Adding the test lerna workflow ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # (Tue Nov 14 2023)
 
 :tada: This release contains work from a new contributor! :tada:
