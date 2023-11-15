@@ -3,8 +3,7 @@ name: NPM Package
 on:
   push:
     branches:
-      - 'mainnnn'
-  workflow_dispatch:
+      - 'main'
 
 jobs:
   validate-commits:
