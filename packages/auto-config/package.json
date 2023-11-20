@@ -3,10 +3,11 @@
   "version": "10.0.2",
   "description": "Common configuration and dependencies for npm deploy via auto package",
   "main": "./auto.config.js",
+  "bin": "./src/cli.js",
   "scripts": {
     "prebuild": "rimraf scripts/*.js ./*.js",
     "build": "tsc",
-    "pretest": "npm run prebuild",
+    "pretest": "npm run build",
     "test": "jest"
   },
   "keywords": [
@@ -24,7 +25,8 @@
     "@auto-it/first-time-contributor": "^11.0.4",
     "@auto-it/magic-zero": "^11.0.4",
     "auto": "^11.0.4",
-    "lerna": "^7.1.4"
+    "lerna": "^7.1.4",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.3",

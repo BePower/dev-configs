@@ -1,0 +1,9 @@
+{
+  "rules": {
+      "node/shebang": ["error", {
+          "convertPath": {
+              "src/**/*.ts": ["^src/(.+?)\\.ts$", "src/$1.js"]
+          }
+      }]
+  }
+}
