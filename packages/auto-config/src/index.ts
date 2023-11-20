@@ -1,6 +1,9 @@
 import { ConventionalCommitsOptions } from '@auto-it/conventional-commits';
 import { AutoRc } from 'auto';
 
+export * from './scripts/add-coverage-to-readme';
+export * from './scripts/add-packages-to-readme';
+
 const conventionalCommitsOptions: ConventionalCommitsOptions = {
   preset: 'angular',
 };

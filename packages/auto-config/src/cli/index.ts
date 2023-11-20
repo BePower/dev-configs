@@ -1,5 +1,5 @@
 import yargs from 'yargs';
 
-import config
+import * as configInit from './config/init';
 
-yargs.
+export const parser = yargs.command(configInit).help();

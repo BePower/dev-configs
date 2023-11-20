@@ -5,7 +5,7 @@ import Auto, { SEMVER } from '@auto-it/core';
 import { dummyLog } from '@auto-it/core/dist/utils/logger';
 import { makeHooks } from '@auto-it/core/dist/utils/make-hooks';
 
-import AddCoverageToReadme, { CoverageSummary } from '../../scripts/add-coverage-to-readme';
+import AddCoverageToReadme, { CoverageSummary } from '../../src/scripts/add-coverage-to-readme';
 
 const existsMock = jest.fn();
 const writeMock = jest.fn();

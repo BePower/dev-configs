@@ -2,12 +2,12 @@
   "name": "@bepower/auto-config",
   "version": "10.0.2",
   "description": "Common configuration and dependencies for npm deploy via auto package",
-  "main": "./auto.config.js",
-  "bin": "./src/cli.js",
+  "main": "./dist/index.js",
+  "bin": "./dist/cli.js",
   "scripts": {
     "prebuild": "rimraf scripts/*.js ./*.js",
     "build": "tsc",
-    "pretest": "npm run build",
+    "pretestt": "npm run build",
     "test": "jest"
   },
   "keywords": [

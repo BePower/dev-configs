@@ -4,7 +4,7 @@ import Auto from '@auto-it/core';
 import { dummyLog } from '@auto-it/core/dist/utils/logger';
 import { makeHooks } from '@auto-it/core/dist/utils/make-hooks';
 
-import AddPackagesToReadmePlugin from '../../scripts/add-packages-to-readme';
+import AddPackagesToReadmePlugin from '../../src/scripts/add-packages-to-readme';
 
 const writeMock = jest.fn();
 const gitShow = jest.fn();
