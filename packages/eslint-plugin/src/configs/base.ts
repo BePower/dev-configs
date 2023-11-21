@@ -1,5 +1,5 @@
-import type { configs } from '@typescript-eslint/eslint-plugin';
+import { ESLint } from 'eslint';
 
-export const base: (typeof configs)[string] = {
+export const base: ESLint.ConfigData = {
   plugins: ['@bepower'],
 };

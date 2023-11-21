@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import type { configs } from '@typescript-eslint/eslint-plugin';
+import { ESLint } from 'eslint';
 
-export const cdk: (typeof configs)[string] = {
+export const cdk: ESLint.ConfigData = {
   extends: ['plugin:@bepower/node'],
   rules: {
     'no-new': 'off',

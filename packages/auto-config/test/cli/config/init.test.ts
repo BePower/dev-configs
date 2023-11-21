@@ -81,7 +81,7 @@ describe('cli -> config -> init', () => {
       });
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(__dirname, '..', '..', '..', '.autorc.js'),
+        join(process.cwd(), '.autorc.js'),
         [
           "const base = require('@bepower/auto-config').default;",
           '',
@@ -117,7 +117,7 @@ describe('cli -> config -> init', () => {
       });
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(__dirname, '..', '..', '..', '.autorc.js'),
+        join(process.cwd(), '.autorc.js'),
         [
           "const base = require('@bepower/auto-config').default;",
           '',
@@ -165,7 +165,7 @@ describe('cli -> config -> init', () => {
       });
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(__dirname, '..', '..', '..', '.autorc.js'),
+        join(process.cwd(), '.autorc.js'),
         [
           "const base = require('@bepower/auto-config').default;",
           '',
@@ -209,7 +209,7 @@ describe('cli -> config -> init', () => {
       });
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(__dirname, '..', '..', '..', '.autorc.js'),
+        join(process.cwd(), '.autorc.js'),
         [
           "const base = require('@bepower/auto-config').default;",
           '',
@@ -262,7 +262,7 @@ describe('cli -> config -> init', () => {
 
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(__dirname, '..', '..', '..', 'package.json'),
+        join(process.cwd(), 'package.json'),
         JSON.stringify(
           {
             scripts: {
@@ -285,7 +285,7 @@ describe('cli -> config -> init', () => {
 
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(__dirname, '..', '..', '..', 'package.json'),
+        join(process.cwd(), 'package.json'),
         JSON.stringify(
           {
             foo: 'bar',
@@ -333,7 +333,7 @@ describe('cli -> config -> init', () => {
 
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(__dirname, '..', '..', '..', 'package.json'),
+        join(process.cwd(), 'package.json'),
         JSON.stringify(
           {
             scripts: {

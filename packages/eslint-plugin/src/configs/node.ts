@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import type { configs } from '@typescript-eslint/eslint-plugin';
+import { ESLint } from 'eslint';
 
-export const node: (typeof configs)[string] = {
+export const node: ESLint.ConfigData = {
   extends: [
     'plugin:@bepower/base',
     'plugin:@shopify/typescript',

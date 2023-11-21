@@ -25,6 +25,15 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
 
   static readonly END_TAG = '<!-- COVERAGE-BADGE:END -->';
 
+  static readonly COLOR_PERCENTAGES: {color: string, perc: number}[] = [
+    { perc:99, color:'brightgreen' },
+    { perc:95, color:'green' },
+    { perc:90, color:'yellowgreen' },
+    { perc:80, color:'yellow' },
+    { perc:60, color:'orange' },
+    { perc:-1, color:'red' },
+  ];
+
   name = 'add-coverage-to-readme';
   private readonly badgeTemplate: string;
   private readonly commitMessage: string;
@@ -57,46 +66,30 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
       const coverageJsonName = 'coverage-summary.json';
       const readmeFileName = 'README.md';
 
-      const filteredPackages = packages.filter(({ path }) => {
-        auto.logger.verbose.debug('Package path:', path);
-        auto.logger.verbose.debug('Package dir:', readdirSync(path));
-
-        return existsSync(join(path, coverageFolderName, coverageJsonName));
-      });
-
-      auto.logger.verbose.info('Filtered packages:', filteredPackages);
-
-      const changedFiles = filteredPackages.map(({ name, path }): boolean => {
+      const changedFiles = packages.map(({ name, path }): boolean => {
         auto.logger.verbose.start(`Package: ${name}`);
 
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const coverage: CoverageSummary = require(join(path, coverageFolderName, coverageJsonName));
-        const coverageTotals = Object.values(coverage.total).reduce(
-          (sum, what) => {
-            sum.total += what.total;
-            sum.covered += what.covered;
+        const coverageTotals = Object.entries(coverage)
+          .filter(([key]) => key !== 'totals')
+          .filter(([key]) => key.startsWith(path))
+          .reduce(
+            (sum, [_, file]) => {
+              Object.values(file).reduce((innerSum, what) => {
+                innerSum.total += what.total;
+                innerSum.covered += what.covered;
 
-            return sum;
-          },
-          { total: 0, covered: 0 },
-        );
+                return innerSum;
+              }, sum);
+              return sum;
+            },
+            { total: 0, covered: 0 },
+          );
         auto.logger.verbose.debug('CoverageTotals', coverageTotals);
 
         const coveragePerc = Math.round((coverageTotals.covered / coverageTotals.total) * 100);
-        let coverageColor;
-        if (coveragePerc > 99) {
-          coverageColor = 'brightgreen';
-        } else if (coveragePerc > 95) {
-          coverageColor = 'green';
-        } else if (coveragePerc > 90) {
-          coverageColor = 'yellowgreen';
-        } else if (coveragePerc > 80) {
-          coverageColor = 'yellow';
-        } else if (coveragePerc > 60) {
-          coverageColor = 'orange';
-        } else {
-          coverageColor = 'red';
-        }
+        const coverageColor = AddCoverageToReadmePlugin.COLOR_PERCENTAGES.find(({perc}) => coveragePerc > perc)!.color;
         const readmePath = join(path, readmeFileName);
         const readme = readFileSync(readmePath, 'utf8');
 

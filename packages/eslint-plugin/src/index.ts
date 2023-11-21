@@ -1,11 +1,8 @@
-import type { configs as Configs, rules as Rules } from '@typescript-eslint/eslint-plugin';
+import { ESLint } from 'eslint';
 
 import * as configs from './configs';
 
-const config: {
-  configs: typeof Configs;
-  rules: typeof Rules;
-} = {
+const config: ESLint.Plugin = {
   configs,
   rules: {},
 };
