@@ -1,3 +1,35 @@
+# (Wed Nov 22 2023)
+
+#### 🚀 Enhancement
+
+- `@bepower/auto-config@10.1.0`
+  - feat(auto): :sparkles: Adding the pre-version part to fix issues ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Finalized some tests + refactored the structure ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Adding a testable cli ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- ci: :ambulance: Building and testing all in one ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :ambulance: Adding prebuild to the tests ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix: :ambulance: Fixed the eslint tsconfig ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :ambulance: Adding the tokens to the version step ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Checking version bump ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixing the main branch and removing the push to action ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Adding the test lerna workflow ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@10.1.0`
+  - style(auto): :rotating_light: Fixed linter errors ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Fixes in the exports and readme generation ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Fixes to the new coverage script ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Fixing the new lines in the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # (Wed Nov 15 2023)
 
 #### 🐛 Bug Fix

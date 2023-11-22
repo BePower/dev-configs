@@ -1,3 +1,15 @@
+# v5.1.0 (Wed Nov 22 2023)
+
+#### 🚀 Enhancement
+
+- feat: :sparkles: Adding more cli tests, refactored a bit [wip] \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v5.0.0 (Tue Nov 14 2023)
 
 #### 💥 Breaking Change
