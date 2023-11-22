@@ -34,7 +34,7 @@ A collection of `auto` config and scripts to ease package deployment
 
 Regenerates the `README.md` file in every package to add the coverage badge, if present.
 
-To mark the badge you have to add `<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->` and `<!-- COVERAGE-BADGE:END -->`.
+To mark the badge you have to add `<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->` and ``.
 
 ### `scripts/add-packages-to-readme.js`
 
