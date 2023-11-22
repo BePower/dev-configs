@@ -4,6 +4,9 @@ import { AutoRc } from 'auto';
 export * from './scripts/add-coverage-to-readme';
 export * from './scripts/add-packages-to-readme';
 
+export const coverage = require.resolve('./scripts/add-coverage-to-readme');
+export const packages = require.resolve('./scripts/add-packages-to-readme');
+
 const conventionalCommitsOptions: ConventionalCommitsOptions = {
   preset: 'angular',
 };

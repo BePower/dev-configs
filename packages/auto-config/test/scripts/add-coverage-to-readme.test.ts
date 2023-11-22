@@ -546,4 +546,64 @@ describe('Add coverage to Readme Plugin', () => {
       expect(gitShow).not.toHaveBeenCalledWith('git', ['add', '**/README.md']);
     });
   });
+
+  describe('duplicated tags', () => {
+    test('should substitute only the first occurence', async () => {
+      const addCoverageToReadme = new AddCoverageToReadme();
+      const autoHooks = makeHooks();
+
+      mockRead.mockReturnValueOnce(
+        [
+          '# Title',
+          '',
+          '',
+          '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '<!-- COVERAGE-BADGE:END -->',
+          '<!-- COVERAGE-BADGE:START - Do not remove or modify this section --><!-- COVERAGE-BADGE:END -->',
+        ].join('\n'),
+      );
+      gitShow.mockReturnValueOnce('README.md');
+
+      mockRootCoverage.mockReturnValueOnce(coverageSummary);
+
+      addCoverageToReadme.apply({
+        hooks: autoHooks,
+        logger: dummyLog(),
+      } as Auto);
+
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
+
+      expect(mockRootCoverage).toHaveBeenCalled();
+
+      expect(mockWrite).toHaveBeenCalledWith(
+        join(process.cwd(), 'README.md'),
+        [
+          '# Title',
+          '',
+          '',
+          '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
+          '',
+          '![coverage: 99%](https://img.shields.io/badge/coverage-99%25-green.svg)',
+          '',
+          '<!-- COVERAGE-BADGE:END -->',
+          '<!-- COVERAGE-BADGE:START - Do not remove or modify this section --><!-- COVERAGE-BADGE:END -->',
+        ].join('\n'),
+      );
+
+      expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
+      expect(gitShow).toHaveBeenCalledWith('git', ['add', '**/README.md']);
+      expect(gitShow).toHaveBeenCalledWith('git', [
+        'commit',
+        '--no-verify',
+        '-m',
+        '"ci: :memo: Update README.md to add coverage [skip ci]"',
+      ]);
+    });
+  });
 });

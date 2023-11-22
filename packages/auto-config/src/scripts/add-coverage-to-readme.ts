@@ -107,7 +107,7 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
         }
 
         const [firstPart] = readme.split(AddCoverageToReadmePlugin.START_TAG);
-        const [, lastPart] = readme.split(AddCoverageToReadmePlugin.END_TAG);
+        const [, lastPart, ...otherParts] = readme.split(AddCoverageToReadmePlugin.END_TAG);
 
         const badgeString = this.badgeTemplate
           .replace(/{PERC}/g, coveragePerc.toString())
@@ -115,18 +115,21 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
 
         auto.logger.verbose.info('Badge string:', badgeString);
 
-        writeFileSync(
-          readmePath,
-          [
-            firstPart,
-            AddCoverageToReadmePlugin.START_TAG,
-            '\n\n',
-            badgeString,
-            '\n\n',
-            AddCoverageToReadmePlugin.END_TAG,
-            lastPart,
-          ].join(''),
-        );
+        const contentArr = [
+          firstPart,
+          AddCoverageToReadmePlugin.START_TAG,
+          '\n\n',
+          badgeString,
+          '\n\n',
+          AddCoverageToReadmePlugin.END_TAG,
+          lastPart,
+          otherParts.join(AddCoverageToReadmePlugin.END_TAG),
+        ];
+        if (otherParts.length > 0 && readme.endsWith(AddCoverageToReadmePlugin.END_TAG)) {
+          contentArr.push(AddCoverageToReadmePlugin.END_TAG);
+        }
+
+        writeFileSync(readmePath, contentArr.join(''));
 
         return true;
       });

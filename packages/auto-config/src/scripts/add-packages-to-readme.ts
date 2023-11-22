@@ -49,7 +49,7 @@ export default class AddPackagesToReadmePlugin implements IPlugin {
       }
 
       const [firstPart] = readme.split(AddPackagesToReadmePlugin.START_TAG);
-      const [, lastPart] = readme.split(AddPackagesToReadmePlugin.END_TAG);
+      const [, lastPart, ...otherParts] = readme.split(AddPackagesToReadmePlugin.END_TAG);
 
       const rows = ['| Package | Install command |', '| --- | --- |'];
       rows.push(
@@ -70,22 +70,24 @@ export default class AddPackagesToReadmePlugin implements IPlugin {
       const rowsString = rows.join('\n');
       auto.logger.verbose.info('Packages table:', rowsString);
 
-      writeFileSync(
-        readmePath,
-        [
-          firstPart,
-          AddPackagesToReadmePlugin.START_TAG,
-          '\n',
-          '<!-- prettier-ignore-start -->',
-          '\n',
-          rowsString,
-          '\n',
-          '<!-- prettier-ignore-end -->',
-          '\n',
-          AddPackagesToReadmePlugin.END_TAG,
-          lastPart,
-        ].join(''),
-      );
+      const contentArr = [
+        firstPart,
+        AddPackagesToReadmePlugin.START_TAG,
+        '\n',
+        '<!-- prettier-ignore-start -->',
+        '\n',
+        rowsString,
+        '\n',
+        '<!-- prettier-ignore-end -->',
+        '\n',
+        AddPackagesToReadmePlugin.END_TAG,
+        lastPart,
+      ];
+      if (otherParts.length > 0 && readme.endsWith(AddPackagesToReadmePlugin.END_TAG)) {
+        contentArr.push(AddPackagesToReadmePlugin.END_TAG);
+      }
+
+      writeFileSync(readmePath, contentArr.join(''));
 
       const changedFiles = await execPromise('git', ['status', '--porcelain']);
 

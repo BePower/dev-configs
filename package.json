@@ -16,7 +16,7 @@
     "format": "prettier --write \"**/*.{ts,json,md,yml}\"",
     "lint": "eslint --fix . --ext .ts",
     "check": "npm run format && npm run lint",
-    "build": "tsc",
+    "build": "tsc --build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "devDependencies": {
@@ -24,9 +24,9 @@
     "@auto-it/conventional-commits": "^11.0.4",
     "@auto-it/core": "^11.0.4",
     "@auto-it/first-time-contributor": "^11.0.4",
-    "@bepower/auto-config": "^2.0.0",
-    "@bepower/eslint-plugin": "^3.0.0",
-    "@bepower/prettier-config": "^3.0.0",
+    "@bepower/auto-config": "^10.0.2",
+    "@bepower/eslint-plugin": "^4.0.0",
+    "@bepower/prettier-config": "^5.0.0",
     "@tsconfig/recommended": "^1.0.3",
     "@types/eslint": "^8.44.7",
     "@types/jest": "^29.5.9",

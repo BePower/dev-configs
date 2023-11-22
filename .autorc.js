@@ -1,8 +1,5 @@
-const base = require('@bepower/auto-config').default;
+const { default: base, coverage, packages } = require('@bepower/auto-config');
 
-const packages = require.resolve('@bepower/auto-config/scripts/add-packages-to-readme');
-
-const coverage = require.resolve('@bepower/auto-config/scripts/add-coverage-to-readme');
 /**
  * @type {import('@bepower/auto-config/scripts/add-coverage-to-readme').AddCoverageToReadmePluginOptions}
  */
