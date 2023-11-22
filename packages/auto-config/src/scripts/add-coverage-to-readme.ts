@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 import { Auto, IPlugin, LernaPackage, execPromise, getLernaPackages } from '@auto-it/core';
@@ -25,13 +25,13 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
 
   static readonly END_TAG = '<!-- COVERAGE-BADGE:END -->';
 
-  static readonly COLOR_PERCENTAGES: {color: string, perc: number}[] = [
-    { perc:99, color:'brightgreen' },
-    { perc:95, color:'green' },
-    { perc:90, color:'yellowgreen' },
-    { perc:80, color:'yellow' },
-    { perc:60, color:'orange' },
-    { perc:-1, color:'red' },
+  static readonly COLOR_PERCENTAGES: { color: string; perc: number }[] = [
+    { perc: 99, color: 'brightgreen' },
+    { perc: 95, color: 'green' },
+    { perc: 90, color: 'yellowgreen' },
+    { perc: 80, color: 'yellow' },
+    { perc: 60, color: 'orange' },
+    { perc: -1, color: 'red' },
   ];
 
   name = 'add-coverage-to-readme';
@@ -64,13 +64,15 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
 
       const coverageFolderName = 'coverage';
       const coverageJsonName = 'coverage-summary.json';
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const coverage: CoverageSummary = require(
+        join(process.cwd(), coverageFolderName, coverageJsonName),
+      );
       const readmeFileName = 'README.md';
 
       const changedFiles = packages.map(({ name, path }): boolean => {
         auto.logger.verbose.start(`Package: ${name}`);
 
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        const coverage: CoverageSummary = require(join(path, coverageFolderName, coverageJsonName));
         const coverageTotals = Object.entries(coverage)
           .filter(([key]) => key !== 'totals')
           .filter(([key]) => key.startsWith(path))
@@ -89,7 +91,9 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
         auto.logger.verbose.debug('CoverageTotals', coverageTotals);
 
         const coveragePerc = Math.round((coverageTotals.covered / coverageTotals.total) * 100);
-        const coverageColor = AddCoverageToReadmePlugin.COLOR_PERCENTAGES.find(({perc}) => coveragePerc > perc)!.color;
+        const coverageColor = AddCoverageToReadmePlugin.COLOR_PERCENTAGES.find(
+          ({ perc }) => coveragePerc > perc,
+        )!.color;
         const readmePath = join(path, readmeFileName);
         const readme = readFileSync(readmePath, 'utf8');
 

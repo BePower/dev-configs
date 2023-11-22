@@ -31,7 +31,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/auto-config/src/index.ts": {
+  "/workspaces/dev-configs/packages/auto-config/src/index.ts": {
       "lines": {
           "total": 5,
           "covered": 5,
@@ -57,7 +57,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/auto-config/src/cli/index.ts": {
+  "/workspaces/dev-configs/packages/auto-config/src/cli/index.ts": {
       "lines": {
           "total": 3,
           "covered": 3,
@@ -83,7 +83,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/auto-config/src/cli/config/init.ts": {
+  "/workspaces/dev-configs/packages/auto-config/src/cli/config/init.ts": {
       "lines": {
           "total": 35,
           "covered": 35,
@@ -109,7 +109,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/auto-config/src/scripts/add-coverage-to-readme.ts": {
+  "/workspaces/dev-configs/packages/auto-config/src/scripts/add-coverage-to-readme.ts": {
       "lines": {
           "total": 62,
           "covered": 61,
@@ -135,7 +135,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/auto-config/src/scripts/add-packages-to-readme.ts": {
+  "/workspaces/dev-configs/packages/auto-config/src/scripts/add-packages-to-readme.ts": {
       "lines": {
           "total": 34,
           "covered": 33,
@@ -161,7 +161,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/eslint-plugin/src/index.ts": {
+  "/workspaces/dev-configs/packages/eslint-plugin/src/index.ts": {
       "lines": {
           "total": 3,
           "covered": 3,
@@ -187,7 +187,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/eslint-plugin/src/cli/index.ts": {
+  "/workspaces/dev-configs/packages/eslint-plugin/src/cli/index.ts": {
       "lines": {
           "total": 3,
           "covered": 3,
@@ -213,7 +213,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/eslint-plugin/src/cli/config/init.ts": {
+  "/workspaces/dev-configs/packages/eslint-plugin/src/cli/config/init.ts": {
       "lines": {
           "total": 15,
           "covered": 15,
@@ -239,7 +239,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/eslint-plugin/src/configs/base.ts": {
+  "/workspaces/dev-configs/packages/eslint-plugin/src/configs/base.ts": {
       "lines": {
           "total": 1,
           "covered": 1,
@@ -265,7 +265,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/eslint-plugin/src/configs/cdk.ts": {
+  "/workspaces/dev-configs/packages/eslint-plugin/src/configs/cdk.ts": {
       "lines": {
           "total": 1,
           "covered": 1,
@@ -291,59 +291,7 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/eslint-plugin/src/configs/index.ts": {
-      "lines": {
-          "total": 3,
-          "covered": 3,
-          "skipped": 0,
-          "pct": 100
-      },
-      "functions": {
-          "total": 0,
-          "covered": 0,
-          "skipped": 0,
-          "pct": 100
-      },
-      "statements": {
-          "total": 3,
-          "covered": 3,
-          "skipped": 0,
-          "pct": 100
-      },
-      "branches": {
-          "total": 0,
-          "covered": 0,
-          "skipped": 0,
-          "pct": 100
-      }
-  },
-  "/workspace/dev-configs/packages/eslint-plugin/src/configs/node.ts": {
-      "lines": {
-          "total": 1,
-          "covered": 1,
-          "skipped": 0,
-          "pct": 100
-      },
-      "functions": {
-          "total": 0,
-          "covered": 0,
-          "skipped": 0,
-          "pct": 100
-      },
-      "statements": {
-          "total": 1,
-          "covered": 1,
-          "skipped": 0,
-          "pct": 100
-      },
-      "branches": {
-          "total": 0,
-          "covered": 0,
-          "skipped": 0,
-          "pct": 100
-      }
-  },
-  "/workspace/dev-configs/packages/prettier-config/src/cli/index.ts": {
+  "/workspaces/dev-configs/packages/eslint-plugin/src/configs/index.ts": {
       "lines": {
           "total": 3,
           "covered": 3,
@@ -369,7 +317,59 @@
           "pct": 100
       }
   },
-  "/workspace/dev-configs/packages/prettier-config/src/cli/config/init.ts": {
+  "/workspaces/dev-configs/packages/eslint-plugin/src/configs/node.ts": {
+      "lines": {
+          "total": 1,
+          "covered": 1,
+          "skipped": 0,
+          "pct": 100
+      },
+      "functions": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": 100
+      },
+      "statements": {
+          "total": 1,
+          "covered": 1,
+          "skipped": 0,
+          "pct": 100
+      },
+      "branches": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": 100
+      }
+  },
+  "/workspaces/dev-configs/packages/prettier-config/src/cli/index.ts": {
+      "lines": {
+          "total": 3,
+          "covered": 3,
+          "skipped": 0,
+          "pct": 100
+      },
+      "functions": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": 100
+      },
+      "statements": {
+          "total": 3,
+          "covered": 3,
+          "skipped": 0,
+          "pct": 100
+      },
+      "branches": {
+          "total": 0,
+          "covered": 0,
+          "skipped": 0,
+          "pct": 100
+      }
+  },
+  "/workspaces/dev-configs/packages/prettier-config/src/cli/config/init.ts": {
       "lines": {
           "total": 15,
           "covered": 15,

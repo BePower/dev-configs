@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { join } from 'path';
+import { delimiter, join } from 'path';
 
 import Auto, { SEMVER } from '@auto-it/core';
 import { dummyLog } from '@auto-it/core/dist/utils/logger';
@@ -10,7 +10,15 @@ import AddCoverageToReadme, { CoverageSummary } from '../../src/scripts/add-cove
 const gitShow = jest.fn();
 const getLernaPackages = jest.fn();
 
-const coverageSummary: CoverageSummary = JSON.parse(fs.readFileSync(join(__dirname, 'fixtures', 'coverage-summary.json'), 'utf8'));
+const coverageSummarySource: CoverageSummary = JSON.parse(
+  fs.readFileSync(join(__dirname, 'fixtures', 'coverage-summary.json'), 'utf8'),
+);
+const coverageSummary: CoverageSummary = Object.fromEntries(
+  Object.entries(coverageSummarySource).map(([key, value]) => [
+    key.replace('/workspaces/dev-configs', process.cwd()).replace('///g', delimiter),
+    value,
+  ]),
+);
 
 getLernaPackages.mockReturnValue(Promise.resolve([]));
 
@@ -29,21 +37,21 @@ jest.mock(
 
 describe('Add coverage to Readme Plugin', () => {
   let mockRead: jest.SpyInstance;
-  let mockExists: jest.SpyInstance;
   let mockWrite: jest.SpyInstance;
-  let mockReaddir: jest.SpyInstance;
 
   const mockRootCoverage = jest.fn();
 
   beforeEach(() => {
-    jest.mock<CoverageSummary>(join(process.cwd(), 'coverage', 'coverage-summary.json'), () => mockRootCoverage(), {
-      virtual: true,
-    });
+    jest.mock<CoverageSummary>(
+      join(process.cwd(), 'coverage', 'coverage-summary.json'),
+      () => mockRootCoverage(),
+      {
+        virtual: true,
+      },
+    );
 
     mockRead = jest.spyOn(fs, 'readFileSync');
-    mockWrite = jest.spyOn(fs, 'writeFileSync');
-    mockExists = jest.spyOn(fs, 'existsSync');
-    mockReaddir = jest.spyOn(fs, 'readdirSync');
+    mockWrite = jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
   });
 
   afterEach(() => {
@@ -68,7 +76,6 @@ describe('Add coverage to Readme Plugin', () => {
       ].join('\n');
 
       mockRead.mockReturnValueOnce(readme);
-      mockExists.mockReturnValueOnce(true);
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
 
       addCoverageToReadme.apply({
@@ -84,7 +91,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledTimes(1);
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(gitShow).toHaveBeenCalledTimes(1);
@@ -111,11 +117,36 @@ describe('Add coverage to Readme Plugin', () => {
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
-      mockExists.mockReturnValueOnce(true);
       gitShow.mockReturnValueOnce('README.md');
 
-      const coverageSummaryEdit: CoverageSummary = JSON.parse(JSON.stringify(coverageSummary));
-      coverageSummaryEdit.total.lines.total = total;
+      const coverageSummaryEdit: CoverageSummary = {
+        [`${process.cwd()}${delimiter}index.ts`]: {
+          branches: {
+            covered: 0,
+            pct: 100,
+            skipped: 0,
+            total: 0,
+          },
+          functions: {
+            covered: 0,
+            pct: 100,
+            skipped: 0,
+            total: 0,
+          },
+          lines: {
+            covered: Math.round((total / 100) * perc),
+            pct: perc,
+            skipped: 0,
+            total,
+          },
+          statements: {
+            covered: 0,
+            pct: 100,
+            skipped: 0,
+            total: 0,
+          },
+        },
+      };
       mockRootCoverage.mockReturnValueOnce(coverageSummaryEdit);
 
       addCoverageToReadme.apply({
@@ -131,12 +162,9 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledWith(
-        join(process.cwd(), 'coverage', 'coverage-summary.json'),
-      );
       expect(mockRootCoverage).toHaveBeenCalled();
 
-      expect(mockExists).toHaveBeenCalledWith(
+      expect(mockWrite).toHaveBeenCalledWith(
         join(process.cwd(), 'README.md'),
         [
           '# Title',
@@ -182,21 +210,19 @@ describe('Add coverage to Readme Plugin', () => {
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
-      mockExists.mockReturnValueOnce(true);
-      mockExists.mockReturnValueOnce(true);
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
 
       getLernaPackages.mockReturnValueOnce(
         Promise.resolve([
           {
-            path: join(process.cwd(), 'packages/app'),
-            name: '@bepower/app',
+            path: join(process.cwd(), 'packages/eslint-plugin'),
+            name: '@bepower/eslint-plugin',
             version: '1.2.3',
           },
         ]),
       );
 
-      gitShow.mockReturnValueOnce('README.md packages/app/README.md');
+      gitShow.mockReturnValueOnce('README.md packages/eslint-plugin/README.md');
 
       addCoverageToReadme.apply({
         hooks: autoHooks,
@@ -211,12 +237,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledWith(
-        join(process.cwd(), 'coverage', 'coverage-summary.json'),
-      );
-      expect(mockExists).toHaveBeenCalledWith(
-        join(process.cwd(), 'packages', 'app', 'coverage', 'coverage-summary.json'),
-      );
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(mockWrite).toHaveBeenCalledWith(
@@ -227,20 +247,20 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
           '',
-          '![coverage: 99%](https://img.shields.io/badge/coverage-100%25-green.svg)',
+          '![coverage: 99%](https://img.shields.io/badge/coverage-99%25-green.svg)',
           '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
       expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), 'packages', 'app', 'README.md'),
+        join(process.cwd(), 'packages', 'eslint-plugin', 'README.md'),
         [
           '# Title',
           '',
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
           '',
-          '![coverage: 87%](https://img.shields.io/badge/coverage-87%25-yellow.svg)',
+          '![coverage: 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)',
           '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
@@ -273,7 +293,6 @@ describe('Add coverage to Readme Plugin', () => {
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
-      mockExists.mockReturnValueOnce(true);
       gitShow.mockReturnValueOnce('README.md');
 
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
@@ -291,12 +310,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledWith(
-        join(process.cwd(), 'coverage', 'coverage-summary.json'),
-      );
-      expect(mockExists).not.toHaveBeenCalledWith(
-        join(process.cwd(), 'packages', 'app', 'coverage', 'coverage-summary.json'),
-      );
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(mockWrite).toHaveBeenCalledWith(
@@ -338,7 +351,6 @@ describe('Add coverage to Readme Plugin', () => {
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
-      mockExists.mockReturnValueOnce(true);
       gitShow.mockReturnValueOnce('README.md');
 
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
@@ -356,12 +368,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledWith(
-        join(process.cwd(), 'coverage', 'coverage-summary.json'),
-      );
-      expect(mockExists).not.toHaveBeenCalledWith(
-        join(process.cwd(), 'packages', 'app', 'coverage', 'coverage-summary.json'),
-      );
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(mockWrite).toHaveBeenCalledWith(
@@ -403,7 +409,6 @@ describe('Add coverage to Readme Plugin', () => {
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
       );
-      mockExists.mockReturnValueOnce(true);
       gitShow.mockReturnValueOnce('README.md');
 
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
@@ -421,12 +426,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledWith(
-        join(process.cwd(), 'coverage', 'coverage-summary.json'),
-      );
-      expect(mockExists).not.toHaveBeenCalledWith(
-        join(process.cwd(), 'packages', 'app', 'coverage', 'coverage-summary.json'),
-      );
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(mockWrite).toHaveBeenCalledWith(
@@ -437,7 +436,7 @@ describe('Add coverage to Readme Plugin', () => {
           '',
           '<!-- COVERAGE-BADGE:START - Do not remove or modify this section -->',
           '',
-          '![coverage: 100%](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)',
+          '![coverage: 99%](https://img.shields.io/badge/coverage-99%25-green.svg)',
           '',
           '<!-- COVERAGE-BADGE:END -->',
         ].join('\n'),
@@ -467,7 +466,6 @@ describe('Add coverage to Readme Plugin', () => {
       ].join('\n');
 
       mockRead.mockReturnValueOnce(readme);
-      mockExists.mockReturnValueOnce(true);
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
 
       addCoverageToReadme.apply({
@@ -483,7 +481,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledTimes(1);
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(gitShow).toHaveBeenCalledTimes(1);
@@ -498,7 +495,6 @@ describe('Add coverage to Readme Plugin', () => {
       const readme = ['# Title', '', '', '<!-- COVERAGE-BADGE:END -->'].join('\n');
 
       mockRead.mockReturnValueOnce(readme);
-      mockExists.mockReturnValueOnce(true);
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
 
       addCoverageToReadme.apply({
@@ -514,7 +510,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledTimes(1);
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(gitShow).toHaveBeenCalledTimes(1);
@@ -529,7 +524,6 @@ describe('Add coverage to Readme Plugin', () => {
       const readme = ['# Title', '', ''].join('\n');
 
       mockRead.mockReturnValueOnce(readme);
-      mockExists.mockReturnValueOnce(true);
       mockRootCoverage.mockReturnValueOnce(coverageSummary);
 
       addCoverageToReadme.apply({
@@ -545,7 +539,6 @@ describe('Add coverage to Readme Plugin', () => {
         commits: [],
       });
 
-      expect(mockExists).toHaveBeenCalledTimes(1);
       expect(mockRootCoverage).toHaveBeenCalled();
 
       expect(gitShow).toHaveBeenCalledTimes(1);
