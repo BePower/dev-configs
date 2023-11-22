@@ -266,7 +266,8 @@ describe('cli -> config -> init', () => {
         JSON.stringify(
           {
             scripts: {
-              release: 'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+              release:
+                'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
             },
           },
           undefined,
@@ -290,7 +291,8 @@ describe('cli -> config -> init', () => {
           {
             foo: 'bar',
             scripts: {
-              release: 'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+              release:
+                'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
             },
           },
           undefined,
@@ -338,7 +340,8 @@ describe('cli -> config -> init', () => {
           {
             scripts: {
               test: 'jest',
-              release: 'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+              release:
+                'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
             },
           },
           undefined,

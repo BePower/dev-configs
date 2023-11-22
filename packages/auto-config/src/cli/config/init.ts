@@ -60,7 +60,8 @@ export const handler: (args: ArgumentsCamelCase<any>) => void | Promise<void> = 
   writeFileSync(autorcPath, autorcContent);
   process.stderr.write(`auto configuration written to ${autorcPath}\n`);
 
-  const releaseScript = 'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"';
+  const releaseScript =
+    'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"';
   const packageJsonPath = join(process.cwd(), 'package.json');
   if (existsSync(packageJsonPath)) {
     const packageJsonString = readFileSync(packageJsonPath, 'utf8');
