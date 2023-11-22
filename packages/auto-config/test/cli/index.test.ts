@@ -1,5 +1,8 @@
 import { parser } from '../../src/cli/index';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { version } = require('../../package.json');
+
 describe('cli', () => {
   let mockExit: jest.SpyInstance;
   let mockLog: jest.SpyInstance;
@@ -40,6 +43,6 @@ describe('cli', () => {
 
     expect(argv).toMatchObject({ version: true });
     expect(mockExit).toHaveBeenCalledWith(0);
-    expect(mockLog).toHaveBeenCalledWith('10.0.2');
+    expect(mockLog).toHaveBeenCalledWith(version);
   });
 });
