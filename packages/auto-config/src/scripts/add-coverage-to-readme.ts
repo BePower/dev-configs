@@ -123,10 +123,10 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
           '\n\n',
           AddCoverageToReadmePlugin.END_TAG,
           lastPart,
-          otherParts.join(AddCoverageToReadmePlugin.END_TAG),
         ];
-        if (otherParts.length > 0 && readme.endsWith(AddCoverageToReadmePlugin.END_TAG)) {
+        if (otherParts.length > 0) {
           contentArr.push(AddCoverageToReadmePlugin.END_TAG);
+          contentArr.push(otherParts.join(AddCoverageToReadmePlugin.END_TAG));
         }
 
         writeFileSync(readmePath, contentArr.join(''));
