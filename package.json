@@ -16,7 +16,9 @@
     "format": "prettier --write \"**/*.{ts,json,md,yml}\"",
     "lint": "eslint --fix . --ext .ts",
     "check": "npm run format && npm run lint",
+    "prebuild": "rimraf packages/*/dist coverage",
     "build": "tsc --build",
+    "pretest": "npm run build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "release": "npx auto version && npx auto shipit --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
   },
