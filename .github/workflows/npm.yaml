@@ -41,22 +41,16 @@ jobs:
         run: npm ci
 
       - name: Testing
-        run: npm test --workspaces --if-present
+        run: npm test
 
       - name: Building typescript in packages
-        run: npm run build --workspaces --if-present
+        run: npm run build
 
       - name: Linting
         run: npm run check
 
-      - name: Version bump check
-        run: npx auto version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Publish
-        run: 'npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"'
+        run: 'npm run release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

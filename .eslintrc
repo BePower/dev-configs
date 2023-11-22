@@ -1,6 +1,6 @@
 {
   "extends": "plugin:@bepower/node",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.eslint.json"
   }
 }

@@ -1,9 +1,9 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
+  "extends": "./tsconfig.eslint.json",
   "files": [],
   "references": [
-    {"path": "./packages/auto-config"},
-    {"path": "./packages/eslint-plugin"},
-    {"path": "./packages/prettier-config"},
+    { "path": "./packages/auto-config" },
+    { "path": "./packages/eslint-plugin" },
+    { "path": "./packages/prettier-config" }
   ]
 }
