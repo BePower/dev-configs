@@ -2,7 +2,7 @@
 
 <!-- COVERAGE-BADGE:START - Do not remove or modify this section -->
 
-[badge-coverage]: https://img.shields.io/badge/coverage-98%25-green.svg
+[badge-coverage]: https://img.shields.io/badge/coverage-97%25-green.svg
 
 <!-- COVERAGE-BADGE:END -->
 
