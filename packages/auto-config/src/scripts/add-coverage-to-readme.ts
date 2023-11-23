@@ -90,7 +90,7 @@ export default class AddCoverageToReadmePlugin implements IPlugin {
           );
         auto.logger.verbose.debug('CoverageTotals', coverageTotals);
 
-        const coveragePerc = Math.round((coverageTotals.covered / coverageTotals.total) * 100);
+        const coveragePerc = Math.round((coverageTotals.covered / coverageTotals.total) * 100) || 0;
         const coverageColor = AddCoverageToReadmePlugin.COLOR_PERCENTAGES.find(
           ({ perc }) => coveragePerc > perc,
         )!.color;
