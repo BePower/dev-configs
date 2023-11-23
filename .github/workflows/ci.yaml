@@ -1,0 +1,64 @@
+name: ci
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [16, 18, 20]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@bepower'
+      - run: node --version
+      - run: npm ci
+      - run: npm test
+
+  lerna:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npx lerna changed -a
+
+  lerna-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npx lerna changed -a
+
+  lerna-checkout-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@bepower'
+      - run: npx lerna changed -a
+
+  auto:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npx auto version
+
+  auto-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npx auto version
+
+  auto-checkout-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@bepower'
+      - run: npx auto version
