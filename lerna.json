@@ -1,5 +1,8 @@
 {
   "command": {
+    "changed": {
+      "includeMergedTags": true
+    },
     "version": {
       "message": "chore: :bookmark: publish"
     }
