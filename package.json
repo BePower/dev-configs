@@ -16,7 +16,7 @@
     "format": "prettier --write \"**/*.{ts,json,md,yml}\"",
     "lint": "eslint --fix . --ext .ts",
     "check": "npm run format && npm run lint",
-    "prebuild": "rimraf packages/*/dist coverage",
+    "prebuild": "rimraf -g packages/*/dist coverage",
     "build": "tsc --build",
     "pretest": "npm run build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
