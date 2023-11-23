@@ -53,9 +53,7 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({
-        dryRun: false,
-      });
+      await autoHooks.afterChangelog.promise();
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -110,9 +108,7 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({
-        dryRun: false,
-      });
+      await autoHooks.afterChangelog.promise();
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -180,9 +176,7 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({
-        dryRun: false,
-      });
+      await autoHooks.afterChangelog.promise();
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -248,9 +242,7 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({
-        dryRun: false,
-      });
+      await autoHooks.afterChangelog.promise();
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -291,9 +283,7 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({
-        dryRun: false,
-      });
+      await autoHooks.afterChangelog.promise();
 
       expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
@@ -309,9 +299,7 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({
-        dryRun: false,
-      });
+      await autoHooks.afterChangelog.promise();
 
       expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
@@ -327,9 +315,7 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({
-        dryRun: false,
-      });
+      await autoHooks.afterChangelog.promise();
 
       expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
