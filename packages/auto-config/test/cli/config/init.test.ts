@@ -266,8 +266,7 @@ describe('cli -> config -> init', () => {
         JSON.stringify(
           {
             scripts: {
-              release:
-                'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+              release: 'npx auto shipit',
             },
           },
           undefined,
@@ -291,8 +290,7 @@ describe('cli -> config -> init', () => {
           {
             foo: 'bar',
             scripts: {
-              release:
-                'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+              release: 'npx auto shipit',
             },
           },
           undefined,
@@ -319,7 +317,7 @@ describe('cli -> config -> init', () => {
         [
           'Cannot add the release script to package.json: "scripts" key isn\'t an object.',
           'Please add manually:',
-          'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+          'npx auto shipit',
           '',
         ].join('\n'),
       );
@@ -340,8 +338,7 @@ describe('cli -> config -> init', () => {
           {
             scripts: {
               test: 'jest',
-              release:
-                'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+              release: 'npx auto shipit',
             },
           },
           undefined,
@@ -368,7 +365,7 @@ describe('cli -> config -> init', () => {
         [
           'Cannot add the release script to package.json: already present.',
           'Please add manually:',
-          'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+          'npx auto shipit',
           '',
         ].join('\n'),
       );
@@ -390,7 +387,7 @@ describe('cli -> config -> init', () => {
         [
           'Cannot add the release script to package.json: package file not found.',
           'Please add manually:',
-          'npx auto version && npx auto shipit --message "ci: :memo: Update CHANGELOG.md [skip ci]"',
+          'npx auto shipit',
           '',
         ].join('\n'),
       );

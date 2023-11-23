@@ -1,14 +1,25 @@
 import configFromTs from '../src';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const packageJson = require('../package.json');
-
-const { auto: config } = packageJson;
-
 describe('auto config', () => {
   it('should have identical config between ts and package.json', () => {
     expect.assertions(1);
 
-    expect(configFromTs).toEqual(config);
+    expect(configFromTs).toEqual({
+      shipit: {
+        message: 'ci: :memo: Update CHANGELOG.md [skip ci]',
+      },
+      plugins: [
+        'magic-zero',
+        'npm',
+        [
+          'conventional-commits',
+          {
+            preset: 'angular',
+          },
+        ],
+        'all-contributors',
+        'first-time-contributor',
+      ],
+    });
   });
 });

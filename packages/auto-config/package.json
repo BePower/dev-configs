@@ -41,19 +41,5 @@
       "text",
       "text-summary"
     ]
-  },
-  "auto": {
-    "plugins": [
-      "magic-zero",
-      "npm",
-      [
-        "conventional-commits",
-        {
-          "preset": "angular"
-        }
-      ],
-      "all-contributors",
-      "first-time-contributor"
-    ]
   }
 }

@@ -12,6 +12,9 @@ const conventionalCommitsOptions: ConventionalCommitsOptions = {
 };
 
 const config: AutoRc = {
+  shipit: {
+    message: 'ci: :memo: Update CHANGELOG.md [skip ci]',
+  },
   plugins: [
     'magic-zero',
     'npm',
