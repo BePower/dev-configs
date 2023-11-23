@@ -28,7 +28,7 @@ jest.mock(
       getLernaPackages(...args),
 );
 
-describe('Regenerate Readme Plugin', () => {
+describe('Add packages to Readme Plugin', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -53,7 +53,7 @@ describe('Regenerate Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterVersion.promise({
+      await autoHooks.afterChangelog.promise({
         dryRun: false,
       });
 
@@ -110,7 +110,7 @@ describe('Regenerate Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterVersion.promise({
+      await autoHooks.afterChangelog.promise({
         dryRun: false,
       });
 
@@ -180,7 +180,7 @@ describe('Regenerate Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterVersion.promise({
+      await autoHooks.afterChangelog.promise({
         dryRun: false,
       });
 
@@ -248,7 +248,7 @@ describe('Regenerate Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterVersion.promise({
+      await autoHooks.afterChangelog.promise({
         dryRun: false,
       });
 
@@ -291,7 +291,7 @@ describe('Regenerate Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterVersion.promise({
+      await autoHooks.afterChangelog.promise({
         dryRun: false,
       });
 
@@ -309,7 +309,7 @@ describe('Regenerate Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterVersion.promise({
+      await autoHooks.afterChangelog.promise({
         dryRun: false,
       });
 
@@ -327,7 +327,7 @@ describe('Regenerate Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterVersion.promise({
+      await autoHooks.afterChangelog.promise({
         dryRun: false,
       });
 
