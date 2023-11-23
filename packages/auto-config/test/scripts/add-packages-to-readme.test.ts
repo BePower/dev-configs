@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import Auto from '@auto-it/core';
+import Auto, { SEMVER } from '@auto-it/core';
 import { dummyLog } from '@auto-it/core/dist/utils/logger';
 import { makeHooks } from '@auto-it/core/dist/utils/make-hooks';
 
@@ -53,7 +53,13 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({});
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -108,7 +114,13 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({});
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -176,7 +188,13 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({});
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -242,7 +260,13 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({});
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
 
       expect(gitShow).toHaveBeenCalledWith('git', ['status', '--porcelain']);
       expect(writeMock).toHaveBeenCalledWith(
@@ -283,7 +307,13 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({});
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
 
       expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
@@ -299,7 +329,13 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({});
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
 
       expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
@@ -315,7 +351,13 @@ describe('Add packages to Readme Plugin', () => {
         logger: dummyLog(),
       } as Auto);
 
-      await autoHooks.afterChangelog.promise({});
+      await autoHooks.afterChangelog.promise({
+        bump: SEMVER.patch,
+        currentVersion: '0.0.0',
+        lastRelease: '0.0.0',
+        releaseNotes: '',
+        commits: [],
+      });
 
       expect(gitShow).not.toHaveBeenCalledWith('git', ['status', '--porcelain']);
     });
