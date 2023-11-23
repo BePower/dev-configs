@@ -1,3 +1,40 @@
+# v10.3.0 (Thu Nov 23 2023)
+
+#### 🚀 Enhancement
+
+- feat(auto): :sparkles: Adding the message config into the config file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- feat(auto): :sparkles: Adding the pre-version part to fix issues ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- feat: :sparkles: Adding more cli tests, refactored a bit [wip] \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- feat(auto): :sparkles: Finalized some tests + refactored the structure ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- feat(auto): :sparkles: Adding a testable cli ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- test(auto): :bug: Fixing the windows/linux thing ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf(auto): :bug: Defaulting to 0 if `NaN` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(auto): :bug: Fixed the hook invocation ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(auto): :ambulance: Fixing the missing param ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(auto): :bug: Fixed the invocation of the afterChangelog hook ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test(auto): :bug: Fixing the hook to call ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf(auto): :wrench: Running the packages after changelog but before publishing ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :bookmark: publish \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :memo: Update CHANGELOG.md \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test: :bug: Fixing the dynamic versioning ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix(auto): :bug: Fixed the second instance of the tag ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :memo: Update README.md to add coverage \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- style(auto): :rotating_light: Fixed linter errors ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix(auto): :bug: Fixes in the exports and readme generation ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix(auto): :bug: Fixes to the new coverage script ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Update contributors \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix(auto): :bug: Fixing the new lines in the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v10.2.0 (Wed Nov 22 2023)
 
 #### 🚀 Enhancement

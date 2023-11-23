@@ -1,3 +1,64 @@
+# (Thu Nov 23 2023)
+
+#### 🚀 Enhancement
+
+- `@bepower/auto-config@10.3.0`
+  - feat(auto): :sparkles: Adding the message config into the config file ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Adding the pre-version part to fix issues ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Finalized some tests + refactored the structure ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - feat(auto): :sparkles: Adding a testable cli ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- style: :rotating_light: Linted ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :ambulance: Adding the build phase ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :triangular_flag_on_post: Re-enabled the main flow ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :fire: Removed useless flows ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :sparkles: Adding better testing ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :ambulance: Fixing rimraf for windows ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Less logging ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Adding fetch and tags ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Adding logs to the auto part ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Adding tokens as env var ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Removing unnecessary tests, adding permissions for auto ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :sparkles: Adding the inclusion of merged tags ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Experimenting with git options ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Experimenting with actions ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Experimenting with ci ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Experimenting with cis ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :triangular_flag_on_post: Turning off npm ci ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :ambulance: Building and testing all in one ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :ambulance: Adding prebuild to the tests ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- fix: :ambulance: Fixed the eslint tsconfig ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :ambulance: Adding the tokens to the version step ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Checking version bump ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :bug: Fixing the main branch and removing the push to action ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :alembic: Adding the test lerna workflow ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@10.3.0`
+  - test(auto): :bug: Fixing the windows/linux thing ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :bug: Defaulting to 0 if `NaN` ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :bug: Fixed the hook invocation ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :ambulance: Fixing the missing param ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :bug: Fixed the invocation of the afterChangelog hook ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test(auto): :bug: Fixing the hook to call ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - perf(auto): :wrench: Running the packages after changelog but before publishing ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Fixed the second instance of the tag ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - style(auto): :rotating_light: Fixed linter errors ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Fixes in the exports and readme generation ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Fixes to the new coverage script ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - fix(auto): :bug: Fixing the new lines in the readme ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/auto-config@10.3.0`, `@bepower/eslint-plugin@4.3.0`, `@bepower/prettier-config@5.3.0`
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+  - test: :bug: Fixing the dynamic versioning ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # (Wed Nov 22 2023)
 
 #### 🚀 Enhancement
