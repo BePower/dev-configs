@@ -47,7 +47,7 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Testing
+      - name: Linting
         run: npm run check
 
       - name: Check if nothing changed
