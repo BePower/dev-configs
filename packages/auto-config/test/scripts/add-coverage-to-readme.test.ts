@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { delimiter, join } from 'path';
+import { join, sep } from 'path';
 
 import Auto, { SEMVER } from '@auto-it/core';
 import { dummyLog } from '@auto-it/core/dist/utils/logger';
@@ -15,7 +15,7 @@ const coverageSummarySource: CoverageSummary = JSON.parse(
 );
 const coverageSummary: CoverageSummary = Object.fromEntries(
   Object.entries(coverageSummarySource).map(([key, value]) => [
-    key.replace('/workspaces/dev-configs', process.cwd()).replace('///g', delimiter),
+    key.replace('/workspaces/dev-configs', process.cwd()).replace(/\//g, sep),
     value,
   ]),
 );
@@ -120,7 +120,7 @@ describe('Add coverage to Readme Plugin', () => {
       gitShow.mockReturnValueOnce('README.md');
 
       const coverageSummaryEdit: CoverageSummary = {
-        [`${process.cwd()}${delimiter}index.ts`]: {
+        [`${process.cwd()}${sep}index.ts`]: {
           branches: {
             covered: 0,
             pct: 100,
