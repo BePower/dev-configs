@@ -1,8 +1,10 @@
 # BePower Code Style
 
+<!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [badge-all-contributors]: https://img.shields.io/badge/all_contributors-1-orange.svg
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+<!-- prettier-ignore-end -->
 
 [![All Contributors][badge-all-contributors]](#contributors-) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
 
