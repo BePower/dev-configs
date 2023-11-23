@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npx lerna changed -a
+      - run: npx lerna changed -la --loglevel silly
 
   lerna-checkout-fetch:
     runs-on: ubuntu-latest
@@ -43,6 +43,7 @@ jobs:
           node-version: lts/*
           registry-url: 'https://npm.pkg.github.com'
           scope: '@bepower'
+      - run: npm ci
       - run: npx lerna changed -a
 
   auto-checkout-npm:
@@ -54,4 +55,5 @@ jobs:
           node-version: lts/*
           registry-url: 'https://npm.pkg.github.com'
           scope: '@bepower'
+      - run: npm ci
       - run: npx auto version
