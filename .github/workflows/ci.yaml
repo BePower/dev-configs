@@ -19,32 +19,6 @@ jobs:
       - run: npm ci
       - run: npm test
 
-  lerna-checkout-fetch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-      - run: npx lerna changed -la --loglevel silly
-
-  lerna-checkout-unshallow:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: git fetch --unshallow --tags
-      - run: npx lerna changed -la --loglevel silly
-
-  lerna-checkout-fetch-unshallow:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-      - run: git fetch --unshallow --tags
-      - run: npx lerna changed -la --loglevel silly
-
   lerna-checkout-npm:
     runs-on: ubuntu-latest
     steps:
@@ -62,6 +36,11 @@ jobs:
 
   auto-checkout-npm:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      issues: read
+      pull-requests: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
