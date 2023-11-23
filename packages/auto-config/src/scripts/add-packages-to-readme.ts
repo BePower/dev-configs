@@ -24,7 +24,7 @@ export default class AddPackagesToReadmePlugin implements IPlugin {
   }
 
   apply(auto: Auto): void {
-    auto.hooks.afterVersion.tapPromise(this.name, async () => {
+    auto.hooks.afterChangelog.tapPromise(this.name, async () => {
       let packages: LernaPackage[];
 
       try {
