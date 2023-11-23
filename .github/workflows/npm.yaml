@@ -3,7 +3,7 @@ name: NPM Package
 on:
   push:
     branches:
-      - 'main'
+      - 'mainnnn'
 
 jobs:
   validate-commits:
