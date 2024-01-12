@@ -1,5 +1,9 @@
 {
   "extends": "./tsconfig.eslint.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true
+  },
   "files": [],
   "references": [
     { "path": "./packages/auto-config" },

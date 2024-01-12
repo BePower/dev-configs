@@ -34,8 +34,8 @@ const addPackagesToReadmeStart = escapeSpecialCharacters('/* add-packages-to-rea
 const addPackagesToReadmeStop = escapeSpecialCharacters('/* add-packages-to-readme:stop */');
 
 export const handler: (args: ArgumentsCamelCase<any>) => void | Promise<void> = (args) => {
-  const autorcPath = join(process.cwd(), '.autorc.js');
-  let autorcContent = readFileSync(join(__dirname, 'templates', '.autorc.js'), 'utf-8');
+  const autorcPath = join(process.cwd(), '.autorc.ts');
+  let autorcContent = readFileSync(join(__dirname, 'templates', '.autorc.ts.template'), 'utf-8');
 
   if (!args.addCoverageToReadme) {
     autorcContent = autorcContent.replace(

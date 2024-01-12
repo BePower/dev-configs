@@ -4,9 +4,14 @@
   "description": "Common configuration and dependencies for npm deploy via auto package",
   "main": "./dist/index.js",
   "bin": "./dist/cli.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "prebuild": "rimraf scripts/*.js ./*.js",
     "build": "tsc",
+    "postbuild": "cpy ./src/cli/config/templates/* ./dist/cli/config/templates",
     "pretestt": "npm run build",
     "test": "jest"
   },
@@ -41,5 +46,8 @@
       "text",
       "text-summary"
     ]
+  },
+  "devDependencies": {
+    "cpy-cli": "^5.0.0"
   }
 }

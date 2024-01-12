@@ -1,0 +1,28 @@
+import base, { coverage, packages, AddCoverageToReadmePluginOptions, AddPackagesToReadmePluginOptions } from '@bepower/auto-config';
+import { AutoRc } from 'auto';
+
+/* add-coverage-to-readme:start */
+const coverageOptions: AddCoverageToReadmePluginOptions = {
+  badgeTemplate: '[badge-coverage]: https://img.shields.io/badge/coverage-{PERC}%25-{COLOR}.svg',
+};
+/* add-coverage-to-readme:stop */
+
+/* add-packages-to-readme:start */
+const packagesOptions: AddPackagesToReadmePluginOptions = {};
+/* add-packages-to-readme:stop */
+
+export default function config(): AutoRc {
+  /* add-coverage-to-readme:start */
+  base.plugins!.push([coverage, coverageOptions]);
+  /* add-coverage-to-readme:stop */
+  /* add-packages-to-readme:start */
+  base.plugins!.push([packages, packagesOptions]);
+  /* add-packages-to-readme:stop */
+
+  base.author = {
+    name: 'BePower',
+    email: 'it.aws@bepower.com',
+  };
+
+  return base;
+}

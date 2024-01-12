@@ -18,7 +18,7 @@ describe('cli -> config -> init', () => {
 
   const readFileSync = fs.readFileSync;
 
-  const writtenFileLog = expect.stringMatching(`auto configuration written to .*.autorc.js\n`);
+  const writtenFileLog = expect.stringMatching(`auto configuration written to .*.autorc.ts\n`);
   const writtenPackageLog = 'Release script added to your package.json file\n';
 
   beforeEach(() => {
@@ -79,22 +79,25 @@ describe('cli -> config -> init', () => {
         c: false,
         p: false,
       });
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), '.autorc.js'),
+        join(process.cwd(), '.autorc.ts'),
         [
-          "const base = require('@bepower/auto-config').default;",
+          "import base, { coverage, packages, AddCoverageToReadmePluginOptions, AddPackagesToReadmePluginOptions } from '@bepower/auto-config';",
+          "import { AutoRc } from 'auto';",
           '',
           '',
-          '/**',
-          " * @returns {import('@auto-it/core').default}",
-          ' */',
-          'function config() {',
+          '',
+          'export default function config(): AutoRc {',
+          '',
+          '  base.author = {',
+          "    name: 'BePower',",
+          "    email: 'it.aws@bepower.com',",
+          '  };',
           '',
           '  return base;',
           '}',
-          '',
-          'module.exports = config;',
           '',
         ].join('\n'),
       );
@@ -115,34 +118,33 @@ describe('cli -> config -> init', () => {
         c: true,
         p: false,
       });
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), '.autorc.js'),
+        join(process.cwd(), '.autorc.ts'),
         [
-          "const base = require('@bepower/auto-config').default;",
+          "import base, { coverage, packages, AddCoverageToReadmePluginOptions, AddPackagesToReadmePluginOptions } from '@bepower/auto-config';",
+          "import { AutoRc } from 'auto';",
           '',
           '/* add-coverage-to-readme:start */',
-          "const coverage = require.resolve('@bepower/auto-config/scripts/add-coverage-to-readme');",
-          '/**',
-          " * @type {import('@bepower/auto-config/scripts/add-coverage-to-readme').AddCoverageToReadmePluginOptions}",
-          ' */',
-          'const coverageOptions = {',
+          'const coverageOptions: AddCoverageToReadmePluginOptions = {',
           "  badgeTemplate: '[badge-coverage]: https://img.shields.io/badge/coverage-{PERC}%25-{COLOR}.svg',",
           '};',
           '/* add-coverage-to-readme:stop */',
           '',
-          '/**',
-          " * @returns {import('@auto-it/core').default}",
-          ' */',
-          'function config() {',
+          '',
+          'export default function config(): AutoRc {',
           '  /* add-coverage-to-readme:start */',
-          '  base.plugins.push([coverage, coverageOptions]);',
+          '  base.plugins!.push([coverage, coverageOptions]);',
           '  /* add-coverage-to-readme:stop */',
+          '',
+          '  base.author = {',
+          "    name: 'BePower',",
+          "    email: 'it.aws@bepower.com',",
+          '  };',
           '',
           '  return base;',
           '}',
-          '',
-          'module.exports = config;',
           '',
         ].join('\n'),
       );
@@ -163,28 +165,31 @@ describe('cli -> config -> init', () => {
         c: false,
         p: true,
       });
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), '.autorc.js'),
+        join(process.cwd(), '.autorc.ts'),
         [
-          "const base = require('@bepower/auto-config').default;",
+          "import base, { coverage, packages, AddCoverageToReadmePluginOptions, AddPackagesToReadmePluginOptions } from '@bepower/auto-config';",
+          "import { AutoRc } from 'auto';",
+          '',
           '',
           '/* add-packages-to-readme:start */',
-          "const packages = require.resolve('@bepower/auto-config/scripts/add-packages-to-readme');",
+          'const packagesOptions: AddPackagesToReadmePluginOptions = {};',
           '/* add-packages-to-readme:stop */',
           '',
-          '/**',
-          " * @returns {import('@auto-it/core').default}",
-          ' */',
-          'function config() {',
+          'export default function config(): AutoRc {',
           '  /* add-packages-to-readme:start */',
-          '  base.plugins.push(packages);',
+          '  base.plugins!.push([packages, packagesOptions]);',
           '  /* add-packages-to-readme:stop */',
+          '',
+          '  base.author = {',
+          "    name: 'BePower',",
+          "    email: 'it.aws@bepower.com',",
+          '  };',
           '',
           '  return base;',
           '}',
-          '',
-          'module.exports = config;',
           '',
         ].join('\n'),
       );
@@ -207,40 +212,39 @@ describe('cli -> config -> init', () => {
         c: true,
         p: true,
       });
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), '.autorc.js'),
+        join(process.cwd(), '.autorc.ts'),
         [
-          "const base = require('@bepower/auto-config').default;",
+          "import base, { coverage, packages, AddCoverageToReadmePluginOptions, AddPackagesToReadmePluginOptions } from '@bepower/auto-config';",
+          "import { AutoRc } from 'auto';",
           '',
-          '/* add-packages-to-readme:start */',
-          "const packages = require.resolve('@bepower/auto-config/scripts/add-packages-to-readme');",
-          '/* add-packages-to-readme:stop */',
           '/* add-coverage-to-readme:start */',
-          "const coverage = require.resolve('@bepower/auto-config/scripts/add-coverage-to-readme');",
-          '/**',
-          " * @type {import('@bepower/auto-config/scripts/add-coverage-to-readme').AddCoverageToReadmePluginOptions}",
-          ' */',
-          'const coverageOptions = {',
+          'const coverageOptions: AddCoverageToReadmePluginOptions = {',
           "  badgeTemplate: '[badge-coverage]: https://img.shields.io/badge/coverage-{PERC}%25-{COLOR}.svg',",
           '};',
           '/* add-coverage-to-readme:stop */',
           '',
-          '/**',
-          " * @returns {import('@auto-it/core').default}",
-          ' */',
-          'function config() {',
-          '  /* add-packages-to-readme:start */',
-          '  base.plugins.push(packages);',
-          '  /* add-packages-to-readme:stop */',
+          '/* add-packages-to-readme:start */',
+          'const packagesOptions: AddPackagesToReadmePluginOptions = {};',
+          '/* add-packages-to-readme:stop */',
+          '',
+          'export default function config(): AutoRc {',
           '  /* add-coverage-to-readme:start */',
-          '  base.plugins.push([coverage, coverageOptions]);',
+          '  base.plugins!.push([coverage, coverageOptions]);',
           '  /* add-coverage-to-readme:stop */',
+          '  /* add-packages-to-readme:start */',
+          '  base.plugins!.push([packages, packagesOptions]);',
+          '  /* add-packages-to-readme:stop */',
+          '',
+          '  base.author = {',
+          "    name: 'BePower',",
+          "    email: 'it.aws@bepower.com',",
+          '  };',
           '',
           '  return base;',
           '}',
-          '',
-          'module.exports = config;',
           '',
         ].join('\n'),
       );
@@ -260,6 +264,7 @@ describe('cli -> config -> init', () => {
 
       await parser.parseAsync('config:init');
 
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
         join(process.cwd(), 'package.json'),
@@ -283,6 +288,7 @@ describe('cli -> config -> init', () => {
 
       await parser.parseAsync('config:init');
 
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
         join(process.cwd(), 'package.json'),
@@ -310,6 +316,7 @@ describe('cli -> config -> init', () => {
 
       await parser.parseAsync('config:init');
 
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(1);
       expect(mockLogError).toHaveBeenCalledTimes(2);
       expect(mockLogError).toHaveBeenCalledWith(writtenFileLog);
@@ -331,6 +338,7 @@ describe('cli -> config -> init', () => {
 
       await parser.parseAsync('config:init');
 
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledWith(
         join(process.cwd(), 'package.json'),
@@ -358,6 +366,7 @@ describe('cli -> config -> init', () => {
 
       await parser.parseAsync('config:init');
 
+      expect(mockRead).toHaveBeenCalledTimes(2);
       expect(mockWrite).toHaveBeenCalledTimes(1);
       expect(mockLogError).toHaveBeenCalledTimes(2);
       expect(mockLogError).toHaveBeenCalledWith(writtenFileLog);
@@ -380,6 +389,7 @@ describe('cli -> config -> init', () => {
 
       await parser.parseAsync('config:init');
 
+      expect(mockRead).toHaveBeenCalledTimes(1);
       expect(mockWrite).toHaveBeenCalledTimes(1);
       expect(mockLogError).toHaveBeenCalledTimes(2);
       expect(mockLogError).toHaveBeenCalledWith(writtenFileLog);
