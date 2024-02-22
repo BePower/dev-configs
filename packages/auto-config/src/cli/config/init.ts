@@ -65,7 +65,7 @@ export const handler: (args: ArgumentsCamelCase<any>) => void | Promise<void> = 
   if (existsSync(packageJsonPath)) {
     const packageJsonString = readFileSync(packageJsonPath, 'utf8');
     const packageJson = JSON.parse(packageJsonString) as {
-      scripts?: { [key: string]: string };
+      scripts?: Record<string, string>;
     };
 
     if (!packageJson.scripts) {
