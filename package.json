@@ -21,7 +21,6 @@
     "postbuild": "npm run postbuild --workspaces --if-present",
     "pretest": "npm run build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "prerelease": "npm run build",
     "release": "npx auto shipit --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
