@@ -30,6 +30,7 @@
     "@auto-it/first-time-contributor": "^11.0.5",
     "@auto-it/magic-zero": "^11.0.5",
     "auto": "^11.0.5",
+    "lerna": "^7.1.4",
     "yargs": "^17.7.2"
   },
   "jest": {
