@@ -5,7 +5,7 @@
       "includeMergedTags": true
     },
     "version": {
-      "message": "chore: :bookmark: publish %s"
+      "message": "chore: :bookmark: publish"
     }
   },
   "packages": ["packages/*"],
