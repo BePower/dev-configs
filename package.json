@@ -21,7 +21,7 @@
     "postbuild": "npm run postbuild --workspaces --if-present",
     "pretest": "npm run build",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "release": "npx auto shipit --verbose --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
+    "release": "npx auto shipit --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
     "@bepower/auto-config": "^10.0.2",
