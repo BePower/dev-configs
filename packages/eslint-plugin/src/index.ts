@@ -1,9 +1,11 @@
 import { ESLint } from 'eslint';
 
-import * as configs from './configs';
+import cdk from './configs/cdk';
+import node from './configs/node';
+import react from './configs/react';
 
 const config: ESLint.Plugin = {
-  configs,
+  configs: { cdk, node, react },
   rules: {},
 };
 

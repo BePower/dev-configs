@@ -1,9 +1,12 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { ESLint } from 'eslint';
+import { Linter } from 'eslint';
 
-export const cdk: ESLint.ConfigData = {
-  extends: ['plugin:@bepower/node'],
-  rules: {
-    'no-new': 'off',
+import bepowerNodeConfig from './node';
+
+export default [
+  ...bepowerNodeConfig,
+  {
+    rules: {
+      'prettier/prettier': 'warn',
+    },
   },
-};
+] satisfies Linter.FlatConfig[];

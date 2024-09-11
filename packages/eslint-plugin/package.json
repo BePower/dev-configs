@@ -33,7 +33,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@shopify/eslint-plugin": "^44.0.0",
+    "@shopify/eslint-plugin": "^46.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

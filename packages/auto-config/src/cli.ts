@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { hideBin } from 'yargs/helpers';
 
 import { parser } from './cli/index';

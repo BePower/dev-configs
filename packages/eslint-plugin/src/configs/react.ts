@@ -6,6 +6,6 @@ import shopifyEslintPlugin from '@shopify/eslint-plugin';
 import bepowerBaseConfig from './base';
 
 export default [
-  ...shopifyEslintPlugin.configs.node,
+  ...shopifyEslintPlugin.configs.react,
   ...bepowerBaseConfig,
 ] satisfies Linter.FlatConfig[];

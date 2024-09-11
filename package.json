@@ -14,7 +14,7 @@
   "version": "2.0.3",
   "scripts": {
     "format": "prettier --write \"**/*.{ts,json,md,yml}\"",
-    "lint": "eslint --fix . --ext .ts",
+    "lint": "eslint --fix .",
     "check": "npm run format && npm run lint",
     "prebuild": "rimraf -g packages/*/dist coverage",
     "build": "tsc --build",
@@ -24,9 +24,9 @@
     "release": "npx auto shipit --message \"ci: :memo: Update CHANGELOG.md [skip ci]\""
   },
   "devDependencies": {
-    "@bepower/auto-config": "^10.0.2",
-    "@bepower/eslint-plugin": "^4.0.0",
-    "@bepower/prettier-config": "^5.0.0",
+    "@bepower/auto-config": "^10.5.0",
+    "@bepower/eslint-plugin": "^4.4.0",
+    "@bepower/prettier-config": "^5.4.0",
     "@tsconfig/recommended": "^1.0.3",
     "@types/eslint": "^8.56.2",
     "@types/jest": "^29.5.12",
