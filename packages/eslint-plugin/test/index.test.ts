@@ -1,30 +1,42 @@
-import factory from '../src';
+import { bePowerFactory } from '../src';
 
 describe('plugin factory', () => {
   it('should create the default plugin', () => {
-    const setOfRules = 10;
+    const setOfRules = 12;
 
-    expect(factory()).toHaveLength(setOfRules);
-    expect(factory({ node: true })).toHaveLength(setOfRules);
-    expect(factory({ typescript: true })).toHaveLength(setOfRules);
-    expect(factory({ react: false })).toHaveLength(setOfRules);
+    expect(bePowerFactory()).toHaveLength(setOfRules);
+    expect(bePowerFactory({}, true)).toHaveLength(setOfRules);
+    expect(bePowerFactory({ cdk: false })).toHaveLength(setOfRules);
+    expect(bePowerFactory({ node: true })).toHaveLength(setOfRules);
+    expect(bePowerFactory({ typescript: true })).toHaveLength(setOfRules);
+    expect(bePowerFactory({ react: false })).toHaveLength(setOfRules);
+  });
+
+  it('should create the default plugin without the ignore', () => {
+    expect(bePowerFactory({}, false)).toHaveLength(11);
+  });
+
+  it('should create the plugin with cdk', () => {
+    expect(bePowerFactory({ cdk: true })).toHaveLength(14);
+    expect(bePowerFactory({ cdk: true }, true)).toHaveLength(14);
+    expect(bePowerFactory({ cdk: true }, false)).toHaveLength(12);
   });
 
   it('should create the plugin without node', () => {
-    const config = factory({ node: false });
-
-    expect(config).toHaveLength(9);
+    expect(bePowerFactory({ node: false })).toHaveLength(11);
+    expect(bePowerFactory({ node: false }, true)).toHaveLength(11);
+    expect(bePowerFactory({ node: false }, false)).toHaveLength(10);
   });
 
   it('should create the plugin without typescript', () => {
-    const config = factory({ typescript: false });
-
-    expect(config).toHaveLength(5);
+    expect(bePowerFactory({ typescript: false })).toHaveLength(6);
+    expect(bePowerFactory({ typescript: false }, true)).toHaveLength(6);
+    expect(bePowerFactory({ typescript: false }, false)).toHaveLength(5);
   });
 
   it('should create the plugin with react', () => {
-    const config = factory({ react: true });
-
-    expect(config).toHaveLength(13);
+    expect(bePowerFactory({ react: true })).toHaveLength(15);
+    expect(bePowerFactory({ react: true }, true)).toHaveLength(15);
+    expect(bePowerFactory({ react: true }, false)).toHaveLength(14);
   });
 });

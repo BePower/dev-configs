@@ -1,38 +1,39 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { writeFileSync } from 'fs';
 import { join } from 'path';
 
 import { CommandModule } from 'yargs';
 
-export const command: CommandModule['command'] = 'config:init';
+type EslintCommandModule = CommandModule<{}, { ignoreFile: boolean }>;
 
-export const describe: CommandModule['describe'] = 'Initializes the dot files';
+export const command: EslintCommandModule['command'] = 'config:init';
 
-export const builder: CommandModule['builder'] = {
+export const describe: EslintCommandModule['describe'] = 'Initializes the config file';
+
+export const builder: EslintCommandModule['builder'] = {
   'ignore-file': {
     alias: 'i',
     type: 'boolean',
-    default: false,
-    description: 'Initialize .eslintignore file too',
+    default: true,
+    description: 'Initialize the ignore part too',
   },
 };
 
-export const handler: CommandModule['handler'] = (argv) => {
-  const eslintrcContent = {
-    extends: 'plugin:@bepower/node',
-    parserOptions: {
-      project: './tsconfig.eslint.json',
-    },
-  };
-  const eslintignoreNames = ['cdk.out', 'dist', 'package-lock.json'];
-  const eslintrcPath = join(process.cwd(), '.eslintrc');
+export const handler: EslintCommandModule['handler'] = (argv) => {
+  const eslintConfig = `const { bePowerFactory } = require('@bepower/eslint-plugin');
 
-  writeFileSync(eslintrcPath, JSON.stringify(eslintrcContent, undefined, 2));
-  process.stderr.write(`ESLint configuration written to ${eslintrcPath}\n`);
+module.exports = [
+  ...bePowerFactory({
+    cdk = false,
+    node = true,
+    typescript = true,
+    react = false,
+  }, ${argv.ignoreFile ? 'true' : 'false'}),
+];
+`;
 
-  if (argv.ignoreFile) {
-    const eslintignorePath = join(process.cwd(), '.eslintignore');
-    writeFileSync(eslintignorePath, eslintignoreNames.join('\n'));
-    process.stderr.write(`ESLint ignore configuration written to ${eslintignorePath}\n`);
-  }
+  const eslintConfigPath = join(process.cwd(), 'eslint.config.js');
+
+  writeFileSync(eslintConfigPath, eslintConfig);
+  process.stderr.write(`ESLint configuration written to ${eslintConfigPath}\n`);
 };

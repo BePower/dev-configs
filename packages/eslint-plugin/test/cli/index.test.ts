@@ -28,7 +28,7 @@ describe('cli', () => {
           '.* \\[command\\]',
           '',
           'Commands:',
-          '  .* config:init  Initializes the dot files',
+          '  .* config:init  Initializes the config file',
           '',
           'Options:',
           '  --version  Show version number                                       \\[boolean\\]',

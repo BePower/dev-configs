@@ -1,7 +1,7 @@
-const bepowerEslintPlugin = require('@bepower/eslint-plugin');
+const { bePowerFactory } = require('@bepower/eslint-plugin');
 
 module.exports = [
-  ...bepowerEslintPlugin.configs.node,
+  ...bePowerFactory(),
   {
     languageOptions: {
       parserOptions: {
@@ -10,6 +10,6 @@ module.exports = [
     },
   },
   {
-    ignores: ['coverage', '**/dist', 'packages/eslint-plugin/test/fixtures'],
+    ignores: ['**/dist', 'packages/eslint-plugin/test/fixtures'],
   },
 ];

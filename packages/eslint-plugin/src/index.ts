@@ -3,15 +3,17 @@ import { Linter } from 'eslint';
 // @ts-ignore
 import shopifyEslintPlugin from '@shopify/eslint-plugin';
 
-export default function({
+export function bePowerFactory({
+  cdk = false,
   node = true,
   typescript = true,
   react = false,
 }: {
-  node?: boolean,
-  typescript?: boolean,
-  react?: boolean,
-} = {}): Linter.FlatConfig[] {
+  cdk?: boolean;
+  node?: boolean;
+  typescript?: boolean;
+  react?: boolean;
+} = {}, addIgnores = true): Linter.FlatConfig[] {
   const config: Linter.FlatConfig[] = [
     ...shopifyEslintPlugin.configs.prettier,
     {
@@ -32,13 +34,41 @@ export default function({
     config.push(
       ...shopifyEslintPlugin.configs.typescript,
       ...shopifyEslintPlugin.configs['typescript-type-checking'],
+      {
+        languageOptions: {
+          parserOptions: {
+            project: './tsconfig.json',
+          },
+        },
+      },
     );
+  }
+
+  if (cdk) {
+    config.push({
+      rules: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        'no-new': 'off',
+      },
+    });
+
+    if (addIgnores) {
+      config.push({
+        ignores: ['cdk.out'],
+      });
+    }
   }
 
   if (react) {
     config.push(
       ...shopifyEslintPlugin.configs.react,
     );
+  }
+
+  if (addIgnores) {
+    config.push({
+      ignores: ['coverage', 'dist', 'package-lock.json'],
+    });
   }
 
   return config;

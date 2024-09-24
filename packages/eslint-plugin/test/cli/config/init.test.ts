@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import fs from 'fs';
 import { join } from 'path';
 
@@ -13,10 +12,7 @@ describe('cli -> config -> init', () => {
   let mockWrite: jest.SpyInstance;
   let parser: yargs.Argv;
 
-  const writtenFileLog = expect.stringMatching('ESLint configuration written to .*.eslintrc\n');
-  const writtenFileIgnoreLog = expect.stringMatching(
-    'ESLint ignore configuration written to .*.eslintignore\n',
-  );
+  const writtenFileLog = expect.stringMatching('ESLint configuration written to .*eslint\\.config\\.js\n');
 
   beforeEach(() => {
     jest.resetModules();
@@ -42,20 +38,48 @@ describe('cli -> config -> init', () => {
         [
           '.* config:init',
           '',
-          'Initializes the dot files',
+          'Initializes the config file',
           '',
           'Options:',
           '      --version      Show version number                               \\[boolean\\]',
           '      --help         Show help                                         \\[boolean\\]',
-          '  -i, --ignore-file  Initialize .eslintignore file too\\[boolean\\] \\[default: false\\]',
+          '  -i, --ignore-file  Initialize the ignore part too    \\[boolean\\] \\[default: true\\]',
         ].join('\n'),
       ),
     );
   });
 
   describe('config file', () => {
-    it('should only write config file', async () => {
+    it('should write config file', async () => {
       const argv = await parser.parseAsync('config:init');
+
+      expect(argv).toMatchObject({
+        'ignore-file': true,
+        ignoreFile: true,
+        i: true,
+      });
+      expect(mockWrite).toHaveBeenCalledTimes(1);
+      expect(mockWrite).toHaveBeenCalledWith(
+        join(process.cwd(), 'eslint.config.js'),
+        `const { bePowerFactory } = require('@bepower/eslint-plugin');
+
+module.exports = [
+  ...bePowerFactory({
+    cdk = false,
+    node = true,
+    typescript = true,
+    react = false,
+  }, true),
+];
+`,
+      );
+      expect(mockLogError).toHaveBeenCalledTimes(1);
+      expect(mockLogError).toHaveBeenCalledWith(writtenFileLog);
+      expect(mockExit).not.toHaveBeenCalled();
+    });
+
+    it('should write config file and not ignore file', async () => {
+      const argv = await parser.parseAsync('config:init --ignore-file=false');
 
       expect(argv).toMatchObject({
         'ignore-file': false,
@@ -64,52 +88,21 @@ describe('cli -> config -> init', () => {
       });
       expect(mockWrite).toHaveBeenCalledTimes(1);
       expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), '.eslintrc'),
-        JSON.stringify(
-          {
-            extends: 'plugin:@bepower/node',
-            parserOptions: {
-              project: './tsconfig.eslint.json',
-            },
-          },
-          undefined,
-          2,
-        ),
+        join(process.cwd(), 'eslint.config.js'),
+        `const { bePowerFactory } = require('@bepower/eslint-plugin');
+
+module.exports = [
+  ...bePowerFactory({
+    cdk = false,
+    node = true,
+    typescript = true,
+    react = false,
+  }, false),
+];
+`,
       );
       expect(mockLogError).toHaveBeenCalledTimes(1);
       expect(mockLogError).toHaveBeenCalledWith(writtenFileLog);
-      expect(mockExit).not.toHaveBeenCalled();
-    });
-
-    it('should write config file and ignore file', async () => {
-      const argv = await parser.parseAsync('config:init --ignore-file');
-
-      expect(argv).toMatchObject({
-        'ignore-file': true,
-        ignoreFile: true,
-        i: true,
-      });
-      expect(mockWrite).toHaveBeenCalledTimes(2);
-      expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), '.eslintrc'),
-        JSON.stringify(
-          {
-            extends: 'plugin:@bepower/node',
-            parserOptions: {
-              project: './tsconfig.eslint.json',
-            },
-          },
-          undefined,
-          2,
-        ),
-      );
-      expect(mockWrite).toHaveBeenCalledWith(
-        join(process.cwd(), '.eslintignore'),
-        ['cdk.out', 'dist', 'package-lock.json'].join('\n'),
-      );
-      expect(mockLogError).toHaveBeenCalledTimes(2);
-      expect(mockLogError).toHaveBeenCalledWith(writtenFileLog);
-      expect(mockLogError).toHaveBeenCalledWith(writtenFileIgnoreLog);
       expect(mockExit).not.toHaveBeenCalled();
     });
   });
