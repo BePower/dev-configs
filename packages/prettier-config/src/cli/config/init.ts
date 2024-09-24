@@ -8,6 +8,7 @@ export const command: CommandModule['command'] = 'config:init';
 export const describe: CommandModule['describe'] = 'Initializes the dot files';
 
 export const builder: CommandModule['builder'] = {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   'ignore-file': {
     alias: 'i',
     type: 'boolean',

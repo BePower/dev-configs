@@ -1,7 +1,10 @@
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
 import { parser } from '../../src/cli/index';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { version } = require('../../package.json');
+const packageStr = readFileSync(join(__dirname, '../../package.json'), 'utf8');
+const { version } = JSON.parse(packageStr);
 
 describe('cli', () => {
   let mockExit: jest.SpyInstance;

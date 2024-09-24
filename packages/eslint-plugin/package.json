@@ -29,14 +29,14 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc",
-    "pretest": "npm run build",
     "test": "jest"
   },
   "dependencies": {
-    "@shopify/eslint-plugin": "^44.0.0",
+    "@shopify/eslint-plugin": "^46.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
+    "@types/eslint": "^8.56.2",
     "eslint": "^8.56.0"
   },
   "peerDependencies": {
