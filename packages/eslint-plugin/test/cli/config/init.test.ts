@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import fs from 'fs';
 import { join } from 'path';
 
@@ -12,7 +13,9 @@ describe('cli -> config -> init', () => {
   let mockWrite: jest.SpyInstance;
   let parser: yargs.Argv;
 
-  const writtenFileLog = expect.stringMatching('ESLint configuration written to .*eslint\\.config\\.js\n');
+  const writtenFileLog = expect.stringMatching(
+    'ESLint configuration written to .*eslint\\.config\\.js\n',
+  );
 
   beforeEach(() => {
     jest.resetModules();

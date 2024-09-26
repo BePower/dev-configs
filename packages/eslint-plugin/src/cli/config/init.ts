@@ -4,7 +4,7 @@ import { join } from 'path';
 
 import { CommandModule } from 'yargs';
 
-type EslintCommandModule = CommandModule<{}, { ignoreFile: boolean }>;
+type EslintCommandModule = CommandModule<object, { ignoreFile: boolean }>;
 
 export const command: EslintCommandModule['command'] = 'config:init';
 
