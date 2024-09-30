@@ -1,5 +1,20 @@
 # (Mon Sep 30 2024)
 
+#### 🐛 Bug Fix
+
+- `@bepower/auto-config@10.6.1`, `@bepower/eslint-plugin@4.5.1`, `@bepower/prettier-config@5.5.1`
+  - Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- `@bepower/eslint-plugin@4.5.1`
+  - perf(eslint): :mute: Removing logs error ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
+# (Mon Sep 30 2024)
+
 #### 🚀 Enhancement
 
 - `@bepower/auto-config@10.6.0`, `@bepower/eslint-plugin@4.5.0`, `@bepower/prettier-config@5.5.0`

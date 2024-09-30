@@ -1,3 +1,16 @@
+# v4.5.1 (Mon Sep 30 2024)
+
+#### 🐛 Bug Fix
+
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf(eslint): :mute: Removing logs error ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v4.5.0 (Mon Sep 30 2024)
 
 #### 🚀 Enhancement
