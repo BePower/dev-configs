@@ -65,6 +65,7 @@ export function bePowerFactory(
   config.push(...shopifyEslintPlugin.configs.prettier, {
     rules: {
       'prettier/prettier': 'warn',
+      'no-console': 'off',
     },
   });
 
