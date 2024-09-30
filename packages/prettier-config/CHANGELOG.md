@@ -1,3 +1,25 @@
+# v5.5.0 (Mon Sep 30 2024)
+
+#### 🚀 Enhancement
+
+- feat: :sparkles: Added the flat config to eslint ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- feat: :sparkles: Adding more cli tests, refactored a bit [wip] \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### 🐛 Bug Fix
+
+- perf(prettier): :arrow_up: Upped deps ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- chore: :bookmark: publish \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- ci: :memo: Update CHANGELOG.md \[skip ci\] ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- perf: :arrow_up: Upgrade deps ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- Merge branch 'main' of https://github.com/BePower/dev-configs ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+- test: :bug: Fixing the dynamic versioning ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v5.4.0 (Thu Feb 22 2024)
 
 #### 🚀 Enhancement
