@@ -20,9 +20,9 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 <!-- prettier-ignore-start -->
 | Package | Install command |
 | --- | --- |
-| [![@bepower/auto-config: 10.6.0](https://img.shields.io/badge/@bepower/auto--config-10.6.0-brightgreen.svg)](packages/auto-config) | `$ npm install --save-dev @bepower/auto-config@10.6.0` |
-| [![@bepower/eslint-plugin: 4.5.0](https://img.shields.io/badge/@bepower/eslint--plugin-4.5.0-brightgreen.svg)](packages/eslint-plugin) | `$ npm install --save-dev @bepower/eslint-plugin@4.5.0` |
-| [![@bepower/prettier-config: 5.5.0](https://img.shields.io/badge/@bepower/prettier--config-5.5.0-brightgreen.svg)](packages/prettier-config) | `$ npm install --save-dev @bepower/prettier-config@5.5.0` |
+| [![@bepower/auto-config: 10.6.1](https://img.shields.io/badge/@bepower/auto--config-10.6.1-brightgreen.svg)](packages/auto-config) | `$ npm install --save-dev @bepower/auto-config@10.6.1` |
+| [![@bepower/eslint-plugin: 4.5.1](https://img.shields.io/badge/@bepower/eslint--plugin-4.5.1-brightgreen.svg)](packages/eslint-plugin) | `$ npm install --save-dev @bepower/eslint-plugin@4.5.1` |
+| [![@bepower/prettier-config: 5.5.1](https://img.shields.io/badge/@bepower/prettier--config-5.5.1-brightgreen.svg)](packages/prettier-config) | `$ npm install --save-dev @bepower/prettier-config@5.5.1` |
 <!-- prettier-ignore-end -->
 <!-- PACKAGES-TABLE:END -->
 
