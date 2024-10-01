@@ -66,6 +66,7 @@ export function bePowerFactory(
     rules: {
       'prettier/prettier': 'warn',
       'no-console': 'off',
+      'no-process-env': 'off',
     },
   });
 
