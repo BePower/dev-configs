@@ -1,3 +1,15 @@
+# v4.6.0 (Tue Oct 01 2024)
+
+#### 🚀 Enhancement
+
+- feat(eslint): :lipstick: Removing the `no-process-env` rule ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+#### Authors: 1
+
+- Niccolò Olivieri Achille ([@NiccoloOlivieriAchille](https://github.com/NiccoloOlivieriAchille))
+
+---
+
 # v4.5.1 (Mon Sep 30 2024)
 
 #### 🐛 Bug Fix
