@@ -1,6 +1,6 @@
-const { bePowerFactory } = require('@bepower/eslint-plugin');
+import { bePowerFactory } from '@bepower/eslint-plugin';
 
-module.exports = [
+export default [
   ...bePowerFactory(),
   {
     languageOptions: {

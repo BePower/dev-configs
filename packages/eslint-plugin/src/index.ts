@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Linter } from 'eslint';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import shopifyEslintPlugin from '@shopify/eslint-plugin';
+import antfu from '@antfu/eslint-config';
 
 export function bePowerFactory(
   {
@@ -18,57 +16,51 @@ export function bePowerFactory(
   } = {},
   addIgnores = true,
 ): Linter.FlatConfig[] {
-  const config: Linter.FlatConfig[] = [];
-
-  if (node) {
-    config.push(...shopifyEslintPlugin.configs.node);
-  }
-
-  if (typescript) {
-    config.push(
-      ...shopifyEslintPlugin.configs.typescript,
-      ...shopifyEslintPlugin.configs['typescript-type-checking'],
-      {
-        languageOptions: {
-          parserOptions: {
-            project: './tsconfig.json',
-          },
-        },
+  const baseConfig = antfu({
+    stylistic: {
+      semi: true,
+      overrides: {
+        'style/brace-style': ['error', '1tbs'],
+        'no-console': 'off',
       },
-    );
-  }
+    },
+    typescript: typescript
+      ? {
+          tsconfigPath: './tsconfig.json',
+        }
+      : false,
+    react: react ? true : false,
+    node: node ? true : false,
+  });
 
+  // Add custom rules for CDK if needed
   if (cdk) {
-    config.push({
+    baseConfig.push({
       rules: {
         'no-new': 'off',
       },
     });
 
     if (addIgnores) {
-      config.push({
+      baseConfig.push({
         ignores: ['cdk.out'],
       });
     }
   }
 
-  if (react) {
-    config.push(...shopifyEslintPlugin.configs.react);
-  }
-
+  // Add common ignores
   if (addIgnores) {
-    config.push({
+    baseConfig.push({
       ignores: ['coverage', 'dist', 'package-lock.json'],
     });
   }
 
-  config.push(...shopifyEslintPlugin.configs.prettier, {
+  // Add additional rules
+  baseConfig.push({
     rules: {
-      'prettier/prettier': 'warn',
-      'no-console': 'off',
       'no-process-env': 'off',
     },
   });
 
-  return config;
+  return baseConfig;
 }

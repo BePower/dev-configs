@@ -26,6 +26,19 @@ This repo is managed as a monorepo that is composed of many npm packages, where 
 <!-- prettier-ignore-end -->
 <!-- PACKAGES-TABLE:END -->
 
+## Recent Updates
+
+### ESLint Configuration
+
+The ESLint configuration has been updated to use [@antfu/eslint-config](https://github.com/antfu/eslint-config) instead of @shopify/eslint-plugin. This change brings several benefits:
+
+- Uses the new ESLint flat config format
+- Provides better TypeScript support
+- Includes sensible defaults for modern JavaScript/TypeScript development
+- Simplified configuration with a unified approach
+
+See the [eslint-plugin README](packages/eslint-plugin/README.md) for more details on usage.
+
 ### Releasing
 
 Everything is automated with `auto` and Github Actions

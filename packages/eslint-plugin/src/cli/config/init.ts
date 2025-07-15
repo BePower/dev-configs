@@ -20,14 +20,14 @@ export const builder: EslintCommandModule['builder'] = {
 };
 
 export const handler: EslintCommandModule['handler'] = (argv) => {
-  const eslintConfig = `const { bePowerFactory } = require('@bepower/eslint-plugin');
+  const eslintConfig = `import { bePowerFactory } from '@bepower/eslint-plugin';
 
-module.exports = [
+export default [
   ...bePowerFactory({
-    cdk = false,
-    node = true,
-    typescript = true,
-    react = false,
+    cdk: false,
+    node: true,
+    typescript: true,
+    react: false,
   }, ${argv.ignoreFile ? 'true' : 'false'}),
 ];
 `;
