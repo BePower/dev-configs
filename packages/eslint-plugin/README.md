@@ -1,6 +1,6 @@
 # `@bepower/eslint-plugin`
 
-Opinionated eslint configuration
+Opinionated eslint configuration based on [@antfu/eslint-config](https://github.com/antfu/eslint-config)
 
 ## Installation
 
@@ -21,17 +21,41 @@ $ npm install --save-dev @bepower/eslint-plugin
 
 ## Usage
 
-`.eslintrc.json` or `"eslintConfig"` property inside `package.json`
+Create an `eslint.config.js` file in the root of your project:
 
-```json
-{
-  "extends": "plugin:@bepower/node",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  }
-}
+```js
+import { bePowerFactory } from '@bepower/eslint-plugin';
+
+export default [
+  ...bePowerFactory({
+    // Options (all default to these values except cdk)
+    cdk: false,      // Set to true for AWS CDK projects
+    node: true,      // Node.js environment
+    typescript: true, // TypeScript support
+    react: false,    // React support
+  }),
+  // Add your custom configurations here
+];
 ```
+
+### Quick Setup
+
+You can also use the CLI to generate a basic configuration:
+
+```bash
+$ npx @bepower/eslint-plugin config:init
+```
+
+## Features
+
+- Based on [@antfu/eslint-config](https://github.com/antfu/eslint-config)
+- Uses the new ESLint flat config format
+- Includes sensible defaults for TypeScript and Node.js projects
+- Optional support for React and AWS CDK projects
+- Stylistic rules with semicolons and 1tbs brace style
 
 ## Script
 
-`eslint --fix . --ext .js,.jsx,.ts,.tsx`
+```bash
+$ eslint --fix .
+```
