@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { join, sep } from 'path';
+import { afterEach, beforeEach, describe, expect, it, test, vi, SpyInstance } from 'vitest';
 
 import Auto, { SEMVER } from '@auto-it/core';
 import { dummyLog } from '@auto-it/core/dist/utils/logger';
@@ -7,8 +8,8 @@ import { makeHooks } from '@auto-it/core/dist/utils/make-hooks';
 
 import AddCoverageToReadme, { CoverageSummary } from '../../src/scripts/add-coverage-to-readme';
 
-const gitShow = jest.fn();
-const getLernaPackages = jest.fn();
+const gitShow = vi.fn();
+const getLernaPackages = vi.fn();
 
 const coverageSummarySource: CoverageSummary = JSON.parse(
   fs.readFileSync(join(__dirname, 'fixtures', 'coverage-summary.json'), 'utf8'),
@@ -22,13 +23,13 @@ const coverageSummary: CoverageSummary = Object.fromEntries(
 
 getLernaPackages.mockReturnValue(Promise.resolve([]));
 
-jest.mock(
+vi.mock(
   '@auto-it/core/dist/utils/exec-promise',
   () =>
     (...args: any[]) =>
       gitShow(...args),
 );
-jest.mock(
+vi.mock(
   '@auto-it/core/dist/utils/get-lerna-packages',
   () =>
     (...args: any[]) =>
@@ -36,13 +37,13 @@ jest.mock(
 );
 
 describe('Add coverage to Readme Plugin', () => {
-  let mockRead: jest.SpyInstance;
-  let mockWrite: jest.SpyInstance;
+  let mockRead: SpyInstance;
+  let mockWrite: SpyInstance;
 
-  const mockRootCoverage = jest.fn();
+  const mockRootCoverage = vi.fn();
 
   beforeEach(() => {
-    jest.mock<CoverageSummary>(
+    vi.mock<CoverageSummary>(
       join(process.cwd(), 'coverage', 'coverage-summary.json'),
       () => mockRootCoverage(),
       {
@@ -50,13 +51,13 @@ describe('Add coverage to Readme Plugin', () => {
       },
     );
 
-    mockRead = jest.spyOn(fs, 'readFileSync');
-    mockWrite = jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
+    mockRead = vi.spyOn(fs, 'readFileSync');
+    mockWrite = vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
-    jest.resetModules();
+    vi.clearAllMocks();
+    vi.resetModules();
   });
 
   describe('default options', () => {

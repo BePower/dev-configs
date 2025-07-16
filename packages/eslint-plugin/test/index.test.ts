@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { bePowerFactory } from '../src';
 
 describe('plugin factory', () => {

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+import { describe, expect, test } from 'vitest';
 import { check } from 'prettier';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

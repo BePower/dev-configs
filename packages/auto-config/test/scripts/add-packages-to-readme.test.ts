@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 
 import Auto, { SEMVER } from '@auto-it/core';
 import { dummyLog } from '@auto-it/core/dist/utils/logger';
@@ -6,22 +7,22 @@ import { makeHooks } from '@auto-it/core/dist/utils/make-hooks';
 
 import AddPackagesToReadmePlugin from '../../src/scripts/add-packages-to-readme';
 
-const writeMock = jest.fn();
-const gitShow = jest.fn();
-const getLernaPackages = jest.fn();
+const writeMock = vi.fn();
+const gitShow = vi.fn();
+const getLernaPackages = vi.fn();
 
 getLernaPackages.mockReturnValue(Promise.resolve([]));
 
-const mockRead = (result: string) => jest.spyOn(fs, 'readFileSync').mockReturnValueOnce(result);
-jest.spyOn(fs, 'writeFileSync').mockImplementation(writeMock);
+const mockRead = (result: string) => vi.spyOn(fs, 'readFileSync').mockReturnValueOnce(result);
+vi.spyOn(fs, 'writeFileSync').mockImplementation(writeMock);
 
-jest.mock(
+vi.mock(
   '@auto-it/core/dist/utils/exec-promise',
   () =>
     (...args: any[]) =>
       gitShow(...args),
 );
-jest.mock(
+vi.mock(
   '@auto-it/core/dist/utils/get-lerna-packages',
   () =>
     (...args: any[]) =>
@@ -30,7 +31,7 @@ jest.mock(
 
 describe('Add packages to Readme Plugin', () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe('default options', () => {

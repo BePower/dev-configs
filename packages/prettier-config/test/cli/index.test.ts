@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { afterEach, beforeEach, describe, expect, it, vi, SpyInstance } from 'vitest';
 
 import { parser } from '../../src/cli/index';
 
@@ -7,17 +8,17 @@ const packageStr = readFileSync(join(__dirname, '../../package.json'), 'utf8');
 const { version } = JSON.parse(packageStr);
 
 describe('cli', () => {
-  let mockExit: jest.SpyInstance;
-  let mockLog: jest.SpyInstance;
+  let mockExit: SpyInstance;
+  let mockLog: SpyInstance;
 
   beforeEach(() => {
-    jest.resetModules();
-    mockExit = jest.spyOn(process, 'exit').mockImplementation(() => undefined as never);
-    mockLog = jest.spyOn(console, 'log').mockImplementation(() => {});
+    vi.resetModules();
+    mockExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
+    mockLog = vi.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   it('should retrieve the help message', async () => {

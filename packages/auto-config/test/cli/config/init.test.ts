@@ -2,18 +2,19 @@
 /* eslint-disable id-length */
 import fs from 'fs';
 import { join } from 'path';
+import { afterEach, beforeEach, describe, expect, it, vi, SpyInstance } from 'vitest';
 
 import yargs from 'yargs';
 
 import * as configInit from '../../../src/cli/config/init';
 
 describe('cli -> config -> init', () => {
-  let mockExit: jest.SpyInstance;
-  let mockLog: jest.SpyInstance;
-  let mockLogError: jest.SpyInstance;
-  let mockWrite: jest.SpyInstance;
-  let mockExists: jest.SpyInstance;
-  let mockRead: jest.SpyInstance;
+  let mockExit: SpyInstance;
+  let mockLog: SpyInstance;
+  let mockLogError: SpyInstance;
+  let mockWrite: SpyInstance;
+  let mockExists: SpyInstance;
+  let mockRead: SpyInstance;
   let parser: yargs.Argv;
 
   const readFileSync = fs.readFileSync;
@@ -22,18 +23,18 @@ describe('cli -> config -> init', () => {
   const writtenPackageLog = 'Release script added to your package.json file\n';
 
   beforeEach(() => {
-    jest.resetModules();
-    mockExit = jest.spyOn(process, 'exit').mockImplementation(() => undefined as never);
-    mockLog = jest.spyOn(console, 'log').mockImplementation(() => {});
-    mockLogError = jest.spyOn(process.stderr, 'write').mockImplementation(() => true);
-    mockWrite = jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
-    mockExists = jest.spyOn(fs, 'existsSync').mockImplementation(() => true);
+    vi.resetModules();
+    mockExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
+    mockLog = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockLogError = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+    mockWrite = vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
+    mockExists = vi.spyOn(fs, 'existsSync').mockImplementation(() => true);
     parser = yargs.command(configInit).help();
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
-    jest.restoreAllMocks();
+    vi.resetAllMocks();
+    vi.restoreAllMocks();
   });
 
   it('should retrieve the help message', async () => {
@@ -62,7 +63,7 @@ describe('cli -> config -> init', () => {
 
   describe('config file', () => {
     beforeEach(() => {
-      mockRead = jest
+      mockRead = vi
         .spyOn(fs, 'readFileSync')
         .mockImplementationOnce((...args) => readFileSync(...args))
         .mockImplementation(() => JSON.stringify({}));
@@ -257,7 +258,7 @@ describe('cli -> config -> init', () => {
 
   describe('adding the "release" script to package.json file', () => {
     it('should handle an empty package json', async () => {
-      mockRead = jest
+      mockRead = vi
         .spyOn(fs, 'readFileSync')
         .mockImplementationOnce((...args) => readFileSync(...args))
         .mockImplementationOnce(() => JSON.stringify({}));
@@ -281,7 +282,7 @@ describe('cli -> config -> init', () => {
     });
 
     it('should handle a package json without the script key', async () => {
-      mockRead = jest
+      mockRead = vi
         .spyOn(fs, 'readFileSync')
         .mockImplementationOnce((...args) => readFileSync(...args))
         .mockImplementationOnce(() => JSON.stringify({ foo: 'bar' }));
@@ -309,7 +310,7 @@ describe('cli -> config -> init', () => {
     });
 
     it('should handle a package json with script key', async () => {
-      mockRead = jest
+      mockRead = vi
         .spyOn(fs, 'readFileSync')
         .mockImplementationOnce((...args) => readFileSync(...args))
         .mockImplementationOnce(() => JSON.stringify({ scripts: 'bar' }));
@@ -331,7 +332,7 @@ describe('cli -> config -> init', () => {
     });
 
     it('should handle a package json with script object', async () => {
-      mockRead = jest
+      mockRead = vi
         .spyOn(fs, 'readFileSync')
         .mockImplementationOnce((...args) => readFileSync(...args))
         .mockImplementationOnce(() => JSON.stringify({ scripts: { test: 'jest' } }));
@@ -359,7 +360,7 @@ describe('cli -> config -> init', () => {
     });
 
     it('should handle a package json with script object', async () => {
-      mockRead = jest
+      mockRead = vi
         .spyOn(fs, 'readFileSync')
         .mockImplementationOnce((...args) => readFileSync(...args))
         .mockImplementationOnce(() => JSON.stringify({ scripts: { release: 'npx auto shipit' } }));
@@ -381,7 +382,7 @@ describe('cli -> config -> init', () => {
     });
 
     it('should not handle a non existing package.json file', async () => {
-      mockRead = jest
+      mockRead = vi
         .spyOn(fs, 'readFileSync')
         .mockImplementationOnce((...args) => readFileSync(...args));
 

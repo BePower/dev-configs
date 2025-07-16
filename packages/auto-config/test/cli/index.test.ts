@@ -1,20 +1,22 @@
+import { afterEach, beforeEach, describe, expect, it, vi, SpyInstance } from 'vitest';
+
 import { parser } from '../../src/cli/index';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require('../../package.json');
 
 describe('cli', () => {
-  let mockExit: jest.SpyInstance;
-  let mockLog: jest.SpyInstance;
+  let mockExit: SpyInstance;
+  let mockLog: SpyInstance;
 
   beforeEach(() => {
-    jest.resetModules();
-    mockExit = jest.spyOn(process, 'exit').mockImplementation(() => undefined as never);
-    mockLog = jest.spyOn(console, 'log').mockImplementation(() => {});
+    vi.resetModules();
+    mockExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
+    mockLog = vi.spyOn(console, 'log').mockImplementation(() => {});
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   it('should retrieve the help message', async () => {

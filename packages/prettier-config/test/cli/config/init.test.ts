@@ -1,16 +1,17 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import fs from 'fs';
 import { join } from 'path';
+import { afterEach, beforeEach, describe, expect, it, vi, SpyInstance } from 'vitest';
 
 import yargs from 'yargs';
 
 import * as configInit from '../../../src/cli/config/init';
 
 describe('cli -> config -> init', () => {
-  let mockExit: jest.SpyInstance;
-  let mockLog: jest.SpyInstance;
-  let mockLogError: jest.SpyInstance;
-  let mockWrite: jest.SpyInstance;
+  let mockExit: SpyInstance;
+  let mockLog: SpyInstance;
+  let mockLogError: SpyInstance;
+  let mockWrite: SpyInstance;
   let parser: yargs.Argv;
 
   const writtenFileLog = expect.stringMatching('prettier configuration written to .*.prettierrc\n');
@@ -19,17 +20,17 @@ describe('cli -> config -> init', () => {
   );
 
   beforeEach(() => {
-    jest.resetModules();
-    mockExit = jest.spyOn(process, 'exit').mockImplementation(() => undefined as never);
-    mockLog = jest.spyOn(console, 'log').mockImplementation(() => {});
-    mockLogError = jest.spyOn(process.stderr, 'write').mockImplementation(() => true);
-    mockWrite = jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
+    vi.resetModules();
+    mockExit = vi.spyOn(process, 'exit').mockImplementation(() => undefined as never);
+    mockLog = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockLogError = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+    mockWrite = vi.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
     parser = yargs.command(configInit).help();
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
-    jest.restoreAllMocks();
+    vi.resetAllMocks();
+    vi.restoreAllMocks();
   });
 
   it('should retrieve the help message', async () => {
